@@ -36,16 +36,20 @@ const Header = styled.h1`
   font-weight: 600;
   padding: 0px 100px 0px;
   @media (max-width: 768px) {
-        padding: 0px 5px;
-      }
+    padding: 0px 5px;
+    font-size: 50px;
+    line-height:  1;
+    margin-bottom: 5px;
+  }
 `
 
 const HeaderSubText = styled.p`
-  color: #ffffff;
+  color: #e0dfdfff;
   font-size: 24px;
   padding: 0px 170px 20px;
   @media (max-width: 768px) {
-        padding: 0px 5px;
+        padding: 0px 30px;
+        font-size: 20px;
       }
 `
 
@@ -58,5 +62,11 @@ const DemoButton = styled.button`
   border-radius: 10px;
   padding: 0px 15px;
   cursor: pointer;
+  @media (max-width: 768px) {
+    height: fit-content;
+    padding: 15px 60px;
+    font-size: 24px;
+    margin-top: 25px;
+  }
 
 `

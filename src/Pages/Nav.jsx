@@ -115,8 +115,10 @@ const NavText = styled.div`
   margin-bottom: auto;
   cursor: pointer;
   @media (max-width: 768px) {
-     font-size: 26px;
-     margin-bottom: 10px;
+     font-size: 22px;
+     text-align: left;
+     padding-left: 30px;
+     margin-bottom: 40px;
   }
   
 `
@@ -131,11 +133,14 @@ const NavButton = styled.button`
   padding: 0px 15px;
   cursor: pointer;
   @media (max-width: 768px) {
-     font-size: 26px;
-     margin-top: 10px;
-     width: 80%;
+     font-size: 22px;
+     margin-top: 0px;
+     width: 90%;
+     height: fit-content;
+     padding: 15px 15px;
      margin-left: auto;
      margin-right: auto;
+
   }
 
 `
@@ -163,9 +168,11 @@ const Container = styled.div`
     z-index: 5;
     background-color: #fff;
     width: 40vw;
-    height: 100vh;
+    height: fit-content;
+    padding-bottom: 25px;
     left: 0px;
     width: 100vw;
+    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.1); /* Light shadow */
 `;
 
 

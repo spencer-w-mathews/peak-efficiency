@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 import './Products.css';
 import FlexContainer from '../Components/FlexContainer';
-import services from '../images/services.png'
+import services from '../images/services.png';
+import { faCircleCheck } from '@fortawesome/free-regular-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function Services() {
   return (
@@ -10,24 +12,39 @@ function Services() {
             <HeaderSubText>Our consulting and automation services help leaders and teams adopt AI efficiently and sustainably.</HeaderSubText>
             <FlexContainer>
               <ServicesColumn>
-                <ServicesTitle>
-                  Workflow Automation Consulting
-                </ServicesTitle>
-                <ServicesText>
-                  We build personalized automations using n8n, Microsoft 365, and OpenAI — saving hours every week by connecting your tools and streamlining your work.
-                </ServicesText>
-                <ServicesTitle>
-                  AI Integration Coaching
-                </ServicesTitle>
-                <ServicesText>
-                  Strategy sessions designed to help leaders harness AI effectively, simplify processes, and make smarter decisions.
-                </ServicesText>
-                <ServicesTitle>
-                  White-Glove Setup
-                </ServicesTitle>
-                <ServicesText>
-                  We analyze your emails and workflows to configure your tools for maximum efficiency — tailored to how you actually work.
-                </ServicesText>
+                <ClearCont>
+                  <FontAwesomeIcon icon={faCircleCheck} color='#2E734C' size='lg' style={{marginTop: '5px', marginRight: 10}}/>
+                  <div>
+                    <ServicesTitle>
+                      Workflow Automation Consulting
+                    </ServicesTitle>
+                    <ServicesText>
+                      We build personalized automations using n8n, Microsoft 365, and OpenAI — saving hours every week by connecting your tools and streamlining your work.
+                    </ServicesText>
+                  </div>
+                </ClearCont>
+                <ClearCont>
+                  <FontAwesomeIcon icon={faCircleCheck} color='#2E734C' size='lg' style={{marginTop: '5px', marginRight: 10}}/>
+                  <div>
+                    <ServicesTitle>
+                      AI Integration Coaching
+                    </ServicesTitle>
+                    <ServicesText>
+                      Strategy sessions designed to help leaders harness AI effectively, simplify processes, and make smarter decisions.
+                    </ServicesText>
+                  </div>
+                </ClearCont>
+                <ClearCont>
+                  <FontAwesomeIcon icon={faCircleCheck} color='#2E734C' size='lg' style={{marginTop: '5px', marginRight: 10}}/>
+                  <div>
+                    <ServicesTitle>
+                      White-Glove Setup
+                    </ServicesTitle>
+                    <ServicesText>
+                      We analyze your emails and workflows to configure your tools for maximum efficiency — tailored to how you actually work.
+                    </ServicesText>
+                  </div>
+                </ClearCont>
 
                 <DemoButton
                   href='#'
@@ -65,6 +82,13 @@ const Header = styled.h1`
   color: #234261;
   font-size: 50px;
   padding: 0px 10px;
+  @media (max-width: 768px) {
+        padding: 0px 5px;
+        font-size: 40px;
+        line-height:  1;
+        margin-bottom: 25px;
+        margin-top: 5px;
+      }
 `
 const HeaderSubText = styled.p`
   color: #6D92B4;
@@ -73,6 +97,7 @@ const HeaderSubText = styled.p`
   margin-top: -30px;
   @media (max-width: 768px) {
         padding: 0px 5px;
+        margin-top: 0px
       }
 `
 const ServicesColumn = styled.div`
@@ -82,7 +107,7 @@ const ServicesColumn = styled.div`
   margin-right: auto;
   @media (max-width: 768px) {
         padding: 0px 5px;
-        text-align: center;
+        text-align: left;
         margin-right: auto;
         margin-left: auto;
         width: 90%;
@@ -111,8 +136,12 @@ const DemoButton = styled.button`
   padding: 0px 15px;
   cursor: pointer;
   @media (max-width: 768px) {
-        margin-bottom: 20px;
-      }
+    height: fit-content;
+    padding: 15px 20px;
+    font-size: 18px;
+    margin-bottom: 45px;
+    margin-top: 25px;
+  }
 `
 
 const ServicesImg = styled.img`
@@ -121,8 +150,18 @@ const ServicesImg = styled.img`
   box-shadow: 0px 0px 30px 15px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   @media (max-width: 768px) {
-    height: 300px;
+    width: 90%;
+    height: auto;
     margin: auto;
     margin-bottom: 30px;
   }
+`
+
+const ClearCont = styled.div`
+  display: flex;
+  flex-shrink: 0;
+  flex-grow: 0;
+  @media (max-width: 768px) {
+        width: 100%;
+      }
 `

@@ -26,6 +26,7 @@ function Products() {
                 </div>
                 {/* Cyber Insurance Hardening */}
                 <div className="service-card-home">
+                  
                 <ScrollToFade>
                     <IconContainer>
                       <FontAwesomeIcon icon={faMugHot} color='#2E734C' size='2x' style={{marginTop: '18px'}}/>
@@ -64,7 +65,11 @@ const Header = styled.h1`
   padding: 0px 100px;
   @media (max-width: 768px) {
         padding: 0px 5px;
-  }
+        font-size: 40px;
+        line-height:  1;
+        margin-bottom: 5px;
+        margin-top: 5px;
+      }
 `
 const HeaderSubText = styled.p`
   color: #6D92B4;
