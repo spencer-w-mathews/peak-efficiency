@@ -160,6 +160,9 @@ const ClearText = styled.p`
   font-weight: 300;
   padding: 0px 0px;
   text-align: left;
+  @media (max-width: 768px) {
+        width: 90%;
+      }
 `
 
 const LetterContainer = styled.div`
@@ -171,8 +174,8 @@ const LetterContainer = styled.div`
   font-size: 30px;
   margin-top: 27px;
   margin-right: 10px;
-  align-items: center;
-
+  flex-shrink: 0;
+  flex-grow: 0;
 `
 
 const Letter = styled.p`
@@ -184,4 +187,7 @@ const Letter = styled.p`
 
 const ClearCont = styled.div`
   display: flex;
+  @media (max-width: 768px) {
+        width: 100%;
+      }
 `

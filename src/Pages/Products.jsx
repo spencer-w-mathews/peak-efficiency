@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 import './Products.css';
 import ScrollToFade from '../Components/ScrollToFade'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEnvelope, faObjectGroup } from '@fortawesome/free-regular-svg-icons'
+import { faMugHot } from '@fortawesome/free-solid-svg-icons'
 
 
 function Products() {
@@ -10,10 +13,11 @@ function Products() {
             <HeaderSubText>Our tools cut through the noise and give you back the time to lead, create, and grow.</HeaderSubText>
             <div className="service-card-homes">
                 {/* Microsoft 365 Projects */}
-    
                 <div className="service-card-home">
                 <ScrollToFade>
-                    <IconContainer></IconContainer>
+                    <IconContainer>
+                      <FontAwesomeIcon icon={faEnvelope} color='#2E734C' size='2x' style={{marginTop: '18px'}}/>
+                    </IconContainer>
                     <h3>Email Filter & Sorter</h3>
                     <p>
                     Removes noise, routes what matters, and drafts replies in your tone — your inbox finally works for you.
@@ -23,7 +27,9 @@ function Products() {
                 {/* Cyber Insurance Hardening */}
                 <div className="service-card-home">
                 <ScrollToFade>
-                    <IconContainer></IconContainer>
+                    <IconContainer>
+                      <FontAwesomeIcon icon={faMugHot} color='#2E734C' size='2x' style={{marginTop: '18px'}}/>
+                    </IconContainer>
                     <h3>Morning Brief</h3>
                     <p>
                     Start each day with a clear snapshot of what matters most — key emails, meetings, and action items — all summarized by AI.
@@ -33,7 +39,9 @@ function Products() {
                 {/* Device Management */}
                 <div className="service-card-home">
                 <ScrollToFade>
-                    <IconContainer></IconContainer>
+                    <IconContainer>
+                      <FontAwesomeIcon icon={faObjectGroup} color='#2E734C' size='2x' style={{marginTop: '18px'}}/>
+                    </IconContainer>
                     <h3>Command Board</h3>
                     <p>
                     A secure central hub where you can see everything — communications, priorities, and progress — in one place.
