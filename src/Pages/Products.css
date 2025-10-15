@@ -1,0 +1,126 @@
+.services {
+  padding: 40px 20px;
+  text-align: center;
+  background-color: #F4F5F6;
+  background-size: 4px 4px;
+  color: #eee;
+  /* Light background for services */
+}
+
+.services h2 {
+  font-size: 2.5em;
+}
+
+.service-card-homes {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 40px;
+  align-items: stretch;
+}
+
+.service-card-home {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  width: 22%;
+  text-align: center;
+  transition: transform 0.3s ease;
+  color: #6D92B4;
+}
+
+.service-card-home:hover {
+  transform: translateY(-10px);
+  /* Slight hover effect */
+}
+
+.service-card-home h3 {
+  font-size: 1.6em;
+  color: #234261;
+  margin-bottom: 15px;
+}
+
+.service-card-home p {
+  color: #6D92B4;
+  font-size: 1.2em;
+}
+
+/* Mobile Responsiveness (Media Queries) */
+
+/* Tablets and below (max-width: 1024px) */
+@media (max-width: 1024px) {
+
+  .services {
+    padding: 60px 20px;
+  }
+
+  .services h2 {
+    font-size: 2.2em;
+  }
+
+  .service-card-homes {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .service-card-home {
+    width: 80%;
+    /* Stacks the service cards vertically on tablets */
+    margin-bottom: 30px;
+  }
+}
+
+/* Small Mobile (max-width: 768px) */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.3em;
+  }
+
+  .hero p {
+    font-size: 1.2em;
+  }
+
+  .cta-button {
+    padding: 10px 25px;
+    font-size: 1em;
+  }
+
+  .service-card-homes {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: -10px;
+    gap: 20px;
+  }
+
+  .service-card-home {
+    width: 90%;
+    /* Make each service card full-width on small screens */
+    margin-bottom: 20px;
+    padding: 20px;
+    margin-left: -2px;
+  }
+
+
+}
+
+/* Extra Small Mobile (max-width: 480px) */
+@media (max-width: 480px) {
+
+  .service-card-homes {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .service-card-home {
+    width: 95%;
+    /* Full-width cards on smaller screens */
+    padding: 15px;
+  }
+
+}

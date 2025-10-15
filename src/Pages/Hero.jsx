@@ -1,0 +1,62 @@
+import styled from "styled-components";
+
+function Hero() {
+  return (
+    <HeroSection>
+     <Header>Work smarter. Reclaim your time.</Header>
+     <HeaderSubText>Peak Efficiency helps leaders cut through digital chaos — giving back clarity, focus, and control so every day starts with purpose, not distraction.</HeaderSubText>
+     <DemoButton
+      href='#'
+      onClick={(e) => {
+        window.location.href = 'chris@peakefficiency.ai';
+        e.preventDefault();
+      }}
+    >
+      Book a Consulting Call
+    </DemoButton>
+    </HeroSection>
+  );
+}
+
+export default Hero;
+
+const HeroSection = styled.section`
+  background-color: #234261;
+  height: fit-content;
+  margin-top: 80px;
+  padding: 20px 0px 80px; 
+  @media (max-width: 768px) {
+        padding: 20px 5px 80px;
+      }
+`
+
+const Header = styled.h1`
+  color: #ffffff;
+  font-size: 70px;
+  font-weight: 600;
+  padding: 0px 100px 0px;
+  @media (max-width: 768px) {
+        padding: 0px 5px;
+      }
+`
+
+const HeaderSubText = styled.p`
+  color: #ffffff;
+  font-size: 24px;
+  padding: 0px 170px 20px;
+  @media (max-width: 768px) {
+        padding: 0px 5px;
+      }
+`
+
+const DemoButton = styled.button`
+  background-color: #2E734C;
+  color: #ffffff;
+  font-weight: 500;
+  height: 40px;
+  border: 0px;
+  border-radius: 10px;
+  padding: 0px 15px;
+  cursor: pointer;
+
+`
