@@ -12,7 +12,7 @@ function Footer() {
 
   return (
     <FooterSection>
-      <img  alt='logo' src={logo} style={{ height: '60px', marginLeft: 10, marginTop: 25}}/>
+      <img  alt='logo' src={logo} style={{ height: '60px', marginLeft: 10, marginTop: 25, borderRadius: 5, boxShadow: '0px 0px 30px 15px rgba(0, 0, 0, 0.2)'}}/>
       <HeaderSubText>
         Peak Efficiency - Helping leaders lead again through clarity, focus, and automation.
       </HeaderSubText>
