@@ -6,6 +6,14 @@ import { faCircleCheck } from '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function Services() {
+  const recipient = 'chris@peakefficiency.ai';
+  const subject = 'Peak Efficiency Consult Call';
+  const body = 'Hello, I would like to schedule a consult call.';
+
+  const handleEmailClick = () => {
+    const mailtoLink = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailtoLink;
+  }
   return (
         <ServicesCont>
             <Header>Beyond tools. Real transformation.</Header>
@@ -47,11 +55,7 @@ function Services() {
                 </ClearCont>
 
                 <DemoButton
-                  href='#'
-                  onClick={(e) => {
-                    window.location.href = 'chris@peakefficiency.ai';
-                    e.preventDefault();
-                  }}
+                  onClick={handleEmailClick}
                 >
                   Book a Consulting Call
                 </DemoButton>
@@ -87,7 +91,7 @@ const Header = styled.h1`
         font-size: 40px;
         line-height:  1;
         margin-bottom: 25px;
-        margin-top: 5px;
+        margin-top: 25px;
       }
 `
 const HeaderSubText = styled.p`

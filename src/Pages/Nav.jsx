@@ -40,6 +40,14 @@ function Nav() {
     isMobile && onNavClick()
   };
 
+  const recipient = 'chris@peakefficiency.ai';
+  const subject = 'Peak Efficiency Consult Call';
+  const body = 'Hello, I would like to schedule a consult call.';
+
+  const handleEmailClick = () => {
+    const mailtoLink = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailtoLink;
+  }
   return (
     isMobile ?
       <NavBarMobile>
@@ -57,13 +65,14 @@ function Nav() {
                             <NavText onClick={() => scrollToSection("services")}>Services</NavText>
                             <NavText onClick={() => scrollToSection("about")}>About</NavText>
                             <NavText onClick={() => scrollToSection("contact")}>Contact</NavText>
-                            <NavButton>Book Consulting Call</NavButton>
+                            <NavButton onClick={handleEmailClick}>Book a Consulting Call</NavButton>
                           </div>
                         </Column>
                     </Container>
                     : <></>}
       </NavBarMobile>
       :
+      (
     <NavBar>
      <LogoImg src={logo} alt="logo"/>
      <NavButtonCont>
@@ -72,10 +81,10 @@ function Nav() {
         <NavText onClick={() => scrollToSection("services")}>Services</NavText>
         <NavText onClick={() => scrollToSection("about")}>About</NavText>
         <NavText onClick={() => scrollToSection("contact")}>Contact</NavText>
-        <NavButton>Book Consulting Call</NavButton>
+        <NavButton onClick={handleEmailClick}>Book a Consulting Call</NavButton>
      </NavButtonCont>
-
     </NavBar>
+      )
   );
 }
 
@@ -118,7 +127,7 @@ const NavText = styled.div`
      font-size: 22px;
      text-align: left;
      padding-left: 30px;
-     margin-bottom: 40px;
+     margin-bottom: 30px;
   }
   
 `

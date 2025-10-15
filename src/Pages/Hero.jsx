@@ -1,16 +1,22 @@
 import styled from "styled-components";
 
 function Hero() {
+
+  const recipient = 'chris@peakefficiency.ai';
+  const subject = 'Peak Efficiency Consult Call';
+  const body = 'Hello, I would like to schedule a consult call.';
+
+  const handleEmailClick = () => {
+    const mailtoLink = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailtoLink;
+  }
+
   return (
     <HeroSection>
      <Header>Work smarter. Reclaim your time.</Header>
      <HeaderSubText>Peak Efficiency helps leaders cut through digital chaos — giving back clarity, focus, and control so every day starts with purpose, not distraction.</HeaderSubText>
      <DemoButton
-      href='#'
-      onClick={(e) => {
-        window.location.href = 'chris@peakefficiency.ai';
-        e.preventDefault();
-      }}
+      onClick={handleEmailClick}
     >
       Book a Consulting Call
     </DemoButton>
