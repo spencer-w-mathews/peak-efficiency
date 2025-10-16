@@ -132,8 +132,8 @@ const ParaSubText = styled.p`
   padding: 10px 100px;
   border-top: 1px solid #5454543d;
   @media (max-width: 768px) {
-        padding: 0px 5px;
-      }
+    padding: 10px 5px 0px;
+  }
 `
 
 const ParaSubText1 = styled.p`

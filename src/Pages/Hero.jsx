@@ -71,7 +71,7 @@ const DemoButton = styled.button`
   @media (max-width: 768px) {
     height: fit-content;
     padding: 15px 60px;
-    font-size: 24px;
+    font-size: 18px;
     margin-top: 25px;
   }
 

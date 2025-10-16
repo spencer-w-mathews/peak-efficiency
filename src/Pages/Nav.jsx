@@ -124,7 +124,7 @@ const NavText = styled.div`
   margin-bottom: auto;
   cursor: pointer;
   @media (max-width: 768px) {
-     font-size: 22px;
+     font-size: 20px;
      text-align: left;
      padding-left: 30px;
      margin-bottom: 30px;
@@ -142,7 +142,7 @@ const NavButton = styled.button`
   padding: 0px 15px;
   cursor: pointer;
   @media (max-width: 768px) {
-     font-size: 22px;
+     font-size: 18px;
      margin-top: 0px;
      width: 90%;
      height: fit-content;
@@ -153,8 +153,6 @@ const NavButton = styled.button`
   }
 
 `
-
-
 
 const NavBarMobile = styled.header`
   position: fixed; /* sits on top */
