@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import heroImage from '../images/heroBackground.png';
 
 function Hero() {
 
@@ -27,13 +28,16 @@ function Hero() {
 export default Hero;
 
 const HeroSection = styled.section`
-  background-color: #234261;
+  background-image: url(${heroImage}); /* Replace with your image path */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom center;
   height: fit-content;
   margin-top: 80px;
-  padding: 20px 0px 80px; 
+  padding: 20px 0px 180px; 
   @media (max-width: 768px) {
-        padding: 20px 5px 80px;
-      }
+        padding: 20px 5px 180px;
+  }
 `
 
 const Header = styled.h1`
