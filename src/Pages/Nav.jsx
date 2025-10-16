@@ -59,7 +59,7 @@ function Nav() {
                     <Container>
                         <Column>
                           <div style={{display: 'flex', backgroundColor: '#fff', width: '99.1vw', justifyContent: 'right', flexDirection: 'column',textAlign: 'center'}}>
-                            <img src={logo} alt='logo' style={{ margin: '40px auto 40px auto', width: '60vw'}} />
+                            {/* <img src={logo} alt='logo' style={{ margin: '40px auto 40px auto', width: '60vw'}} /> */}
                             <NavText onClick={() => scrollToSection("hero")}>Home</NavText>
                             <NavText onClick={() => scrollToSection("products")}>Products</NavText>
                             <NavText onClick={() => scrollToSection("services")}>Services</NavText>
@@ -172,8 +172,7 @@ const NavBarMobile = styled.header`
 
 const Container = styled.div`
     position: absolute;
-    left: 60%;
-    top: 0px;
+    top: 80px;
     z-index: 5;
     background-color: #fff;
     width: 40vw;
@@ -182,6 +181,8 @@ const Container = styled.div`
     left: 0px;
     width: 100vw;
     box-shadow: 0 8px 8px rgba(0, 0, 0, 0.1); /* Light shadow */
+    padding-top: 30px;
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
 `;
 
 
