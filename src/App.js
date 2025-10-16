@@ -5,6 +5,7 @@ import Hero from './Pages/Hero';
 import Nav from './Pages/Nav';
 import Products from './Pages/Products';
 import Services from './Pages/Services';
+import Contact from './Pages/Contact';
 
 //#2E734C --green
 //#234261 --blue lettering nav
@@ -27,6 +28,9 @@ function App() {
       </div>
       <div id='about'>
         <About />
+      </div>
+      <div id='contact'>
+        <Contact />
       </div>
       <Footer />
     </div>

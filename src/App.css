@@ -20,7 +20,8 @@ body {
 #hero,
 #products,
 #services,
-#about {
+#about,
+#contact {
   scroll-margin-top: 70px;
   /* adjust to your navbar height */
 }
