@@ -1,6 +1,7 @@
 // WaitlistForm.jsx
 import React, { useState } from "react";
 import styled from "styled-components";
+import contact from "../images/contact.png"
 
 export default function Contact() {
   // 🧠 Replace these 3 lines with your real values:
@@ -50,66 +51,97 @@ export default function Contact() {
 
   return (
     <Container>
-      <Title>Get Your Time Back.</Title>
-      <Subtitle>Join the Peak Efficiency list for updates, insights, and early access to new features.</Subtitle>
+      <FormContainer>
+        <Title>Get Your Time Back.</Title>
+        <Subtitle>Join the Peak Efficiency list for updates, insights, and early access to new features.</Subtitle>
 
-      {submitted ? (
-        <SuccessMessage>🎉 Thanks for joining! Check your inbox soon.</SuccessMessage>
-      ) : (
-        <Form onSubmit={handleSubmit}>
-          <Label>
-            Name
-            <Input
-              type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              placeholder="Your name"
-              required
-            />
-          </Label>
+        {submitted ? (
+          <SuccessMessage>🎉 Thanks for joining! Check your inbox soon.</SuccessMessage>
+        ) : (
+          <Form onSubmit={handleSubmit}>
+            <Label>
+              Name
+              <Input
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                placeholder="Your name"
+                required
+              />
+            </Label>
 
-          <Label>
-            Email
-            <Input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="you@example.com"
-              required
-            />
-          </Label>
+            <Label>
+              Email
+              <Input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="you@example.com"
+                required
+              />
+            </Label>
 
-          {error && <ErrorMessage>{error}</ErrorMessage>}
+            {error && <ErrorMessage>{error}</ErrorMessage>}
 
-          <Button type="submit">Join Waitlist</Button>
-        </Form>
-      )}
+            <Button type="submit">Join Waitlist</Button>
+          </Form>
+        )}
+      </FormContainer>
+      <Image src={contact} />
     </Container>
   );
 }
 
 /* 💅 Styled-components */
 const Container = styled.div`
-  max-width: 400px;
+  width: 100%;
+  display: flex;
+  height: fit-content;
+  padding-bottom: 30px;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+`;
+
+const Image = styled.img`
+  max-width: 500px;
+  border-radius: 20px;
+  margin: auto;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  @media (max-width: 768px) {
+    max-width: 85%;
+    margin-bottom: 40px;
+    margin-top: -40px;
+  }
+`;
+
+const FormContainer = styled.div`
+  max-width: 500px;
   margin: 20px auto 60px;
   padding: 2rem;
-  background-color: #fdfdfd;
-  border-radius: 20px;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
   font-family: "Poppins", sans-serif;
   text-align: left;
-`;
+  @media (max-width: 768px) {
+    margin-top: -10px;
+  }
+`
 
 const Title = styled.h2`
   color: #234261;
-  font-size: 2.2rem;
+  font-size: 3.2rem;
   margin-bottom: 0.3rem;
+  @media (max-width: 768px) {
+    font-size: 2.0rem;
+  }
 `;
 
 const Subtitle = styled.p`
-  color: #555;
-  font-size: 1.1rem;
+  color: #a2a2a3ff;
+  font-size: 1.3rem;
   margin-bottom: 1.5rem;
+  @media (max-width: 768px) {
+    font-size: 1.1rem;
+  }
 `;
 
 const Form = styled.form`
@@ -129,7 +161,7 @@ const Input = styled.input`
   padding: 0.75rem;
   margin-top: 0.3rem;
   border: 1px solid #ccc;
-  border-radius: 10px;
+  border-radius: 5px;
   font-size: 1rem;
   transition: all 0.2s ease;
 
@@ -142,14 +174,14 @@ const Input = styled.input`
 
 const Button = styled.button`
   background-color: #2e734c;
+  width: 105%;
   color: #fff;
   border: none;
-  border-radius: 12px;
+  border-radius: 5px;
   padding: 0.8rem 1.5rem;
   font-size: 1rem;
   cursor: pointer;
   transition: background 0.25s ease, transform 0.1s ease;
-
   &:hover {
     background-color: #256d44;
   }
