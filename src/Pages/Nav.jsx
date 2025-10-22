@@ -17,8 +17,8 @@ function Nav() {
   const onNavClick = () => {
     setNavOpen(!navOpen)
     if(navOpen){
-    $('#overlay').hide();
-    $('.lines-button').removeClass('close');
+      $('#overlay').hide();
+      $('.lines-button').removeClass('close');
     }else{
       $('#overlay').show();
           $('.lines-button').addClass('close');
@@ -40,7 +40,9 @@ function Nav() {
   useEffect(() => {
     window.scrollTo(0,0)
     setShowProductsMenu(false)
-    onNavClick()
+    setNavOpen(false)
+    $('#overlay').hide();
+    $('.lines-button').removeClass('close');
   }, [navigate]);
 
   const recipient = 'chris@peakefficiency.ai';
