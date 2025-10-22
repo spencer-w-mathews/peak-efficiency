@@ -154,8 +154,6 @@ const NavBar = styled.div`
 `
 const Row = styled.div`
   display: flex;
-  margin-left: auto;
-  margin-right: auto;
 `
 
 const LogoImg = styled.img`
@@ -253,7 +251,7 @@ const SubMenu = styled.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
-  margin: 5px 0 10px 0;
+  margin: -20px 0 10px 45px;
 `;
 
 const SubMenuDesktop = styled.div`
