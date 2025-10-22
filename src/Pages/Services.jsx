@@ -76,7 +76,7 @@ const ServicesCont = styled.section`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 10px 100px;
+    padding: 10px 100px 100px;
     @media (max-width: 768px) {
         padding: 0px 0px;
       }

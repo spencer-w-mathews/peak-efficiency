@@ -6,6 +6,8 @@ import Nav from './Pages/Nav';
 import Products from './Pages/Products';
 import Services from './Pages/Services';
 import Contact from './Pages/Contact';
+import Home from './Pages/Home';
+import { Route, Router, Routes } from 'react-router-dom';
 
 //#2E734C --green
 //#234261 --blue lettering nav
@@ -17,21 +19,15 @@ function App() {
   return (
     <div className="App">
       <Nav />
-      <div id='hero'>
-        <Hero />
-      </div>
-      <div id='products'>
-        <Products />
-      </div>
-      <div id='services'>
-        <Services />
-      </div>
-      <div id='about'>
-        <About />
-      </div>
-      <div id='contact'>
-        <Contact />
-      </div>
+        
+          <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/services" element={<Services />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="*" element={<Home />} />
+          </Routes>
+        
       <Footer />
     </div>
   );

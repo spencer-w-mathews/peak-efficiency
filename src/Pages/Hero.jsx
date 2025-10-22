@@ -33,7 +33,7 @@ const HeroSection = styled.section`
   background-repeat: no-repeat;
   background-position: 50% 90%;
   height: fit-content;
-  margin-top: 80px;
+  
   padding: 20px 0px 180px; 
   @media (max-width: 768px) {
     background-position: bottom center;

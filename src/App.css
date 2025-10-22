@@ -1,9 +1,11 @@
 body {
   font-family: "Figtree", sans-serif;
+  margin-top: 80px;
 }
 
 .App {
   text-align: center;
+
 }
 
 .App-logo {
@@ -23,6 +25,7 @@ body {
 #about,
 #contact {
   scroll-margin-top: 70px;
+
   /* adjust to your navbar height */
 }
 
