@@ -1,14 +1,19 @@
 import styled from "styled-components";
 import logo from '../images/logo.png';
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEnvelope, faObjectGroup } from '@fortawesome/free-regular-svg-icons'
+import { faMugHot } from '@fortawesome/free-solid-svg-icons'
 
 function Footer() {
+  const navigate = useNavigate()
+  const [showProductsMenu, setShowProductsMenu] = useState(false);
 
-  const scrollToSection = (id) => {
-    const section = document.getElementById(id);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-    }
+  const toggleProductsMenu = () => {
+    setShowProductsMenu(prev => !prev);
   };
+
 
   return (
     <FooterSection>
@@ -17,11 +22,29 @@ function Footer() {
         Peak Efficiency - Helping leaders lead again through clarity, focus, and automation.
       </HeaderSubText>
       <NavButtonCont>
-        <NavText onClick={() => scrollToSection("hero")}>Home</NavText>
-        <NavText onClick={() => scrollToSection("products")}>Products</NavText>
-        <NavText onClick={() => scrollToSection("services")}>Services</NavText>
-        <NavText onClick={() => scrollToSection("about")}>About</NavText>
-        <NavText onClick={() => scrollToSection("contact")}>Contact</NavText>
+        <NavText onClick={() => navigate("/hero")}>Home</NavText>
+        <NavItem>
+          <NavText onClick={toggleProductsMenu}>Products ▾</NavText>
+          {showProductsMenu && (
+            <SubMenuDesktop>
+              <Row>
+                <FontAwesomeIcon icon={faEnvelope} color='#234261' size='sm' style={{marginTop: 'auto', marginBottom: 'auto'}}/>
+                <SubItem onClick={() => navigate('/products/email-filter-sorter')}>Email Filter & Sorter</SubItem>
+              </Row>
+              <Row>
+                <FontAwesomeIcon icon={faMugHot} color='#234261' size='sm' style={{marginTop: 'auto', marginBottom: 'auto'}}/>
+                <SubItem onClick={() => navigate('/products/morning-brief')}>Morning Brief</SubItem>
+              </Row>
+              <Row>
+                <FontAwesomeIcon icon={faObjectGroup} color='#234261' size='sm' style={{marginTop: 'auto', marginBottom: 'auto'}}/>
+                <SubItem onClick={() => navigate('/products/command-board')}>Command Board</SubItem>
+              </Row>
+            </SubMenuDesktop>
+          )}
+        </NavItem>
+        <NavText onClick={() => navigate("/services")}>Services</NavText>
+        <NavText onClick={() => navigate("/about")}>About</NavText>
+        <NavText onClick={() => navigate("/contact")}>Contact</NavText>
       </NavButtonCont>
       <EandWText>Email: chris@peakefficiency.ai</EandWText>
       <EandWText>Website: www.peakefficiency.ai</EandWText>
@@ -38,6 +61,9 @@ const FooterSection = styled.section`
   height: fit-content;
   margin-top: -20px;
   padding-bottom: 40px;
+`
+const Row = styled.div`
+  display: flex;
 `
 
 const HeaderSubText = styled.p`
@@ -101,3 +127,34 @@ const Cright = styled.div`
   }
   
 `
+
+const NavItem = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const SubMenuDesktop = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translateX(-50%);
+  background: white;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  border-radius: 8px;
+  padding: 10px;
+  min-width: 220px;
+  z-index: 1000;
+`;
+
+const SubItem = styled.div`
+  color: #234261;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+  &:hover {
+    background-color: #f2f2f2;
+  }
+`;

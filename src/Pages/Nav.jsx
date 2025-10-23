@@ -47,7 +47,7 @@ function Nav() {
 
   const recipient = 'chris@peakefficiency.ai';
   const subject = 'Peak Efficiency Consult Call';
-  const body = 'Hello, I would like to schedule a consult call.';
+  const body = 'Hello, I would like to schedule a consulting call.';
 
   const handleEmailClick = () => {
     const mailtoLink = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
