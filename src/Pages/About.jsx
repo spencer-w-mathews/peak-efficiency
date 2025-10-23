@@ -83,6 +83,8 @@ function About() {
                 </ClearText>
               </div>
             </ClearCont>
+            <ParaTitle>What Makes Us Different</ParaTitle>
+            <ParaSubText>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer odio urna, imperdiet eu ultricies a, finibus id urna. Cras ex lacus, molestie in finibus luctus, ornare nec neque. Proin egestas metus justo, eu imperdiet urna luctus ac. Donec vitae quam non purus blandit ultrices. Sed lacinia mollis lectus. Fusce rhoncus orci quis nunc sodales, et viverra dolor varius. Quisque maximus pellentesque neque, nec rhoncus massa elementum bibendum. Donec in eros sed velit pretium vestibulum in nec quam. Vestibulum in dui maximus, sodales eros sed, molestie dolor. Duis pulvinar fringilla vulputate. Nulla facilisi.</ParaSubText>
         </ServiceSection> 
   );
 }

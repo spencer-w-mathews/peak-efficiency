@@ -5,13 +5,14 @@ import { useEffect, useState } from "react";
 import $ from 'jquery'
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope, faObjectGroup } from '@fortawesome/free-regular-svg-icons'
-import { faMugHot } from '@fortawesome/free-solid-svg-icons'
+import { faEnvelope, faHome, faObjectGroup } from '@fortawesome/free-regular-svg-icons'
+import { faHeartCircleCheck, faMugHot, faScaleBalanced } from '@fortawesome/free-solid-svg-icons'
 
 function Nav() {
   const [navOpen, setNavOpen] = useState(false)
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 1200);
   const [showProductsMenu, setShowProductsMenu] = useState(false);
+  const [showWWSMenu, setShowWWSMenu] = useState(false);
   const navigate = useNavigate();
 
   const onNavClick = () => {
@@ -45,17 +46,14 @@ function Nav() {
     $('.lines-button').removeClass('close');
   }, [navigate]);
 
-  const recipient = 'chris@peakefficiency.ai';
-  const subject = 'Peak Efficiency Consult Call';
-  const body = 'Hello, I would like to schedule a consulting call.';
-
-  const handleEmailClick = () => {
-    const mailtoLink = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    window.location.href = mailtoLink;
-  }
-
   const toggleProductsMenu = () => {
+    setShowWWSMenu(false)
     setShowProductsMenu(prev => !prev);
+  };
+
+  const toggleWWSMenu = () => {
+    setShowProductsMenu(false)
+    setShowWWSMenu(prev => !prev);
   };
 
   return (
@@ -88,10 +86,29 @@ function Nav() {
                         </Row>
                       </SubMenu>
                     )}
-                    <NavText onClick={() => navigate("/services")}>Services</NavText>
+                    {/* PRODUCTS + SUBMENU */}
+                    <NavText onClick={toggleWWSMenu}>Who We Serve ▾</NavText>
+                    {showWWSMenu && (
+                      <SubMenu>
+                        <Row>
+                          <FontAwesomeIcon icon={faScaleBalanced} color='#234261' size='sm' style={{marginTop: 'auto', marginBottom: 'auto'}}/>
+                          <SubItem onClick={() => navigate('/products/email-filter-sorter')}>Lawyer</SubItem>
+                        </Row>
+                        <Row>
+                          <FontAwesomeIcon icon={faHeartCircleCheck} color='#234261' size='sm' style={{marginTop: 'auto', marginBottom: 'auto'}}/>
+                          <SubItem onClick={() => navigate('/products/morning-brief')}>Health Care</SubItem>
+                        </Row>
+                        <Row>
+                          <FontAwesomeIcon icon={faHome} color='#234261' size='sm' style={{marginTop: 'auto', marginBottom: 'auto'}}/>
+                          <SubItem onClick={() => navigate('/products/command-board')}>Real Estate</SubItem>
+                        </Row>
+                      </SubMenu>
+                    )}
+                    <NavText onClick={() => navigate("/services")}>Security & Integrations</NavText>
+                    <NavText onClick={() => navigate("/about")}>Resources</NavText>
                     <NavText onClick={() => navigate("/about")}>About</NavText>
                     <NavText onClick={() => navigate("/contact")}>Contact</NavText>
-                    <NavButton onClick={handleEmailClick}>Book a Consulting Call</NavButton>
+                  {/* <NavButton onClick={handleEmailClick}>Book a Consulting Call</NavButton> */}
                   </div>
                 </Column>
             </Container>
@@ -128,10 +145,34 @@ function Nav() {
               </SubMenuDesktop>
             )}
           </NavText>
-        <NavText onClick={() => navigate("/services")}>Services</NavText>
+        {/* PRODUCTS + SUBMENU */}
+          <NavText
+            onClick={toggleWWSMenu}
+            style={{ position: "relative" }}
+          >
+            Who We Serve ▾
+            {showWWSMenu && (
+              <SubMenuDesktop>
+                  <Row>
+                    <FontAwesomeIcon icon={faScaleBalanced} color='#234261' size='sm' style={{marginTop: 'auto', marginBottom: 'auto'}}/>
+                    <SubItem onClick={() => navigate('/products/email-filter-sorter')}>Lawyer</SubItem>
+                  </Row>
+                  <Row>
+                    <FontAwesomeIcon icon={faHeartCircleCheck} color='#234261' size='sm' style={{marginTop: 'auto', marginBottom: 'auto'}}/>
+                    <SubItem onClick={() => navigate('/products/morning-brief')}>Health Care</SubItem>
+                  </Row>
+                  <Row>
+                    <FontAwesomeIcon icon={faHome} color='#234261' size='sm' style={{marginTop: 'auto', marginBottom: 'auto'}}/>
+                    <SubItem onClick={() => navigate('/products/command-board')}>Real Estate</SubItem>
+                  </Row>
+              </SubMenuDesktop>
+            )}
+          </NavText>
+        <NavText onClick={() => navigate("/services")}>Security & Integrations</NavText>
+                    <NavText onClick={() => navigate("/about")}>Resources</NavText>
         <NavText onClick={() => navigate("/about")}>About</NavText>
         <NavText onClick={() => navigate("/contact")}>Contact</NavText>
-        <NavButton onClick={handleEmailClick}>Book a Consulting Call</NavButton>
+        
      </NavButtonCont>
     </NavBar>
       )
@@ -185,29 +226,6 @@ const NavText = styled.div`
      padding-left: 30px;
      margin-bottom: 30px;
   }
-`
-
-const NavButton = styled.button`
-  background-color: #2E734C;
-  color: #ffffff;
-  font-weight: 500;
-  width: 200px;
-  height: 40px;
-  border: 0px;
-  border-radius: 10px;
-  padding: 0px 15px;
-  cursor: pointer;
-  @media (max-width: 768px) {
-     font-size: 18px;
-     margin-top: 0px;
-     width: 90%;
-     height: fit-content;
-     padding: 15px 15px;
-     margin-left: auto;
-     margin-right: auto;
-
-  }
-
 `
 
 const NavBarMobile = styled.header`

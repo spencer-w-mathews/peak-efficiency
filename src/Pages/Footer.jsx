@@ -3,22 +3,29 @@ import logo from '../images/logo.png';
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope, faObjectGroup } from '@fortawesome/free-regular-svg-icons'
-import { faMugHot } from '@fortawesome/free-solid-svg-icons'
+import { faEnvelope, faHome, faObjectGroup } from '@fortawesome/free-regular-svg-icons'
+import { faHeartCircleCheck, faMugHot, faScaleBalanced } from '@fortawesome/free-solid-svg-icons'
 
 function Footer() {
   const navigate = useNavigate()
   const [showProductsMenu, setShowProductsMenu] = useState(false);
+  const [showWWSMenu, setShowWWSMenu] = useState(false);
 
-  const toggleProductsMenu = () => {
-    setShowProductsMenu(prev => !prev);
-  };
 
   useEffect(()=>{
     setShowProductsMenu(false)
+    setShowWWSMenu(false)
   }, [navigate])
 
+  const toggleProductsMenu = () => {
+    setShowWWSMenu(false)
+    setShowProductsMenu(prev => !prev);
+  };
 
+  const toggleWWSMenu = () => {
+    setShowProductsMenu(false)
+    setShowWWSMenu(prev => !prev);
+  };
   return (
     <FooterSection>
       <img  alt='logo' src={logo} style={{ height: '60px', marginLeft: 10, marginTop: 25, borderRadius: 5, boxShadow: '0px 0px 30px 15px rgba(0, 0, 0, 0.2)'}}/>
@@ -46,7 +53,27 @@ function Footer() {
             </SubMenuDesktop>
           )}
         </NavItem>
-        <NavText onClick={() => navigate("/services")}>Services</NavText>
+        <NavItem>
+          <NavText onClick={toggleWWSMenu}>Who We Serve ▾</NavText>
+          {showWWSMenu && (
+            <SubMenuDesktop>
+               <Row>
+                <FontAwesomeIcon icon={faScaleBalanced} color='#234261' size='sm' style={{marginTop: 'auto', marginBottom: 'auto'}}/>
+                <SubItem onClick={() => navigate('/products/email-filter-sorter')}>Lawyer</SubItem>
+              </Row>
+              <Row>
+                <FontAwesomeIcon icon={faHeartCircleCheck} color='#234261' size='sm' style={{marginTop: 'auto', marginBottom: 'auto'}}/>
+                <SubItem onClick={() => navigate('/products/morning-brief')}>Health Care</SubItem>
+              </Row>
+              <Row>
+                <FontAwesomeIcon icon={faHome} color='#234261' size='sm' style={{marginTop: 'auto', marginBottom: 'auto'}}/>
+                <SubItem onClick={() => navigate('/products/command-board')}>Real Estate</SubItem>
+              </Row>
+            </SubMenuDesktop>
+          )}
+        </NavItem>
+        <NavText onClick={() => navigate("/services")}>Security & Integrations</NavText>
+        <NavText onClick={() => navigate("/about")}>Resources</NavText>
         <NavText onClick={() => navigate("/about")}>About</NavText>
         <NavText onClick={() => navigate("/contact")}>Contact</NavText>
       </NavButtonCont>
@@ -68,6 +95,7 @@ const FooterSection = styled.section`
 `
 const Row = styled.div`
   display: flex;
+  
 `
 
 const HeaderSubText = styled.p`
@@ -82,9 +110,10 @@ const HeaderSubText = styled.p`
 const NavButtonCont = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 40%;
+  width: 60%;
   margin: auto auto auto auto;
   @media (max-width: 768px) {
+     flex-direction: column;
      width: 90%;
      padding: 0px 10px;
   }
@@ -99,6 +128,7 @@ const NavText = styled.div`
   margin-bottom: 30px;
   @media (max-width: 768px) {
      font-size: 16px;
+     margin-top: -10px;
   }
   
 `
@@ -150,6 +180,9 @@ const SubMenuDesktop = styled.div`
   padding: 10px;
   min-width: 220px;
   z-index: 1000;
+  @media (max-width: 768px) {
+     left: 50%;
+  }
 `;
 
 const SubItem = styled.div`

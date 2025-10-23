@@ -21,9 +21,9 @@ function Home() {
       <div id='services'>
         <Services />
       </div>
-      <div id='contact'>
+      {/* <div id='contact'>
         <Contact />
-      </div>
+      </div> */}
     </div>
   );
 }
