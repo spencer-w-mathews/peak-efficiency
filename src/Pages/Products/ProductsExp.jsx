@@ -16,7 +16,7 @@ function ProductsExp({Title, subText, image, howItWorks}) {
 export default ProductsExp;
 
 const ProductCont = styled.div`
-    padding-top: 80px;
+    padding: 80px 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
