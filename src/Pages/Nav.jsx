@@ -149,7 +149,7 @@ const NavBar = styled.div`
   width: 100%;
   background-color: #ffffff; /* Or your desired background color */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow */
-  z-index: 999;
+  z-index: 1999;
   display: flex;
 `
 const Row = styled.div`

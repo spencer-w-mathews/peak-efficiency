@@ -4,16 +4,18 @@ import ScrollToFade from '../Components/ScrollToFade'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faObjectGroup } from '@fortawesome/free-regular-svg-icons'
 import { faMugHot } from '@fortawesome/free-solid-svg-icons'
+import { useNavigate } from 'react-router-dom';
 
 
 function Products() {
+  const navigate = useNavigate()
   return (
         <section className="services">
             <Header>Simplify how you work. Amplify what matters.</Header>
             <HeaderSubText>Our tools cut through the noise and give you back the time to lead, create, and grow.</HeaderSubText>
             <div className="service-card-homes">
                 {/* Microsoft 365 Projects */}
-                <div className="service-card-home">
+                <div className="service-card-home" style={{cursor: 'pointer'}} onClick={()=> navigate('/products/email-filter-sorter')}>
                 <ScrollToFade>
                     <IconContainer>
                       <FontAwesomeIcon icon={faEnvelope} color='#2E734C' size='2x' style={{marginTop: '18px'}}/>
@@ -25,7 +27,7 @@ function Products() {
                 </ScrollToFade>
                 </div>
                 {/* Cyber Insurance Hardening */}
-                <div className="service-card-home">
+                <div className="service-card-home" style={{cursor: 'pointer'}} onClick={()=> navigate('/products/morning-brief')}>
                   
                 <ScrollToFade>
                     <IconContainer>
@@ -33,12 +35,12 @@ function Products() {
                     </IconContainer>
                     <h3>Morning Brief</h3>
                     <p>
-                    Start each day with a clear snapshot of what matters most — key emails, meetings, and action items — all summarized by AI.
+                      Start each day with a clear snapshot of what matters most — key emails, meetings, and action items — all summarized by AI.
                     </p>
                 </ScrollToFade>
                 </div>
                 {/* Device Management */}
-                <div className="service-card-home">
+                <div className="service-card-home" style={{cursor: 'pointer'}} onClick={()=> navigate('/products/command-board')}>
                 <ScrollToFade>
                     <IconContainer>
                       <FontAwesomeIcon icon={faObjectGroup} color='#2E734C' size='2x' style={{marginTop: '18px'}}/>
