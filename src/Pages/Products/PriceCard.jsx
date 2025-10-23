@@ -1,0 +1,123 @@
+import styled from 'styled-components';
+import { faCircleCheck } from '@fortawesome/free-regular-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+function PriceCard({cardData}) {
+    const {title, description, price, billingText,buttonText, trial, includes} = cardData
+  return (
+        <div style={{overflowY: 'hidden'}}>
+            {title === 'Business' && <MP>Most Popular</MP>}
+            <PriceCont>
+                <Header>{title}</Header>
+                <Description>{description}</Description>
+                <BillingCont>
+                    <Price>{price}</Price>
+                    <BillingText>{billingText}</BillingText>
+                    {trial && <Trial>{trial}</Trial>}
+                </BillingCont>
+                
+                {includes && includes.map((included, i)=>
+                    <Row key={i}>
+                        <FontAwesomeIcon icon={faCircleCheck} color='#cbc8c8ff' size='sm' style={{marginTop: 'auto', marginRight: 10, marginBottom: 'auto'}}/>
+                        <Included>{included}</Included>
+                    </Row>
+                )}
+                {buttonText && <Button>{buttonText}</Button>}
+            </PriceCont>
+        </div>
+  );
+}
+
+export default PriceCard;
+
+const PriceCont = styled.div`
+    width: 280px;
+    height: 420px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    overflow-x: hidden;
+    border: 1px solid #cbc8c8ff;
+    background-color: #fcfbfbff;
+    border-radius: 20px;
+    margin: 20px;
+    padding: 15px;
+    overflow-y: hidden;
+`
+
+const MP = styled.div`
+    background-color:  #234261;
+    text-align: center;
+    color: #fff;
+    margin: 0px auto -20px auto;
+    width: 240px;
+    border-radius: 8px 8px 0px 0px;
+    font-weight: 400;
+    font-size: 18px;
+`
+
+const Row = styled.div`
+    display: flex;
+    margin-top: -10px;
+`
+
+const Header = styled.p`
+    margin-right: auto;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: .1;
+    color: #234261;
+`
+const Description = styled.p`
+    font-size: 14px;
+    margin: -5px 0px 40px 0px;
+    line-height: 1;
+    text-align: left;
+    height: 20px;
+`
+
+const BillingCont = styled.div`
+    max-height: 80px;
+    min-height: 80px;
+`
+
+const Price = styled.p`
+    font-size: 14px;
+    margin: 0px 0px 20px 0px;
+    line-height: .5;
+`
+
+const BillingText = styled.p`
+    font-size: 10px;
+    margin: -10px 0px 20px 0px;
+    line-height: .5;
+`
+
+const Trial = styled.p`
+    font-size: 10px;
+    margin: -10px 0px 20px 0px;
+    line-height: .5;
+`
+
+const Included = styled.p`
+    font-size: 14px;
+    line-height: .5;
+`
+
+const Button = styled.button`
+  background-color: #234261;
+  color: #ffffff;
+  font-weight: 500;
+  width: 90%;
+  height: 40px;
+  border: 0px;
+  margin: 60px auto 0px;
+  border-radius: 10px;
+  padding: 0px 15px;
+  cursor: pointer;
+  @media (max-width: 768px) {
+     font-size: 18px;
+     height: fit-content;
+     padding: 15px 15px;
+  }
+`

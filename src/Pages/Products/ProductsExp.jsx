@@ -1,14 +1,51 @@
 import styled from 'styled-components';
+import FlexContainer from '../../Components/FlexContainer';
+import PriceCard from './PriceCard';
+import { useEffect, useState } from 'react';
 
+
+const emailPriceCards = [
+                          {title: 'Basic', description: 'The essential tool for solo users',price: '$30.00', billingText: '/user /month billed monthly', trial: '7 day free trial', includes: ['lorem ipsum', 'lorem sjf thwl','lorem ipsum', 'lorem sjf thwl', 'test sft test' ], buttonText: 'Sign me up'}
+                          ,{title: 'Business', description: 'Our most effective tool for top-tier managers', price: '$50.00', billingText: '/user /month billed monthly', trial: '7 day free trial', includes: ['lorem ipsum', 'lorem sjf thwl','lorem ipsum', 'lorem sjf thwl', 'test sft test' ], buttonText: 'Sign me up'}
+                          ,{title: 'Executive', description: 'Our most effective tool, designed for business', price: "Let's talk", billingText: '', trial: '', includes: ['lorem ipsum', 'lorem sjf thwl','lorem ipsum', 'lorem sjf thwl', 'test sft test' ],  buttonText: "Let's talk"}
+                        ]
+const moringPriceCards = [
+                          {title: 'Basic', description: 'The essential tool for solo users',price: '$30.00', billingText: '/user /month billed monthly', trial: '7 day free trial', includes: ['lorem ipsum', 'lorem sjf thwl','lorem ipsum', 'lorem sjf thwl', 'test sft test' ], buttonText: 'Sign me up'}
+                          ,{title: 'Business', description: 'Our most effective tool for top-tier managers', price: '$50.00', billingText: '/user /month billed monthly', trial: '7 day free trial', includes: ['lorem ipsum', 'lorem sjf thwl','lorem ipsum', 'lorem sjf thwl', 'test sft test' ], buttonText: 'Sign me up'}
+                          ,{title: 'Executive', description: 'Our most effective tool, designed for business', price: "Let's talk", billingText: '', trial: '', includes: ['lorem ipsum', 'lorem sjf thwl','lorem ipsum', 'lorem sjf thwl', 'test sft test' ],  buttonText: "Let's talk"}
+                      ]
+                      
+const boardPriceCards = [
+                          {title: 'Basic', description: 'The essential tool for solo users',price: '$30.00', billingText: '/user /month billed monthly', trial: '7 day free trial', includes: ['lorem ipsum', 'lorem sjf thwl','lorem ipsum', 'lorem sjf thwl', 'test sft test' ], buttonText: 'Sign me up'}
+                          ,{title: 'Business', description: 'Our most effective tool for top-tier managers', price: '$50.00', billingText: '/user /month billed monthly', trial: '7 day free trial', includes: ['lorem ipsum', 'lorem sjf thwl','lorem ipsum', 'lorem sjf thwl', 'test sft test' ], buttonText: 'Sign me up'}
+                          ,{title: 'Executive', description: 'Our most effective tool, designed for business', price: "Let's talk", billingText: '', trial: '', includes: ['lorem ipsum', 'lorem sjf thwl','lorem ipsum', 'lorem sjf thwl', 'test sft test' ],  buttonText: "Let's talk"}
+                      ]
 
 function ProductsExp({Title, subText, image, howItWorks}) {
+    const [priceCards, setPriceCards] = useState(emailPriceCards)
+
+    useEffect(()=>{
+        if(Title === 'Email Filter & Sorter'){
+            setPriceCards(emailPriceCards)
+        } else if (Title === 'Morning Brief'){
+            setPriceCards(moringPriceCards)
+        }else{
+            setPriceCards(boardPriceCards)
+        }
+    },[Title])
+
+
   return (
         <ProductCont>
             <Header>{Title}</Header>
             <HeaderSubText>{subText}</HeaderSubText>
             <Image src={image} />
-            <Header>How it Works</Header>
-            <HeaderSubText>{howItWorks}</HeaderSubText>
+            <PricingHeader>Tailored solutions that evolve with your needs</PricingHeader>
+            <FlexContainer>
+                {priceCards.map((cardData, i)=>
+                    <PriceCard key={i} cardData={cardData}/>
+                )}
+            </FlexContainer>
         </ProductCont>
   );
 }
@@ -24,8 +61,9 @@ const ProductCont = styled.div`
 `
 const Image = styled.img`
     max-width: 400px;
-    margin-top: -50px;
+    margin-top: -100px;
     z-index: 0;
+    padding: 0px 10px;
     min-height: 300px;
 `
 
@@ -34,6 +72,7 @@ const Header = styled.h1`
   font-size: 50px;
   padding: 0px 100px;
   margin-top: -40px;
+  margin-bottom: -10px;
   z-index: 1000;
   @media (max-width: 768px) {
         padding: 0px 5px;
@@ -51,10 +90,17 @@ const HeaderSubText = styled.p`
         padding: 0px 5px;
   }
 `
-const IconContainer = styled.div`
-  background: rgba(46, 115, 76, .2);
-  border-radius: 50%;
-  height: 70px;
-  width: 70px;
-  margin: 5px auto;
+
+const PricingHeader = styled.h1`
+  color: #234261;
+  font-size: 30px;
+  padding: 0px 100px;
+  margin-top: -40px;
+  z-index: 1000;
+  @media (max-width: 768px) {
+        padding: 0px 5px;
+        font-size: 20px;
+        line-height:  1;
+        margin-bottom: 5px;
+    }
 `

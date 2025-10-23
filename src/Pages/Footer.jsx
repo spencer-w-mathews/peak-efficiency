@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import logo from '../images/logo.png';
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faObjectGroup } from '@fortawesome/free-regular-svg-icons'
 import { faMugHot } from '@fortawesome/free-solid-svg-icons'
@@ -13,6 +13,10 @@ function Footer() {
   const toggleProductsMenu = () => {
     setShowProductsMenu(prev => !prev);
   };
+
+  useEffect(()=>{
+    setShowProductsMenu(false)
+  }, [navigate])
 
 
   return (
