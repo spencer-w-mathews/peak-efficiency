@@ -21,7 +21,7 @@ const boardPriceCards = [
                           ,{title: 'Executive', description: 'Our most effective tool, designed for business', price: "Let's talk", billingText: '', trial: '', includes: ['lorem ipsum', 'lorem sjf thwl','lorem ipsum', 'lorem sjf thwl', 'test sft test' ],  buttonText: "Let's talk"}
                       ]
 
-function ProductsExp({Title, subText, image, howItWorks}) {
+function ProductsExp({Title, subText, image}) {
     const [priceCards, setPriceCards] = useState(emailPriceCards)
 
     useEffect(()=>{
@@ -61,7 +61,7 @@ const ProductCont = styled.div`
 `
 const Image = styled.img`
     max-width: 400px;
-    margin-top: -100px;
+    margin-top: -80px;
     z-index: 0;
     padding: 0px 10px;
     min-height: 300px;

@@ -10,6 +10,7 @@ import ProductsExp from './Pages/Products/ProductsExp';
 import emailFilter from './images/emailFilter.png'
 import morningBrief from './images/morningBrief.png'
 import commandBoard from './images/commandBoard.png'
+import WhoWeServe from './Pages/WhoWeServe/WhoWeServe';
 
 //#2E734C --green
 //#234261 --blue lettering nav
@@ -33,7 +34,7 @@ function App() {
                     Title={'Email Filter & Sorter'} 
                     subText={'Removes noise, routes what matters, and drafts replies in your tone — your inbox finally works for you.'}
                     image={emailFilter}
-                    howItWorks={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer odio urna, imperdiet eu ultricies a, finibus id urna. Cras ex lacus, molestie in finibus luctus, ornare nec neque. Proin egestas metus justo, eu imperdiet urna luctus ac. Donec vitae quam non purus blandit ultrices. Sed lacinia mollis lectus. Fusce rhoncus orci quis nunc sodales, et viverra dolor varius. Quisque maximus pellentesque neque, nec rhoncus massa elementum bibendum. Donec in eros sed velit pretium vestibulum in nec quam. Vestibulum in dui maximus, sodales eros sed, molestie dolor. Duis pulvinar fringilla vulputate. Nulla facilisi.'}
+                    
                   />
                 } 
               />
@@ -43,7 +44,7 @@ function App() {
                     Title={'Morning Brief'} 
                     subText={'Start each day with a clear snapshot of what matters most — key emails, meetings, and action items — all summarized by AI.'}
                     image={morningBrief}
-                    howItWorks={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer odio urna, imperdiet eu ultricies a, finibus id urna. Cras ex lacus, molestie in finibus luctus, ornare nec neque. Proin egestas metus justo, eu imperdiet urna luctus ac. Donec vitae quam non purus blandit ultrices. Sed lacinia mollis lectus. Fusce rhoncus orci quis nunc sodales, et viverra dolor varius. Quisque maximus pellentesque neque, nec rhoncus massa elementum bibendum. Donec in eros sed velit pretium vestibulum in nec quam. Vestibulum in dui maximus, sodales eros sed, molestie dolor. Duis pulvinar fringilla vulputate. Nulla facilisi.'}
+                    
                   />
                 } 
               />
@@ -53,7 +54,37 @@ function App() {
                     Title={'Command Board'} 
                     subText={'A secure central hub where you can see everything — communications, priorities, and progress — in one place.'}
                     image={commandBoard}
-                    howItWorks={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer odio urna, imperdiet eu ultricies a, finibus id urna. Cras ex lacus, molestie in finibus luctus, ornare nec neque. Proin egestas metus justo, eu imperdiet urna luctus ac. Donec vitae quam non purus blandit ultrices. Sed lacinia mollis lectus. Fusce rhoncus orci quis nunc sodales, et viverra dolor varius. Quisque maximus pellentesque neque, nec rhoncus massa elementum bibendum. Donec in eros sed velit pretium vestibulum in nec quam. Vestibulum in dui maximus, sodales eros sed, molestie dolor. Duis pulvinar fringilla vulputate. Nulla facilisi.'}
+                    
+                  />
+                } 
+              />
+              <Route path="/Who-We-Serve/lawyers" 
+                element={
+                  <WhoWeServe
+                    Title={'lawyers'} 
+                    subText={'A secure central hub where you can see everything — communications, priorities, and progress — in one place.'}
+                    image={commandBoard}
+                    
+                  />
+                } 
+              />
+              <Route path="/Who-We-Serve/health-care" 
+                element={
+                  <WhoWeServe
+                    Title={'Health Care'} 
+                    subText={'A secure central hub where you can see everything — communications, priorities, and progress — in one place.'}
+                    image={commandBoard}
+                    
+                  />
+                } 
+              />
+              <Route path="/Who-We-Serve/real-estate" 
+                element={
+                  <WhoWeServe
+                    Title={'Real Estate'} 
+                    subText={'A secure central hub where you can see everything — communications, priorities, and progress — in one place.'}
+                    image={commandBoard}
+                    
                   />
                 } 
               />

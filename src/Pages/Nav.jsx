@@ -92,15 +92,15 @@ function Nav() {
                       <SubMenu>
                         <Row>
                           <FontAwesomeIcon icon={faScaleBalanced} color='#234261' size='sm' style={{marginTop: 'auto', marginBottom: 'auto'}}/>
-                          <SubItem onClick={() => navigate('/products/email-filter-sorter')}>Lawyer</SubItem>
+                          <SubItem onClick={() => navigate('/Who-We-Serve/s')}>Lawyers</SubItem>
                         </Row>
                         <Row>
                           <FontAwesomeIcon icon={faHeartCircleCheck} color='#234261' size='sm' style={{marginTop: 'auto', marginBottom: 'auto'}}/>
-                          <SubItem onClick={() => navigate('/products/morning-brief')}>Health Care</SubItem>
+                          <SubItem onClick={() => navigate('/Who-We-Serve/health-care')}>Health Care</SubItem>
                         </Row>
                         <Row>
                           <FontAwesomeIcon icon={faHome} color='#234261' size='sm' style={{marginTop: 'auto', marginBottom: 'auto'}}/>
-                          <SubItem onClick={() => navigate('/products/command-board')}>Real Estate</SubItem>
+                          <SubItem onClick={() => navigate('/Who-We-Serve/real-estate')}>Real Estate</SubItem>
                         </Row>
                       </SubMenu>
                     )}
@@ -155,15 +155,15 @@ function Nav() {
               <SubMenuDesktop>
                   <Row>
                     <FontAwesomeIcon icon={faScaleBalanced} color='#234261' size='sm' style={{marginTop: 'auto', marginBottom: 'auto'}}/>
-                    <SubItem onClick={() => navigate('/products/email-filter-sorter')}>Lawyer</SubItem>
+                    <SubItem onClick={() => navigate('/Who-We-Serve/lawyers')}>Lawyers</SubItem>
                   </Row>
                   <Row>
                     <FontAwesomeIcon icon={faHeartCircleCheck} color='#234261' size='sm' style={{marginTop: 'auto', marginBottom: 'auto'}}/>
-                    <SubItem onClick={() => navigate('/products/morning-brief')}>Health Care</SubItem>
+                    <SubItem onClick={() => navigate('/Who-We-Serve/health-care')}>Health Care</SubItem>
                   </Row>
                   <Row>
                     <FontAwesomeIcon icon={faHome} color='#234261' size='sm' style={{marginTop: 'auto', marginBottom: 'auto'}}/>
-                    <SubItem onClick={() => navigate('/products/command-board')}>Real Estate</SubItem>
+                    <SubItem onClick={() => navigate('/Who-We-Serve/real-estate')}>Real Estate</SubItem>
                   </Row>
               </SubMenuDesktop>
             )}
