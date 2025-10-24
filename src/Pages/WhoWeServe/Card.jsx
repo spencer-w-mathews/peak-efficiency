@@ -16,7 +16,7 @@ const Card = styled.div`
   background-color: #fff;
   border-radius: 1rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  width: clamp(200px, 30%, 250px);
+  width: clamp(250px, 30%, 300px);
   min-height: 200px;
   padding: 1.5rem;
   display: flex;

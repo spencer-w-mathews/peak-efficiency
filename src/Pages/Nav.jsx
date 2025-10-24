@@ -92,7 +92,7 @@ function Nav() {
                       <SubMenu>
                         <Row>
                           <FontAwesomeIcon icon={faScaleBalanced} color='#234261' size='sm' style={{marginTop: 'auto', marginBottom: 'auto'}}/>
-                          <SubItem onClick={() => navigate('/Who-We-Serve/s')}>Lawyers</SubItem>
+                          <SubItem onClick={() => navigate('/Who-We-Serve/lawyers')}>Lawyers</SubItem>
                         </Row>
                         <Row>
                           <FontAwesomeIcon icon={faHeartCircleCheck} color='#234261' size='sm' style={{marginTop: 'auto', marginBottom: 'auto'}}/>
