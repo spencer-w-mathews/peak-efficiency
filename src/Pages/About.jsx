@@ -95,7 +95,7 @@ const ServiceSection = styled.section`
   background-color: #fff;
   padding: 10px 90px;
   @media (max-width: 768px) {
-        padding: 40px 25px;
+        padding: 10px 25px;
       }
 `
 
