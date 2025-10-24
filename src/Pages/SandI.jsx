@@ -49,7 +49,7 @@ const integrations = [
 
   return (
     <PageContainer>
-        <Image src={image}/>
+        <Image src={image} fetchPriority="high"/>
       <Header>
         <Subtitle>
           At <strong>Peak Efficiency</strong>, your privacy, data, and systems are protected by design.  
