@@ -1,11 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
-export default function InfoCard({ icon, title, description, route }) {
+export default function InfoCard({ icon, title, description, route, color }) {
   const navigate = useNavigate()
   return (
     <Card onClick={() => route && navigate(route)} style={route ? {cursor: 'pointer'}: {}}>
-      <IconWrapper>{icon}</IconWrapper>
+      <IconWrapper style={{color: {color}}}>{icon}</IconWrapper>
       <Title>{title}</Title>
       <Description>{description}</Description>
     </Card>
@@ -32,7 +32,6 @@ const Card = styled.div`
 
 const IconWrapper = styled.div`
   font-size: 2rem;
-  color: #2e734c;
   margin-bottom: 0.75rem;
   margin-left: auto;
   margin-right: auto;

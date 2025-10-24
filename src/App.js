@@ -11,6 +11,8 @@ import emailFilter from './images/emailFilter.png'
 import morningBrief from './images/morningBrief.png'
 import commandBoard from './images/commandBoard.png'
 import WhoWeServe from './Pages/WhoWeServe/WhoWeServe';
+import SecurityIntegrations from './Pages/SandI';
+import Resources from './Pages/Resources';
 
 //#2E734C --green
 //#234261 --blue lettering nav
@@ -87,6 +89,16 @@ function App() {
                     
                   />
                 } 
+              />
+              <Route path='/security-and-integrations'
+                element={
+                  <SecurityIntegrations />
+                }
+              />
+              <Route path='/resources'
+                element={
+                  <Resources />
+                }
               />
               <Route path="*" element={<Home />} />
           </Routes>

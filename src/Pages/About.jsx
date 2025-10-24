@@ -92,10 +92,8 @@ function About() {
 export default About;
 
 const ServiceSection = styled.section`
-  background-color: #F4F5F6;
-  padding-bottom: 40px;
-  padding-top: 40px;
-  padding: 40px 90px;
+  background-color: #fff;
+  padding: 10px 90px;
   @media (max-width: 768px) {
         padding: 40px 25px;
       }

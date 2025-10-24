@@ -59,7 +59,7 @@ function Footer() {
             <SubMenuDesktop>
                <Row>
                 <FontAwesomeIcon icon={faScaleBalanced} color='#234261' size='sm' style={{marginTop: 'auto', marginBottom: 'auto'}}/>
-                <SubItem onClick={() => navigate('/Who-We-Serve/lawyers')}>s</SubItem>
+                <SubItem onClick={() => navigate('/Who-We-Serve/lawyers')}>Lawyers</SubItem>
               </Row>
               <Row>
                 <FontAwesomeIcon icon={faHeartCircleCheck} color='#234261' size='sm' style={{marginTop: 'auto', marginBottom: 'auto'}}/>
@@ -72,8 +72,8 @@ function Footer() {
             </SubMenuDesktop>
           )}
         </NavItem>
-        <NavText onClick={() => navigate("/services")}>Security & Integrations</NavText>
-        <NavText onClick={() => navigate("/about")}>Resources</NavText>
+        <NavText onClick={() => navigate("/security-and-integrations")}>Security & Integrations</NavText>
+        <NavText onClick={() => navigate("/resources")}>Resources</NavText>
         <NavText onClick={() => navigate("/about")}>About</NavText>
         <NavText onClick={() => navigate("/contact")}>Contact</NavText>
       </NavButtonCont>

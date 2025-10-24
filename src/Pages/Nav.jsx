@@ -104,8 +104,8 @@ function Nav() {
                         </Row>
                       </SubMenu>
                     )}
-                    <NavText onClick={() => navigate("/services")}>Security & Integrations</NavText>
-                    <NavText onClick={() => navigate("/about")}>Resources</NavText>
+                    <NavText onClick={() => navigate("/security-and-integrations")}>Security & Integrations</NavText>
+                    <NavText onClick={() => navigate("/resources")}>Resources</NavText>
                     <NavText onClick={() => navigate("/about")}>About</NavText>
                     <NavText onClick={() => navigate("/contact")}>Contact</NavText>
                   {/* <NavButton onClick={handleEmailClick}>Book a Consulting Call</NavButton> */}
@@ -168,8 +168,8 @@ function Nav() {
               </SubMenuDesktop>
             )}
           </NavText>
-        <NavText onClick={() => navigate("/services")}>Security & Integrations</NavText>
-                    <NavText onClick={() => navigate("/about")}>Resources</NavText>
+        <NavText onClick={() => navigate("/security-and-integrations")}>Security & Integrations</NavText>
+        <NavText onClick={() => navigate("/resources")}>Resources</NavText>
         <NavText onClick={() => navigate("/about")}>About</NavText>
         <NavText onClick={() => navigate("/contact")}>Contact</NavText>
         
