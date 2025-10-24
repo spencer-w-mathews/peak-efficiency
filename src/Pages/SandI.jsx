@@ -90,7 +90,7 @@ const PageContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  overlfow-x: hidden;
+  overflow-x: hidden;
 `;
 
 const Image = styled.img`
