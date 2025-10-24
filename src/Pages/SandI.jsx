@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShieldAlt, faLock, faUserCheck, faKey, faPlug, faCloud } from "@fortawesome/free-solid-svg-icons";
+import image from '../images/sAndI.png'
 
 
 export default function SecurityIntegrations() {
@@ -48,13 +49,14 @@ const integrations = [
 
   return (
     <PageContainer>
+        <Image src={image}/>
       <Header>
-        <Title>Security & Integrations</Title>
         <Subtitle>
           At <strong>Peak Efficiency</strong>, your privacy, data, and systems are protected by design.  
           Every feature we build is backed by enterprise-grade security and seamless integrations that fit your workflow.
         </Subtitle>
       </Header>
+      
 
       <SectionTitle>Security You Can Trust</SectionTitle>
       <CardGrid>
@@ -88,19 +90,22 @@ const PageContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  overlfow-x: hidden;
 `;
+
+const Image = styled.img`
+    max-width: 400px;
+    margin-top: 10px;
+    margin-bottom: -20px;
+    z-index: 0;
+    padding: 0px 10px;
+    min-height: 300px;
+`
 
 const Header = styled.div`
   max-width: 800px;
   text-align: center;
   margin-bottom: 3rem;
-`;
-
-const Title = styled.h1`
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #234261;
-  margin-bottom: 1rem;
 `;
 
 const Subtitle = styled.p`
