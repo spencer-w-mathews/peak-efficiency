@@ -1,12 +1,8 @@
 import styled from 'styled-components';
-import FlexContainer from '../../Components/FlexContainer';
-//import PriceCard from './PriceCard';
-import { useEffect, useState } from 'react';
 import InfoCard from './Card';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBellSlash, faClock, faEnvelope, faLightbulb, faObjectGroup } from '@fortawesome/free-regular-svg-icons';
+import { faBellSlash, faClock, faEnvelope, faObjectGroup } from '@fortawesome/free-regular-svg-icons';
 import { faChartLine, faInfoCircle, faMugHot, faToolbox } from '@fortawesome/free-solid-svg-icons';
-import { useNavigate } from 'react-router-dom';
 
 const problems = [
   {
@@ -94,13 +90,6 @@ const WWSCont = styled.div`
     align-items: center;
     overflow-x: hidden;
 `
-const Image = styled.img`
-    max-width: 400px;
-    margin-top: -80px;
-    z-index: 0;
-    padding: 0px 10px;
-    min-height: 300px;
-`
 
 const Header = styled.h1`
   color: #234261;
@@ -125,16 +114,6 @@ const Grid = styled.div`
   width: 100%;
   box-sizing: border-box;
 `;
-
-const HeaderSubText = styled.p`
-  color: #6D92B4;
-  font-size: 24px;
-  padding: 0px 170px 20px;
-  z-index: 1000;
-  @media (max-width: 768px) {
-        padding: 0px 5px;
-  }
-`
 
 const PricingHeader = styled.h1`
   color: #234261;
