@@ -1,7 +1,7 @@
 // WaitlistForm.jsx
 import React, { useState } from "react";
 import styled from "styled-components";
-import contact from "../images/contact.png"
+import contact from "../images/contact.webp"
 
 export default function Contact() {
   // 🧠 Replace these 3 lines with your real values:

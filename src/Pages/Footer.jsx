@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import logo from '../images/logo.png';
+import logo from '../images/logo.webp';
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

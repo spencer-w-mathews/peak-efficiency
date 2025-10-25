@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import logo from '../images/logo.png'
+import logo from '../images/logo.webp'
 import './Nav.css'
 import { useEffect, useState } from "react";
 import $ from 'jquery'

@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import heroImage from '../images/heroBackground.png';
+import heroImage from '../images/heroBackground.webp';
+import Button from "../Components/Button";
 
 function Hero() {
 
@@ -16,11 +17,11 @@ function Hero() {
     <HeroSection>
      <Header>Work smarter. Reclaim your time.</Header>
      <HeaderSubText>Peak Efficiency helps leaders cut through digital chaos — giving back clarity, focus, and control so every day starts with purpose, not distraction.</HeaderSubText>
-     <DemoButton
-      onClick={handleEmailClick}
-    >
-      Book a Consulting Call
-    </DemoButton>
+     <Button
+      handleButton={handleEmailClick}
+      accessibleName={'Open email to book consulting call with Peak Efficiency'}
+      title={'Book a Consulting Call'}
+    />
     </HeroSection>
   );
 }
@@ -62,22 +63,4 @@ const HeaderSubText = styled.p`
         padding: 0px 30px;
         font-size: 20px;
       }
-`
-
-const DemoButton = styled.button`
-  background-color: #2E734C;
-  color: #ffffff;
-  font-weight: 500;
-  height: 40px;
-  border: 0px;
-  border-radius: 10px;
-  padding: 0px 15px;
-  cursor: pointer;
-  @media (max-width: 768px) {
-    height: fit-content;
-    padding: 15px 60px;
-    font-size: 18px;
-    margin-top: 25px;
-  }
-
 `

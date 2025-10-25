@@ -61,7 +61,7 @@ function Products() {
 
 export default Products;
 
-const Header = styled.h1`
+const Header = styled.p`
   color: #234261;
   font-size: 50px;
   padding: 0px 100px;
@@ -74,7 +74,7 @@ const Header = styled.h1`
       }
 `
 const HeaderSubText = styled.p`
-  color: #6D92B4;
+  color: #3f566cff;
   font-size: 24px;
   padding: 0px 170px 20px;
   @media (max-width: 768px) {

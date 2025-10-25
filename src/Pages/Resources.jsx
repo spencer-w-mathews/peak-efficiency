@@ -7,7 +7,7 @@ import {
   faVideo,
   faLink,
 } from "@fortawesome/free-solid-svg-icons";
-
+import image from '../images/resources.webp'
 
 export default function Resources() {
   const guides = [
@@ -57,8 +57,8 @@ export default function Resources() {
 
   return (
     <PageContainer>
+        <Image src={image} fetchPriority="high"/>
       <Header>
-        <Title>Resources</Title>
         <Subtitle>
           Learn, explore, and get inspired. Dive into practical guides, insights, and real-world examples
           to help your team reach <strong>Peak Efficiency</strong>.
@@ -112,6 +112,7 @@ const PageContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow-x: hidden;
 `;
 
 const Header = styled.div`
@@ -120,12 +121,15 @@ const Header = styled.div`
   margin-bottom: 3rem;
 `;
 
-const Title = styled.h1`
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #234261;
-  margin-bottom: 1rem;
-`;
+
+const Image = styled.img`
+    max-width: 400px;
+    margin-top: 10px;
+    margin-bottom: -20px;
+    z-index: 0;
+    padding: 0px 10px;
+    min-height: 300px;
+`
 
 const Subtitle = styled.p`
   font-size: 1.1rem;

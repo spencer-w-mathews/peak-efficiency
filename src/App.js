@@ -7,9 +7,9 @@ import Contact from './Pages/Contact';
 import Home from './Pages/Home';
 import { Route, Routes } from 'react-router-dom';
 import ProductsExp from './Pages/Products/ProductsExp';
-import emailFilter from './images/emailFilter.png'
-import morningBrief from './images/morningBrief.png'
-import commandBoard from './images/commandBoard.png'
+import emailFilter from './images/emailFilter.webp'
+import morningBrief from './images/morningBrief.webp'
+import commandBoard from './images/commandBoard.webp'
 import WhoWeServe from './Pages/WhoWeServe/WhoWeServe';
 import SecurityIntegrations from './Pages/SandI';
 import Resources from './Pages/Resources';

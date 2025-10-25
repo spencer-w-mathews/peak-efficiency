@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 import './Products.css';
 import FlexContainer from '../Components/FlexContainer';
-import services from '../images/services.png';
+import services from '../images/services.webp';
 import { faCircleCheck } from '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Button from '../Components/Button';
 
 function Services() {
   const recipient = 'chris@peakefficiency.ai';
@@ -53,13 +54,11 @@ function Services() {
                     </ServicesText>
                   </div>
                 </ClearCont>
-
-                <DemoButton
-                  onClick={handleEmailClick}
-                >
-                  Book a Consulting Call
-                </DemoButton>
-
+                <Button
+                      handleButton={handleEmailClick}
+                      accessibleName={'Open email to book consulting call with Peak Efficiency'}
+                      title={'Book a Consulting Call'}
+                />
               </ServicesColumn>
               <ServicesImg src={services} alt="logo"/>
             </FlexContainer>
@@ -95,7 +94,7 @@ const Header = styled.h1`
       }
 `
 const HeaderSubText = styled.p`
-  color: #6D92B4;
+  color: #3f566cff;
   font-size: 24px;
   padding: 0px 170px 20px;
   margin-top: -30px;
@@ -125,27 +124,9 @@ const ServicesTitle = styled.div`
 `
 
 const ServicesText = styled.div`
-   color: #6D92B4;
+   color: #3f566cff;
    margin-top: 10px;
    margin-bottom: 20px;
-`
-
-const DemoButton = styled.button`
-  background-color: #2E734C;
-  color: #ffffff;
-  font-weight: 500;
-  height: 40px;
-  border: 0px;
-  border-radius: 10px;
-  padding: 0px 15px;
-  cursor: pointer;
-  @media (max-width: 768px) {
-    height: fit-content;
-    padding: 15px 20px;
-    font-size: 18px;
-    margin-bottom: 45px;
-    margin-top: 25px;
-  }
 `
 
 const ServicesImg = styled.img`
