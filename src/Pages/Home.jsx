@@ -8,17 +8,16 @@ import Contact from './Contact';
 //#6D92B4 --light blue lettering
 //#F4F5F6 --grey background
 
-
 function Home() {
   return (
     <div className="App">
-      <div id='hero'>
+      <div id="hero">
         <Hero />
       </div>
-      <div id='products'>
+      <div id="products">
         <Products />
       </div>
-      <div id='services'>
+      <div id="services">
         <Services />
       </div>
       {/* <div id='contact'>

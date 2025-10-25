@@ -30,10 +30,7 @@ const ScrollToFade = ({ children }) => {
   }, []);
 
   return (
-    <div
-      ref={fadeRef}
-      className={`fade-in-element ${isVisible ? 'visible' : ''}`}
-    >
+    <div ref={fadeRef} className={`fade-in-element ${isVisible ? 'visible' : ''}`}>
       {children}
     </div>
   );

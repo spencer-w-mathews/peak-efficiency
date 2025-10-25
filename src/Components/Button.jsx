@@ -1,16 +1,15 @@
-import styled from "styled-components"
+import styled from 'styled-components';
 
-export default function Button({accessibleName, handleButton, title}){
-    return(
-        <ButtonCont onClick={handleButton} aria-labelledby={accessibleName}>
-            {title}
-        </ButtonCont>
-    )
-
+export default function Button({ accessibleName, handleButton, title }) {
+  return (
+    <ButtonCont onClick={handleButton} aria-labelledby={accessibleName}>
+      {title}
+    </ButtonCont>
+  );
 }
 
 const ButtonCont = styled.button`
-  background-color: #2E734C;
+  background-color: #2e734c;
   color: #ffffff;
   font-weight: 500;
   height: 40px;
@@ -24,5 +23,4 @@ const ButtonCont = styled.button`
     font-size: 18px;
     margin-top: 25px;
   }
-
-`
+`;

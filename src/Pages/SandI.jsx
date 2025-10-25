@@ -1,62 +1,68 @@
-import styled from "styled-components";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faShieldAlt, faLock, faUserCheck, faKey, faPlug, faCloud } from "@fortawesome/free-solid-svg-icons";
-import image from '../images/sAndI.webp'
-
+import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faShieldAlt,
+  faLock,
+  faUserCheck,
+  faKey,
+  faPlug,
+  faCloud,
+} from '@fortawesome/free-solid-svg-icons';
+import image from '../images/sAndI.webp';
 
 export default function SecurityIntegrations() {
   const securityFeatures = [
     {
       icon: <FontAwesomeIcon icon={faShieldAlt} />,
-      title: "Enterprise-Grade Encryption",
+      title: 'Enterprise-Grade Encryption',
       description:
-        "All data in Peak Efficiency is encrypted in transit and at rest using AES-256 and TLS 1.3 standards."
+        'All data in Peak Efficiency is encrypted in transit and at rest using AES-256 and TLS 1.3 standards.',
     },
     {
       icon: <FontAwesomeIcon icon={faLock} />,
-      title: "Zero-Trust Framework",
+      title: 'Zero-Trust Framework',
       description:
-        "We authenticate every user and device, ensuring only verified connections are granted access."
+        'We authenticate every user and device, ensuring only verified connections are granted access.',
     },
     {
       icon: <FontAwesomeIcon icon={faUserCheck} />,
-      title: "Role-Based Access",
+      title: 'Role-Based Access',
       description:
-        "Fine-grained permissions let you control who can view, edit, and manage critical information."
+        'Fine-grained permissions let you control who can view, edit, and manage critical information.',
     },
     {
       icon: <FontAwesomeIcon icon={faKey} />,
-      title: "Multi-Factor Authentication",
+      title: 'Multi-Factor Authentication',
       description:
-        "Protect accounts with MFA and SSO integrations, including Google Workspace and Microsoft 365."
-    }
-];
+        'Protect accounts with MFA and SSO integrations, including Google Workspace and Microsoft 365.',
+    },
+  ];
 
-const integrations = [
+  const integrations = [
     {
       icon: <FontAwesomeIcon icon={faPlug} />,
-      title: "Seamless Integrations",
+      title: 'Seamless Integrations',
       description:
-        "Connect with the tools you already use — Gmail, Slack, Asana, Notion, and more — without friction."
+        'Connect with the tools you already use — Gmail, Slack, Asana, Notion, and more — without friction.',
     },
     {
       icon: <FontAwesomeIcon icon={faCloud} />,
-      title: "API & Webhooks",
+      title: 'API & Webhooks',
       description:
-        "Our open API and webhook support let your team automate workflows and build custom extensions."
-    }
+        'Our open API and webhook support let your team automate workflows and build custom extensions.',
+    },
   ];
 
   return (
     <PageContainer>
-        <Image src={image} fetchPriority="high"/>
+      <Image src={image} fetchPriority="high" />
       <Header>
         <Subtitle>
-          At <strong>Peak Efficiency</strong>, your privacy, data, and systems are protected by design.  
-          Every feature we build is backed by enterprise-grade security and seamless integrations that fit your workflow.
+          At <strong>Peak Efficiency</strong>, your privacy, data, and systems are protected by
+          design. Every feature we build is backed by enterprise-grade security and seamless
+          integrations that fit your workflow.
         </Subtitle>
       </Header>
-      
 
       <SectionTitle>Security You Can Trust</SectionTitle>
       <CardGrid>
@@ -94,13 +100,13 @@ const PageContainer = styled.div`
 `;
 
 const Image = styled.img`
-    max-width: 400px;
-    margin-top: 10px;
-    margin-bottom: -20px;
-    z-index: 0;
-    padding: 0px 10px;
-    min-height: 300px;
-`
+  max-width: 400px;
+  margin-top: 10px;
+  margin-bottom: -20px;
+  z-index: 0;
+  padding: 0px 10px;
+  min-height: 300px;
+`;
 
 const Header = styled.div`
   max-width: 800px;

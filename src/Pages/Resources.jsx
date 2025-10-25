@@ -1,67 +1,72 @@
-import styled from "styled-components";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faBookOpen,
   faFileAlt,
   faChartBar,
   faVideo,
   faLink,
-} from "@fortawesome/free-solid-svg-icons";
-import image from '../images/resources.webp'
+} from '@fortawesome/free-solid-svg-icons';
+import image from '../images/resources.webp';
 
 export default function Resources() {
   const guides = [
     {
       icon: <FontAwesomeIcon icon={faBookOpen} />,
-      title: "Getting Started with Peak Efficiency",
-      description: "A step-by-step guide to setting up your workspace and automating daily workflows.",
-      link: "#",
+      title: 'Getting Started with Peak Efficiency',
+      description:
+        'A step-by-step guide to setting up your workspace and automating daily workflows.',
+      link: '#',
     },
     {
       icon: <FontAwesomeIcon icon={faFileAlt} />,
-      title: "AI Inbox Optimization",
-      description: "Learn how to train your AI assistant to prioritize, summarize, and reply on your behalf.",
-      link: "#",
+      title: 'AI Inbox Optimization',
+      description:
+        'Learn how to train your AI assistant to prioritize, summarize, and reply on your behalf.',
+      link: '#',
     },
   ];
 
   const blogs = [
     {
       icon: <FontAwesomeIcon icon={faChartBar} />,
-      title: "The Future of Productive Work",
-      description: "How AI is changing the way teams communicate and make decisions.",
-      link: "#",
+      title: 'The Future of Productive Work',
+      description: 'How AI is changing the way teams communicate and make decisions.',
+      link: '#',
     },
     {
       icon: <FontAwesomeIcon icon={faVideo} />,
-      title: "Inside Peak Efficiency",
-      description: "A behind-the-scenes look at how we build reliable AI for high-performance teams.",
-      link: "#",
+      title: 'Inside Peak Efficiency',
+      description:
+        'A behind-the-scenes look at how we build reliable AI for high-performance teams.',
+      link: '#',
     },
   ];
 
   const caseStudies = [
     {
       icon: <FontAwesomeIcon icon={faLink} />,
-      title: "Case Study: Atlas Group",
-      description: "Discover how a remote marketing team reduced email time by 70% using Peak Efficiency.",
-      link: "#",
+      title: 'Case Study: Atlas Group',
+      description:
+        'Discover how a remote marketing team reduced email time by 70% using Peak Efficiency.',
+      link: '#',
     },
     {
       icon: <FontAwesomeIcon icon={faLink} />,
-      title: "Case Study: Ember Analytics",
-      description: "See how a data-driven company automated reporting and improved collaboration with AI workflows.",
-      link: "#",
+      title: 'Case Study: Ember Analytics',
+      description:
+        'See how a data-driven company automated reporting and improved collaboration with AI workflows.',
+      link: '#',
     },
   ];
 
   return (
     <PageContainer>
-        <Image src={image} fetchPriority="high"/>
+      <Image src={image} fetchPriority="high" />
       <Header>
         <Subtitle>
-          Learn, explore, and get inspired. Dive into practical guides, insights, and real-world examples
-          to help your team reach <strong>Peak Efficiency</strong>.
+          Learn, explore, and get inspired. Dive into practical guides, insights, and real-world
+          examples to help your team reach <strong>Peak Efficiency</strong>.
         </Subtitle>
       </Header>
 
@@ -121,15 +126,14 @@ const Header = styled.div`
   margin-bottom: 3rem;
 `;
 
-
 const Image = styled.img`
-    max-width: 400px;
-    margin-top: 10px;
-    margin-bottom: -20px;
-    z-index: 0;
-    padding: 0px 10px;
-    min-height: 300px;
-`
+  max-width: 400px;
+  margin-top: 10px;
+  margin-bottom: -20px;
+  z-index: 0;
+  padding: 0px 10px;
+  min-height: 300px;
+`;
 
 const Subtitle = styled.p`
   font-size: 1.1rem;
@@ -208,4 +212,3 @@ const LearnMore = styled.span`
   color: #2e734c;
   font-weight: 600;
 `;
-

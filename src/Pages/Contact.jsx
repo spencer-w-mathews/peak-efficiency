@@ -1,32 +1,33 @@
 // WaitlistForm.jsx
-import React, { useState } from "react";
-import styled from "styled-components";
-import contact from "../images/contact.webp"
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import contact from '../images/contact.webp';
 
 export default function Contact() {
   // 🧠 Replace these 3 lines with your real values:
-  const formAction = "https://docs.google.com/forms/d/e/1FAIpQLSer88WImyOJw8rcgJfVjGSIRVum-RMDIfFjqGdpER0GoP3qZg/formResponse";
-  const nameEntry = "entry.500499564";  // <-- replace with your Name field entry ID
-  const emailEntry = "entry.49945969"; // <-- replace with your Email field entry ID
+  const formAction =
+    'https://docs.google.com/forms/d/e/1FAIpQLSer88WImyOJw8rcgJfVjGSIRVum-RMDIfFjqGdpER0GoP3qZg/formResponse';
+  const nameEntry = 'entry.500499564'; // <-- replace with your Name field entry ID
+  const emailEntry = 'entry.49945969'; // <-- replace with your Email field entry ID
 
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setError("");
+    setError('');
 
     if (!name.trim() || !email.trim()) {
-      setError("Please fill in both fields.");
+      setError('Please fill in both fields.');
       return;
     }
 
     // simple email validation
     const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if (!emailPattern.test(email)) {
-      setError("Please enter a valid email address.");
+      setError('Please enter a valid email address.');
       return;
     }
 
@@ -35,17 +36,17 @@ export default function Contact() {
     formData.append(emailEntry, email);
 
     fetch(formAction, {
-      method: "POST",
-      mode: "no-cors",
+      method: 'POST',
+      mode: 'no-cors',
       body: formData,
     })
       .then(() => {
         setSubmitted(true);
-        setName("");
-        setEmail("");
+        setName('');
+        setEmail('');
       })
       .catch(() => {
-        setError("Something went wrong. Try again later.");
+        setError('Something went wrong. Try again later.');
       });
   };
 
@@ -53,7 +54,9 @@ export default function Contact() {
     <Container>
       <FormContainer>
         <Title>Get Your Time Back.</Title>
-        <Subtitle>Join the Peak Efficiency list for updates, insights, and early access to new features.</Subtitle>
+        <Subtitle>
+          Join the Peak Efficiency list for updates, insights, and early access to new features.
+        </Subtitle>
 
         {submitted ? (
           <SuccessMessage>🎉 Thanks for joining! Check your inbox soon.</SuccessMessage>
@@ -119,19 +122,19 @@ const FormContainer = styled.div`
   max-width: 500px;
   margin: 20px auto 60px;
   padding: 2rem;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   text-align: left;
   @media (max-width: 768px) {
     margin-top: -10px;
   }
-`
+`;
 
 const Title = styled.h2`
   color: #234261;
   font-size: 3.2rem;
   margin-bottom: 0.3rem;
   @media (max-width: 768px) {
-    font-size: 2.0rem;
+    font-size: 2rem;
   }
 `;
 
@@ -181,7 +184,9 @@ const Button = styled.button`
   padding: 0.8rem 1.5rem;
   font-size: 1rem;
   cursor: pointer;
-  transition: background 0.25s ease, transform 0.1s ease;
+  transition:
+    background 0.25s ease,
+    transform 0.1s ease;
   &:hover {
     background-color: #256d44;
   }

@@ -1,72 +1,104 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 import logo from '../images/logo.webp';
-import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope, faHome, faObjectGroup } from '@fortawesome/free-regular-svg-icons'
-import { faChartLine, faHeartCircleCheck, faMugHot, faScaleBalanced, faServer } from '@fortawesome/free-solid-svg-icons'
+import { faEnvelope, faHome, faObjectGroup } from '@fortawesome/free-regular-svg-icons';
+import {
+  faChartLine,
+  faHeartCircleCheck,
+  faMugHot,
+  faScaleBalanced,
+  faServer,
+} from '@fortawesome/free-solid-svg-icons';
 
 function Footer() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [showProductsMenu, setShowProductsMenu] = useState(false);
   const [showWWSMenu, setShowWWSMenu] = useState(false);
 
-
-  useEffect(()=>{
-    setShowProductsMenu(false)
-    setShowWWSMenu(false)
-  }, [navigate])
+  useEffect(() => {
+    setShowProductsMenu(false);
+    setShowWWSMenu(false);
+  }, [navigate]);
 
   const toggleProductsMenu = () => {
-    setShowWWSMenu(false)
-    setShowProductsMenu(prev => !prev);
+    setShowWWSMenu(false);
+    setShowProductsMenu((prev) => !prev);
   };
 
   const toggleWWSMenu = () => {
-    setShowProductsMenu(false)
-    setShowWWSMenu(prev => !prev);
+    setShowProductsMenu(false);
+    setShowWWSMenu((prev) => !prev);
   };
   return (
     <FooterSection>
-      <img  alt='logo' src={logo} style={{ height: '60px', marginLeft: 10, marginTop: 25, borderRadius: 5, boxShadow: '0px 0px 30px 15px rgba(0, 0, 0, 0.2)'}}/>
+      <img
+        alt="logo"
+        src={logo}
+        style={{
+          height: '60px',
+          marginLeft: 10,
+          marginTop: 25,
+          borderRadius: 5,
+          boxShadow: '0px 0px 30px 15px rgba(0, 0, 0, 0.2)',
+        }}
+      />
       <HeaderSubText>
         Peak Efficiency - Helping leaders lead again through clarity, focus, and automation.
       </HeaderSubText>
       <NavButtonCont>
-        <NavText onClick={() => navigate("/hero")}>Home</NavText>
+        <NavText onClick={() => navigate('/hero')}>Home</NavText>
         <NavItem>
           <NavText onClick={toggleProductsMenu}>Products ▾</NavText>
           {showProductsMenu && (
             <SubMenuDesktop>
               <Row>
-                <FontAwesomeIcon icon={faEnvelope} color='#234261' size='sm' style={{marginTop: 'auto', marginBottom: 'auto'}}/>
-                <SubItem onClick={() => navigate('/products/email-filter-sorter')}>Email Filter & Sorter</SubItem>
+                <FontAwesomeIcon
+                  icon={faEnvelope}
+                  color="#234261"
+                  size="sm"
+                  style={{ marginTop: 'auto', marginBottom: 'auto' }}
+                />
+                <SubItem onClick={() => navigate('/products/email-filter-sorter')}>
+                  Email Filter & Sorter
+                </SubItem>
               </Row>
               <Row>
-                <FontAwesomeIcon icon={faMugHot} color='#234261' size='sm' style={{marginTop: 'auto', marginBottom: 'auto'}}/>
+                <FontAwesomeIcon
+                  icon={faMugHot}
+                  color="#234261"
+                  size="sm"
+                  style={{ marginTop: 'auto', marginBottom: 'auto' }}
+                />
                 <SubItem onClick={() => navigate('/products/morning-brief')}>Morning Brief</SubItem>
               </Row>
               <Row>
-                <FontAwesomeIcon icon={faObjectGroup} color='#234261' size='sm' style={{marginTop: 'auto', marginBottom: 'auto'}}/>
+                <FontAwesomeIcon
+                  icon={faObjectGroup}
+                  color="#234261"
+                  size="sm"
+                  style={{ marginTop: 'auto', marginBottom: 'auto' }}
+                />
                 <SubItem onClick={() => navigate('/products/command-board')}>Command Board</SubItem>
               </Row>
               <Row>
-                <FontAwesomeIcon 
-                  icon={faServer} 
-                  color='#234261' 
-                  size='sm' 
-                  style={{ marginTop: 'auto', marginBottom: 'auto' }} 
+                <FontAwesomeIcon
+                  icon={faServer}
+                  color="#234261"
+                  size="sm"
+                  style={{ marginTop: 'auto', marginBottom: 'auto' }}
                 />
                 <SubItem onClick={() => navigate('/products/custom-gpt')}>
                   Custom GPT Solutions
                 </SubItem>
               </Row>
               <Row>
-                <FontAwesomeIcon 
-                  icon={faChartLine} 
-                  color="#234261" 
-                  size="sm" 
-                  style={{ marginTop: 'auto', marginBottom: 'auto' }} 
+                <FontAwesomeIcon
+                  icon={faChartLine}
+                  color="#234261"
+                  size="sm"
+                  style={{ marginTop: 'auto', marginBottom: 'auto' }}
                 />
                 <SubItem onClick={() => navigate('/products/strategic-intelligence')}>
                   Strategic Intelligence
@@ -79,25 +111,42 @@ function Footer() {
           <NavText onClick={toggleWWSMenu}>Who We Serve ▾</NavText>
           {showWWSMenu && (
             <SubMenuDesktop>
-               <Row>
-                <FontAwesomeIcon icon={faScaleBalanced} color='#234261' size='sm' style={{marginTop: 'auto', marginBottom: 'auto'}}/>
+              <Row>
+                <FontAwesomeIcon
+                  icon={faScaleBalanced}
+                  color="#234261"
+                  size="sm"
+                  style={{ marginTop: 'auto', marginBottom: 'auto' }}
+                />
                 <SubItem onClick={() => navigate('/Who-We-Serve/lawyers')}>Lawyers</SubItem>
               </Row>
               <Row>
-                <FontAwesomeIcon icon={faHeartCircleCheck} color='#234261' size='sm' style={{marginTop: 'auto', marginBottom: 'auto'}}/>
+                <FontAwesomeIcon
+                  icon={faHeartCircleCheck}
+                  color="#234261"
+                  size="sm"
+                  style={{ marginTop: 'auto', marginBottom: 'auto' }}
+                />
                 <SubItem onClick={() => navigate('/Who-We-Serve/health-care')}>Health Care</SubItem>
               </Row>
               <Row>
-                <FontAwesomeIcon icon={faHome} color='#234261' size='sm' style={{marginTop: 'auto', marginBottom: 'auto'}}/>
+                <FontAwesomeIcon
+                  icon={faHome}
+                  color="#234261"
+                  size="sm"
+                  style={{ marginTop: 'auto', marginBottom: 'auto' }}
+                />
                 <SubItem onClick={() => navigate('/Who-We-Serve/real-estate')}>Real Estate</SubItem>
               </Row>
             </SubMenuDesktop>
           )}
         </NavItem>
-        <NavText onClick={() => navigate("/security-and-integrations")}>Security & Integrations</NavText>
-        <NavText onClick={() => navigate("/resources")}>Resources</NavText>
-        <NavText onClick={() => navigate("/about")}>About</NavText>
-        <NavText onClick={() => navigate("/contact")}>Contact</NavText>
+        <NavText onClick={() => navigate('/security-and-integrations')}>
+          Security & Integrations
+        </NavText>
+        <NavText onClick={() => navigate('/resources')}>Resources</NavText>
+        <NavText onClick={() => navigate('/about')}>About</NavText>
+        <NavText onClick={() => navigate('/contact')}>Contact</NavText>
       </NavButtonCont>
       <EandWText>Email: chris@peakefficiency.ai</EandWText>
       <EandWText>Website: www.peakefficiency.ai</EandWText>
@@ -114,20 +163,19 @@ const FooterSection = styled.section`
   height: fit-content;
   margin-top: -20px;
   padding-bottom: 40px;
-`
+`;
 const Row = styled.div`
   display: flex;
-  
-`
+`;
 
 const HeaderSubText = styled.p`
   color: #ffffff;
   font-size: 24px;
   padding: 0px 170px 20px;
   @media (max-width: 768px) {
-      padding: 0px 20px 20px;
+    padding: 0px 20px 20px;
   }
-`
+`;
 
 const NavButtonCont = styled.div`
   display: flex;
@@ -135,11 +183,11 @@ const NavButtonCont = styled.div`
   width: 60%;
   margin: auto auto auto auto;
   @media (max-width: 768px) {
-     flex-direction: column;
-     width: 90%;
-     padding: 0px 10px;
+    flex-direction: column;
+    width: 90%;
+    padding: 0px 10px;
   }
-`
+`;
 
 const NavText = styled.div`
   color: #ffffff;
@@ -149,11 +197,10 @@ const NavText = styled.div`
   cursor: pointer;
   margin-bottom: 30px;
   @media (max-width: 768px) {
-     font-size: 16px;
-     margin-top: -10px;
+    font-size: 16px;
+    margin-top: -10px;
   }
-  
-`
+`;
 const EandWText = styled.div`
   color: #ffffff;
   font-weight: 500;
@@ -161,16 +208,15 @@ const EandWText = styled.div`
   cursor: pointer;
   margin-bottom: 10px;
   @media (max-width: 768px) {
-     font-size: 16px;
+    font-size: 16px;
   }
-  
-`
+`;
 
 const Line = styled.div`
   width: 90%;
-  border: .5px solid #747477ff;
+  border: 0.5px solid #747477ff;
   margin: 30px auto;
-`
+`;
 
 const Cright = styled.div`
   color: #ffffff;
@@ -179,10 +225,9 @@ const Cright = styled.div`
   margin-bottom: 0px;
   cursor: pointer;
   @media (max-width: 768px) {
-     font-size: 16px;
+    font-size: 16px;
   }
-  
-`
+`;
 
 const NavItem = styled.div`
   position: relative;
@@ -197,13 +242,13 @@ const SubMenuDesktop = styled.div`
   left: 100%;
   transform: translateX(-50%);
   background: white;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   border-radius: 8px;
   padding: 10px;
   min-width: 220px;
   z-index: 1000;
   @media (max-width: 768px) {
-     left: 50%;
+    left: 50%;
   }
 `;
 

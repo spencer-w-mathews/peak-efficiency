@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import './Products.css';
 import FlexContainer from '../Components/FlexContainer';
 import services from '../images/services.webp';
-import { faCircleCheck } from '@fortawesome/free-regular-svg-icons'
+import { faCircleCheck } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Button from '../Components/Button';
 
@@ -14,120 +14,134 @@ function Services() {
   const handleEmailClick = () => {
     const mailtoLink = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     window.location.href = mailtoLink;
-  }
+  };
   return (
-        <ServicesCont>
-            <Header>Beyond tools. Real transformation.</Header>
-            <HeaderSubText>Our consulting and automation services help leaders and teams adopt AI efficiently and sustainably.</HeaderSubText>
-            <FlexContainer>
-              <ServicesColumn>
-                <ClearCont>
-                  <FontAwesomeIcon icon={faCircleCheck} color='#2E734C' size='lg' style={{marginTop: '5px', marginRight: 10}}/>
-                  <div>
-                    <ServicesTitle>
-                      Workflow Automation Consulting
-                    </ServicesTitle>
-                    <ServicesText>
-                      We build personalized automations using n8n, Microsoft 365, and OpenAI — saving hours every week by connecting your tools and streamlining your work.
-                    </ServicesText>
-                  </div>
-                </ClearCont>
-                <ClearCont>
-                  <FontAwesomeIcon icon={faCircleCheck} color='#2E734C' size='lg' style={{marginTop: '5px', marginRight: 10}}/>
-                  <div>
-                    <ServicesTitle>
-                      AI Integration Coaching
-                    </ServicesTitle>
-                    <ServicesText>
-                      Strategy sessions designed to help leaders harness AI effectively, simplify processes, and make smarter decisions.
-                    </ServicesText>
-                  </div>
-                </ClearCont>
-                <ClearCont>
-                  <FontAwesomeIcon icon={faCircleCheck} color='#2E734C' size='lg' style={{marginTop: '5px', marginRight: 10}}/>
-                  <div>
-                    <ServicesTitle>
-                      White-Glove Setup
-                    </ServicesTitle>
-                    <ServicesText>
-                      We analyze your emails and workflows to configure your tools for maximum efficiency — tailored to how you actually work.
-                    </ServicesText>
-                  </div>
-                </ClearCont>
-                <Button
-                      handleButton={handleEmailClick}
-                      accessibleName={'Open email to book consulting call with Peak Efficiency'}
-                      title={'Book a Consulting Call'}
-                />
-              </ServicesColumn>
-              <ServicesImg src={services} alt="logo"/>
-            </FlexContainer>
-            
-        </ServicesCont>
+    <ServicesCont>
+      <Header>Beyond tools. Real transformation.</Header>
+      <HeaderSubText>
+        Our consulting and automation services help leaders and teams adopt AI efficiently and
+        sustainably.
+      </HeaderSubText>
+      <FlexContainer>
+        <ServicesColumn>
+          <ClearCont>
+            <FontAwesomeIcon
+              icon={faCircleCheck}
+              color="#2E734C"
+              size="lg"
+              style={{ marginTop: '5px', marginRight: 10 }}
+            />
+            <div>
+              <ServicesTitle>Workflow Automation Consulting</ServicesTitle>
+              <ServicesText>
+                We build personalized automations using n8n, Microsoft 365, and OpenAI — saving
+                hours every week by connecting your tools and streamlining your work.
+              </ServicesText>
+            </div>
+          </ClearCont>
+          <ClearCont>
+            <FontAwesomeIcon
+              icon={faCircleCheck}
+              color="#2E734C"
+              size="lg"
+              style={{ marginTop: '5px', marginRight: 10 }}
+            />
+            <div>
+              <ServicesTitle>AI Integration Coaching</ServicesTitle>
+              <ServicesText>
+                Strategy sessions designed to help leaders harness AI effectively, simplify
+                processes, and make smarter decisions.
+              </ServicesText>
+            </div>
+          </ClearCont>
+          <ClearCont>
+            <FontAwesomeIcon
+              icon={faCircleCheck}
+              color="#2E734C"
+              size="lg"
+              style={{ marginTop: '5px', marginRight: 10 }}
+            />
+            <div>
+              <ServicesTitle>White-Glove Setup</ServicesTitle>
+              <ServicesText>
+                We analyze your emails and workflows to configure your tools for maximum efficiency
+                — tailored to how you actually work.
+              </ServicesText>
+            </div>
+          </ClearCont>
+          <Button
+            handleButton={handleEmailClick}
+            accessibleName={'Open email to book consulting call with Peak Efficiency'}
+            title={'Book a Consulting Call'}
+          />
+        </ServicesColumn>
+        <ServicesImg src={services} alt="logo" />
+      </FlexContainer>
+    </ServicesCont>
   );
 }
 
 export default Services;
 
 const ServicesCont = styled.section`
-    background-color: #ffffff;
-    height: fit-content;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 10px 100px 100px;
-    @media (max-width: 768px) {
-        padding: 0px 0px;
-      }
-`
+  background-color: #ffffff;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px 100px 100px;
+  @media (max-width: 768px) {
+    padding: 0px 0px;
+  }
+`;
 
 const Header = styled.h1`
   color: #234261;
   font-size: 50px;
   padding: 0px 10px;
   @media (max-width: 768px) {
-        padding: 0px 5px;
-        font-size: 40px;
-        line-height:  1;
-        margin-bottom: 25px;
-        margin-top: 25px;
-      }
-`
+    padding: 0px 5px;
+    font-size: 40px;
+    line-height: 1;
+    margin-bottom: 25px;
+    margin-top: 25px;
+  }
+`;
 const HeaderSubText = styled.p`
   color: #3f566cff;
   font-size: 24px;
   padding: 0px 170px 20px;
   margin-top: -30px;
   @media (max-width: 768px) {
-        padding: 0px 5px;
-        margin-top: 0px
-      }
-`
+    padding: 0px 5px;
+    margin-top: 0px;
+  }
+`;
 const ServicesColumn = styled.div`
   flex-direction: column;
   text-align: left;
   width: 40%;
   margin-right: auto;
   @media (max-width: 768px) {
-        padding: 0px 5px;
-        text-align: left;
-        margin-right: auto;
-        margin-left: auto;
-        width: 90%;
+    padding: 0px 5px;
+    text-align: left;
+    margin-right: auto;
+    margin-left: auto;
+    width: 90%;
   }
-`
+`;
 
 const ServicesTitle = styled.div`
   color: #234261;
   font-size: 24px;
   font-weight: 500;
-`
+`;
 
 const ServicesText = styled.div`
-   color: #3f566cff;
-   margin-top: 10px;
-   margin-bottom: 20px;
-`
+  color: #3f566cff;
+  margin-top: 10px;
+  margin-bottom: 20px;
+`;
 
 const ServicesImg = styled.img`
   height: 400px;
@@ -140,13 +154,13 @@ const ServicesImg = styled.img`
     margin: auto;
     margin-bottom: 30px;
   }
-`
+`;
 
 const ClearCont = styled.div`
   display: flex;
   flex-shrink: 0;
   flex-grow: 0;
   @media (max-width: 768px) {
-        width: 100%;
-      }
-`
+    width: 100%;
+  }
+`;

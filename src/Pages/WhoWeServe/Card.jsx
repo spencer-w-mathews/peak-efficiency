@@ -1,11 +1,11 @@
-import { useNavigate } from "react-router-dom";
-import styled from "styled-components";
+import { useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
 
 export default function InfoCard({ icon, title, description, route, color }) {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   return (
-    <Card onClick={() => route && navigate(route)} style={route ? {cursor: 'pointer'}: {}}>
-      <IconWrapper style={{color: {color}}}>{icon}</IconWrapper>
+    <Card onClick={() => route && navigate(route)} style={route ? { cursor: 'pointer' } : {}}>
+      <IconWrapper style={{ color: { color } }}>{icon}</IconWrapper>
       <Title>{title}</Title>
       <Description>{description}</Description>
     </Card>
@@ -22,7 +22,9 @@ const Card = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
   text-align: center;
   &:hover {
     transform: translateY(-4px);

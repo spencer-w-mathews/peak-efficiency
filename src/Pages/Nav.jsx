@@ -1,225 +1,311 @@
-import styled from "styled-components";
-import logo from '../images/logo.webp'
-import './Nav.css'
-import { useEffect, useState } from "react";
-import $ from 'jquery'
-import { useNavigate } from "react-router-dom";
+import styled from 'styled-components';
+import logo from '../images/logo.webp';
+import './Nav.css';
+import { useEffect, useState } from 'react';
+import $ from 'jquery';
+import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope, faHome, faObjectGroup } from '@fortawesome/free-regular-svg-icons'
-import { faChartLine, faHeartCircleCheck, faMugHot, faScaleBalanced, faServer } from '@fortawesome/free-solid-svg-icons'
+import { faEnvelope, faHome, faObjectGroup } from '@fortawesome/free-regular-svg-icons';
+import {
+  faChartLine,
+  faHeartCircleCheck,
+  faMugHot,
+  faScaleBalanced,
+  faServer,
+} from '@fortawesome/free-solid-svg-icons';
 
 function Nav() {
-  const [navOpen, setNavOpen] = useState(false)
+  const [navOpen, setNavOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 1200);
   const [showProductsMenu, setShowProductsMenu] = useState(false);
   const [showWWSMenu, setShowWWSMenu] = useState(false);
   const navigate = useNavigate();
 
   const onNavClick = () => {
-    setNavOpen(!navOpen)
-    if(navOpen){
+    setNavOpen(!navOpen);
+    if (navOpen) {
       $('#overlay').hide();
       $('.lines-button').removeClass('close');
-    }else{
+    } else {
       $('#overlay').show();
-          $('.lines-button').addClass('close');
+      $('.lines-button').addClass('close');
     }
-  }
+  };
 
   function handleWindowSizeChange() {
-      setIsMobile(window.innerWidth  <= 1200);
+    setIsMobile(window.innerWidth <= 1200);
   }
 
   useEffect(() => {
-    window.scrollTo(0,0)
-      window.addEventListener('resize', handleWindowSizeChange);
-      return () => {
-          window.removeEventListener('resize', handleWindowSizeChange);
-      }
+    window.scrollTo(0, 0);
+    window.addEventListener('resize', handleWindowSizeChange);
+    return () => {
+      window.removeEventListener('resize', handleWindowSizeChange);
+    };
   }, []);
 
   useEffect(() => {
-    window.scrollTo(0,0)
-    setShowProductsMenu(false)
-    setNavOpen(false)
+    window.scrollTo(0, 0);
+    setShowProductsMenu(false);
+    setNavOpen(false);
     $('#overlay').hide();
     $('.lines-button').removeClass('close');
   }, [navigate]);
 
   const toggleProductsMenu = () => {
-    setShowWWSMenu(false)
-    setShowProductsMenu(prev => !prev);
+    setShowWWSMenu(false);
+    setShowProductsMenu((prev) => !prev);
   };
 
   const toggleWWSMenu = () => {
-    setShowProductsMenu(false)
-    setShowWWSMenu(prev => !prev);
+    setShowProductsMenu(false);
+    setShowWWSMenu((prev) => !prev);
   };
 
-  return (
-    isMobile ?
-      <NavBarMobile>
-        <img  alt='logo' src={logo} style={{ height: '60px', marginLeft: 10, marginTop: -.5, cursor: 'pointer'}} onClick={() => navigate('/')}/>
-        <button className="lines-button lines" onClick={()=> onNavClick()} >
-          <span></span>
-        </button>
-        {navOpen ? 
-            <Container>
-                <Column>
-                  <div style={{display: 'flex', backgroundColor: '#fff', width: '99.1vw', justifyContent: 'right', flexDirection: 'column',textAlign: 'center'}}>
-                    <NavText onClick={() => navigate('/')}>Home</NavText>
-                    {/* PRODUCTS + SUBMENU */}
-                    <NavText onClick={toggleProductsMenu}>Products ▾</NavText>
-                    {showProductsMenu && (
-                      <SubMenu>
-                        <Row>
-                          <FontAwesomeIcon icon={faEnvelope} color='#234261' size='sm' style={{marginTop: 'auto', marginBottom: 'auto'}}/>
-                          <SubItem onClick={() => navigate('/products/email-filter-sorter')}>Email Filter & Sorter</SubItem>
-                        </Row>
-                        <Row>
-                          <FontAwesomeIcon icon={faMugHot} color='#234261' size='sm' style={{marginTop: 'auto', marginBottom: 'auto'}}/>
-                          <SubItem onClick={() => navigate('/products/morning-brief')}>Morning Brief</SubItem>
-                        </Row>
-                        <Row>
-                          <FontAwesomeIcon icon={faObjectGroup} color='#234261' size='sm' style={{marginTop: 'auto', marginBottom: 'auto'}}/>
-                          <SubItem onClick={() => navigate('/products/command-board')}>Command Board</SubItem>
-                        </Row>
-                        <Row>
-                          <FontAwesomeIcon 
-                            icon={faServer} 
-                            color='#234261' 
-                            size='sm' 
-                            style={{ marginTop: 'auto', marginBottom: 'auto' }} 
-                          />
-                          <SubItem onClick={() => navigate('/products/custom-gpt')}>
-                            Custom GPT Solutions
-                          </SubItem>
-                        </Row>
-                        <Row>
-                          <FontAwesomeIcon 
-                            icon={faChartLine} 
-                            color="#234261" 
-                            size="sm" 
-                            style={{ marginTop: 'auto', marginBottom: 'auto' }} 
-                          />
-                          <SubItem onClick={() => navigate('/products/strategic-intelligence')}>
-                            Strategic Intelligence
-                          </SubItem>
-                        </Row>
-                      </SubMenu>
-                    )}
-                    {/* PRODUCTS + SUBMENU */}
-                    <NavText onClick={toggleWWSMenu}>Who We Serve ▾</NavText>
-                    {showWWSMenu && (
-                      <SubMenu>
-                        <Row>
-                          <FontAwesomeIcon icon={faScaleBalanced} color='#234261' size='sm' style={{marginTop: 'auto', marginBottom: 'auto'}}/>
-                          <SubItem onClick={() => navigate('/Who-We-Serve/lawyers')}>Lawyers</SubItem>
-                        </Row>
-                        <Row>
-                          <FontAwesomeIcon icon={faHeartCircleCheck} color='#234261' size='sm' style={{marginTop: 'auto', marginBottom: 'auto'}}/>
-                          <SubItem onClick={() => navigate('/Who-We-Serve/health-care')}>Health Care</SubItem>
-                        </Row>
-                        <Row>
-                          <FontAwesomeIcon icon={faHome} color='#234261' size='sm' style={{marginTop: 'auto', marginBottom: 'auto'}}/>
-                          <SubItem onClick={() => navigate('/Who-We-Serve/real-estate')}>Real Estate</SubItem>
-                        </Row>
-                      </SubMenu>
-                    )}
-                    <NavText onClick={() => navigate("/security-and-integrations")}>Security & Integrations</NavText>
-                    <NavText onClick={() => navigate("/resources")}>Resources</NavText>
-                    <NavText onClick={() => navigate("/about")}>About</NavText>
-                    <NavText onClick={() => navigate("/contact")}>Contact</NavText>
-                  {/* <NavButton onClick={handleEmailClick}>Book a Consulting Call</NavButton> */}
-                  </div>
-                </Column>
-            </Container>
-            : 
-            <></>
-          }
-      </NavBarMobile>
-      :
-      (
-    <NavBar>
-     <LogoImg  onClick={() => navigate('/')} src={logo} alt="logo"/>
-     <NavButtonCont>
-        <NavText onClick={() => navigate('/')}>Home</NavText>
-        {/* PRODUCTS + SUBMENU */}
-          <NavText
-            onClick={toggleProductsMenu}
-            style={{ position: "relative" }}
-          >
-            Products ▾
-            {showProductsMenu && (
-              <SubMenuDesktop>
+  return isMobile ? (
+    <NavBarMobile>
+      <img
+        alt="logo"
+        src={logo}
+        style={{ height: '60px', marginLeft: 10, marginTop: -0.5, cursor: 'pointer' }}
+        onClick={() => navigate('/')}
+      />
+      <button className="lines-button lines" onClick={() => onNavClick()}>
+        <span></span>
+      </button>
+      {navOpen ? (
+        <Container>
+          <Column>
+            <div
+              style={{
+                display: 'flex',
+                backgroundColor: '#fff',
+                width: '99.1vw',
+                justifyContent: 'right',
+                flexDirection: 'column',
+                textAlign: 'center',
+              }}
+            >
+              <NavText onClick={() => navigate('/')}>Home</NavText>
+              {/* PRODUCTS + SUBMENU */}
+              <NavText onClick={toggleProductsMenu}>Products ▾</NavText>
+              {showProductsMenu && (
+                <SubMenu>
                   <Row>
-                    <FontAwesomeIcon icon={faEnvelope} color='#234261' size='sm' style={{marginTop: 'auto', marginBottom: 'auto'}}/>
-                    <SubItem onClick={() => navigate('/products/email-filter-sorter')}>Email Filter & Sorter</SubItem>
+                    <FontAwesomeIcon
+                      icon={faEnvelope}
+                      color="#234261"
+                      size="sm"
+                      style={{ marginTop: 'auto', marginBottom: 'auto' }}
+                    />
+                    <SubItem onClick={() => navigate('/products/email-filter-sorter')}>
+                      Email Filter & Sorter
+                    </SubItem>
                   </Row>
                   <Row>
-                    <FontAwesomeIcon icon={faMugHot} color='#234261' size='sm' style={{marginTop: 'auto', marginBottom: 'auto'}}/>
-                    <SubItem onClick={() => navigate('/products/morning-brief')}>Morning Brief</SubItem>
+                    <FontAwesomeIcon
+                      icon={faMugHot}
+                      color="#234261"
+                      size="sm"
+                      style={{ marginTop: 'auto', marginBottom: 'auto' }}
+                    />
+                    <SubItem onClick={() => navigate('/products/morning-brief')}>
+                      Morning Brief
+                    </SubItem>
                   </Row>
                   <Row>
-                    <FontAwesomeIcon icon={faObjectGroup} color='#234261' size='sm' style={{marginTop: 'auto', marginBottom: 'auto'}}/>
-                    <SubItem onClick={() => navigate('/products/command-board')}>Command Board</SubItem>
+                    <FontAwesomeIcon
+                      icon={faObjectGroup}
+                      color="#234261"
+                      size="sm"
+                      style={{ marginTop: 'auto', marginBottom: 'auto' }}
+                    />
+                    <SubItem onClick={() => navigate('/products/command-board')}>
+                      Command Board
+                    </SubItem>
                   </Row>
                   <Row>
-                    <FontAwesomeIcon 
-                      icon={faServer} 
-                      color='#234261' 
-                      size='sm' 
-                      style={{ marginTop: 'auto', marginBottom: 'auto' }} 
+                    <FontAwesomeIcon
+                      icon={faServer}
+                      color="#234261"
+                      size="sm"
+                      style={{ marginTop: 'auto', marginBottom: 'auto' }}
                     />
                     <SubItem onClick={() => navigate('/products/custom-gpt')}>
                       Custom GPT Solutions
                     </SubItem>
                   </Row>
                   <Row>
-                    <FontAwesomeIcon 
-                      icon={faChartLine} 
-                      color="#234261" 
-                      size="sm" 
-                      style={{ marginTop: 'auto', marginBottom: 'auto' }} 
+                    <FontAwesomeIcon
+                      icon={faChartLine}
+                      color="#234261"
+                      size="sm"
+                      style={{ marginTop: 'auto', marginBottom: 'auto' }}
                     />
                     <SubItem onClick={() => navigate('/products/strategic-intelligence')}>
                       Strategic Intelligence
                     </SubItem>
                   </Row>
-              </SubMenuDesktop>
-            )}
-          </NavText>
-        {/* PRODUCTS + SUBMENU */}
-          <NavText
-            onClick={toggleWWSMenu}
-            style={{ position: "relative" }}
-          >
-            Who We Serve ▾
-            {showWWSMenu && (
-              <SubMenuDesktop>
+                </SubMenu>
+              )}
+              {/* PRODUCTS + SUBMENU */}
+              <NavText onClick={toggleWWSMenu}>Who We Serve ▾</NavText>
+              {showWWSMenu && (
+                <SubMenu>
                   <Row>
-                    <FontAwesomeIcon icon={faScaleBalanced} color='#234261' size='sm' style={{marginTop: 'auto', marginBottom: 'auto'}}/>
+                    <FontAwesomeIcon
+                      icon={faScaleBalanced}
+                      color="#234261"
+                      size="sm"
+                      style={{ marginTop: 'auto', marginBottom: 'auto' }}
+                    />
                     <SubItem onClick={() => navigate('/Who-We-Serve/lawyers')}>Lawyers</SubItem>
                   </Row>
                   <Row>
-                    <FontAwesomeIcon icon={faHeartCircleCheck} color='#234261' size='sm' style={{marginTop: 'auto', marginBottom: 'auto'}}/>
-                    <SubItem onClick={() => navigate('/Who-We-Serve/health-care')}>Health Care</SubItem>
+                    <FontAwesomeIcon
+                      icon={faHeartCircleCheck}
+                      color="#234261"
+                      size="sm"
+                      style={{ marginTop: 'auto', marginBottom: 'auto' }}
+                    />
+                    <SubItem onClick={() => navigate('/Who-We-Serve/health-care')}>
+                      Health Care
+                    </SubItem>
                   </Row>
                   <Row>
-                    <FontAwesomeIcon icon={faHome} color='#234261' size='sm' style={{marginTop: 'auto', marginBottom: 'auto'}}/>
-                    <SubItem onClick={() => navigate('/Who-We-Serve/real-estate')}>Real Estate</SubItem>
+                    <FontAwesomeIcon
+                      icon={faHome}
+                      color="#234261"
+                      size="sm"
+                      style={{ marginTop: 'auto', marginBottom: 'auto' }}
+                    />
+                    <SubItem onClick={() => navigate('/Who-We-Serve/real-estate')}>
+                      Real Estate
+                    </SubItem>
                   </Row>
-              </SubMenuDesktop>
-            )}
-          </NavText>
-        <NavText onClick={() => navigate("/security-and-integrations")}>Security & Integrations</NavText>
-        <NavText onClick={() => navigate("/resources")}>Resources</NavText>
-        <NavText onClick={() => navigate("/about")}>About</NavText>
-        <NavText onClick={() => navigate("/contact")}>Contact</NavText>
-        
-     </NavButtonCont>
+                </SubMenu>
+              )}
+              <NavText onClick={() => navigate('/security-and-integrations')}>
+                Security & Integrations
+              </NavText>
+              <NavText onClick={() => navigate('/resources')}>Resources</NavText>
+              <NavText onClick={() => navigate('/about')}>About</NavText>
+              <NavText onClick={() => navigate('/contact')}>Contact</NavText>
+              {/* <NavButton onClick={handleEmailClick}>Book a Consulting Call</NavButton> */}
+            </div>
+          </Column>
+        </Container>
+      ) : (
+        <></>
+      )}
+    </NavBarMobile>
+  ) : (
+    <NavBar>
+      <LogoImg onClick={() => navigate('/')} src={logo} alt="logo" />
+      <NavButtonCont>
+        <NavText onClick={() => navigate('/')}>Home</NavText>
+        {/* PRODUCTS + SUBMENU */}
+        <NavText onClick={toggleProductsMenu} style={{ position: 'relative' }}>
+          Products ▾
+          {showProductsMenu && (
+            <SubMenuDesktop>
+              <Row>
+                <FontAwesomeIcon
+                  icon={faEnvelope}
+                  color="#234261"
+                  size="sm"
+                  style={{ marginTop: 'auto', marginBottom: 'auto' }}
+                />
+                <SubItem onClick={() => navigate('/products/email-filter-sorter')}>
+                  Email Filter & Sorter
+                </SubItem>
+              </Row>
+              <Row>
+                <FontAwesomeIcon
+                  icon={faMugHot}
+                  color="#234261"
+                  size="sm"
+                  style={{ marginTop: 'auto', marginBottom: 'auto' }}
+                />
+                <SubItem onClick={() => navigate('/products/morning-brief')}>Morning Brief</SubItem>
+              </Row>
+              <Row>
+                <FontAwesomeIcon
+                  icon={faObjectGroup}
+                  color="#234261"
+                  size="sm"
+                  style={{ marginTop: 'auto', marginBottom: 'auto' }}
+                />
+                <SubItem onClick={() => navigate('/products/command-board')}>Command Board</SubItem>
+              </Row>
+              <Row>
+                <FontAwesomeIcon
+                  icon={faServer}
+                  color="#234261"
+                  size="sm"
+                  style={{ marginTop: 'auto', marginBottom: 'auto' }}
+                />
+                <SubItem onClick={() => navigate('/products/custom-gpt')}>
+                  Custom GPT Solutions
+                </SubItem>
+              </Row>
+              <Row>
+                <FontAwesomeIcon
+                  icon={faChartLine}
+                  color="#234261"
+                  size="sm"
+                  style={{ marginTop: 'auto', marginBottom: 'auto' }}
+                />
+                <SubItem onClick={() => navigate('/products/strategic-intelligence')}>
+                  Strategic Intelligence
+                </SubItem>
+              </Row>
+            </SubMenuDesktop>
+          )}
+        </NavText>
+        {/* PRODUCTS + SUBMENU */}
+        <NavText onClick={toggleWWSMenu} style={{ position: 'relative' }}>
+          Who We Serve ▾
+          {showWWSMenu && (
+            <SubMenuDesktop>
+              <Row>
+                <FontAwesomeIcon
+                  icon={faScaleBalanced}
+                  color="#234261"
+                  size="sm"
+                  style={{ marginTop: 'auto', marginBottom: 'auto' }}
+                />
+                <SubItem onClick={() => navigate('/Who-We-Serve/lawyers')}>Lawyers</SubItem>
+              </Row>
+              <Row>
+                <FontAwesomeIcon
+                  icon={faHeartCircleCheck}
+                  color="#234261"
+                  size="sm"
+                  style={{ marginTop: 'auto', marginBottom: 'auto' }}
+                />
+                <SubItem onClick={() => navigate('/Who-We-Serve/health-care')}>Health Care</SubItem>
+              </Row>
+              <Row>
+                <FontAwesomeIcon
+                  icon={faHome}
+                  color="#234261"
+                  size="sm"
+                  style={{ marginTop: 'auto', marginBottom: 'auto' }}
+                />
+                <SubItem onClick={() => navigate('/Who-We-Serve/real-estate')}>Real Estate</SubItem>
+              </Row>
+            </SubMenuDesktop>
+          )}
+        </NavText>
+        <NavText onClick={() => navigate('/security-and-integrations')}>
+          Security & Integrations
+        </NavText>
+        <NavText onClick={() => navigate('/resources')}>Resources</NavText>
+        <NavText onClick={() => navigate('/about')}>About</NavText>
+        <NavText onClick={() => navigate('/contact')}>Contact</NavText>
+      </NavButtonCont>
     </NavBar>
-      )
   );
 }
 
@@ -236,24 +322,23 @@ const NavBar = styled.div`
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow */
   z-index: 1999;
   display: flex;
-`
+`;
 const Row = styled.div`
   display: flex;
-`
+`;
 
 const LogoImg = styled.img`
   height: 70px;
   margin: auto auto auto 20px;
   cursor: pointer;
-`
+`;
 
 const NavButtonCont = styled.div`
   display: flex;
   justify-content: space-between;
   width: fit-content;
   margin: auto 20px auto auto;
-
-`
+`;
 
 const NavText = styled.div`
   color: #234261;
@@ -265,12 +350,12 @@ const NavText = styled.div`
   margin-bottom: auto;
   cursor: pointer;
   @media (max-width: 768px) {
-     font-size: 20px;
-     text-align: left;
-     padding-left: 30px;
-     margin-bottom: 30px;
+    font-size: 20px;
+    text-align: left;
+    padding-left: 30px;
+    margin-bottom: 30px;
   }
-`
+`;
 
 const NavBarMobile = styled.header`
   position: fixed; /* sits on top */
@@ -285,29 +370,25 @@ const NavBarMobile = styled.header`
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow */
 `;
 
-
 const Container = styled.div`
-    position: absolute;
-    top: 80px;
-    z-index: 5;
-    background-color: #fff;
-    width: 40vw;
-    height: fit-content;
-    padding-bottom: 25px;
-    left: 0px;
-    width: 100vw;
-    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.1); /* Light shadow */
-    padding-top: 30px;
-    border-top: 1px solid rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 80px;
+  z-index: 5;
+  background-color: #fff;
+  width: 40vw;
+  height: fit-content;
+  padding-bottom: 25px;
+  left: 0px;
+  width: 100vw;
+  box-shadow: 0 8px 8px rgba(0, 0, 0, 0.1); /* Light shadow */
+  padding-top: 30px;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
 `;
-
 
 const Column = styled.div`
-    display: flex;
-    flex-direction: column;
-
+  display: flex;
+  flex-direction: column;
 `;
-
 
 const SubMenu = styled.div`
   display: flex;
@@ -321,7 +402,7 @@ const SubMenuDesktop = styled.div`
   top: 30px;
   left: 0;
   background: white;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   border-radius: 8px;
   padding: 10px;
   min-width: 200px;
