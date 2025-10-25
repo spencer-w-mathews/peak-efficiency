@@ -7,12 +7,14 @@ import Contact from './Pages/Contact';
 import Home from './Pages/Home';
 import { Route, Routes } from 'react-router-dom';
 import ProductsExp from './Pages/Products/ProductsExp';
-import emailFilter from './images/emailFilter.webp'
-import morningBrief from './images/morningBrief.webp'
-import commandBoard from './images/commandBoard.webp'
+import emailFilter from './images/emailFilter_transparent.webp'
+import morningBrief from './images/morningBrief_transparent.webp'
+import commandBoard from './images/commandBoard_transparent.webp'
+import strategicIntel from './images/strategicIntel.webp'
 import WhoWeServe from './Pages/WhoWeServe/WhoWeServe';
 import SecurityIntegrations from './Pages/SandI';
 import Resources from './Pages/Resources';
+import GPT from './images/GPT_transparent.webp'
 
 //#2E734C --green
 //#234261 --blue lettering nav
@@ -57,6 +59,28 @@ function App() {
                     subText={'A secure central hub where you can see everything — communications, priorities, and progress — in one place.'}
                     image={commandBoard}
                     
+                  />
+                } 
+              />
+              <Route 
+                path="/products/custom-gpt" 
+                element={
+                  <ProductsExp 
+                    Title={'Custom GPT Solutions'} 
+                    subText={'Fully customized GPTs built for individuals, teams, and enterprises — tailored to your goals, workflows, and communication style.'}
+                    image={GPT} 
+                  />
+                } 
+              />
+              <Route 
+                path="/products/strategic-intelligence" 
+                element={
+                  <ProductsExp 
+                    Title={'Strategic Intelligence'} 
+                    subText={
+                      'AI-powered strategy, backed by real data — built to help leaders decide faster and scale smarter.'
+                    } 
+                    image={strategicIntel}
                   />
                 } 
               />

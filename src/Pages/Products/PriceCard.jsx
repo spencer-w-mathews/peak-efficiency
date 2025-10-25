@@ -3,10 +3,10 @@ import { faCircleCheck } from '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function PriceCard({cardData}) {
-    const {title, description, price, billingText,buttonText, trial, includes} = cardData
+    const {title, description, price, billingText,buttonText, trial, includes, mostPopular} = cardData
   return (
         <div style={{overflowY: 'hidden'}}>
-            {title === 'Business' && <MP>Most Popular</MP>}
+            {mostPopular && <MP>Most Popular</MP>}
             <PriceCont>
                 <Header>{title}</Header>
                 <Description>{description}</Description>
@@ -32,7 +32,7 @@ export default PriceCard;
 
 const PriceCont = styled.div`
     width: 280px;
-    height: 420px;
+    min-height: 490px;
     display: flex;
     flex-direction: column;
     text-align: left;
@@ -65,15 +65,15 @@ const Header = styled.p`
     margin-right: auto;
     font-weight: 600;
     font-size: 24px;
-    line-height: .1;
+    line-height: 1;
     color: #234261;
 `
 const Description = styled.p`
     font-size: 14px;
-    margin: -5px 0px 40px 0px;
+    margin: -5px 0px 20px 0px;
     line-height: 1;
     text-align: left;
-    height: 20px;
+    height: 50px;
 `
 
 const BillingCont = styled.div`
@@ -101,7 +101,7 @@ const Trial = styled.p`
 
 const Included = styled.p`
     font-size: 14px;
-    line-height: .5;
+    line-height: 1;
 `
 
 const Button = styled.button`
@@ -111,7 +111,7 @@ const Button = styled.button`
   width: 90%;
   height: 40px;
   border: 0px;
-  margin: 60px auto 0px;
+  margin: auto auto 0px;
   border-radius: 10px;
   padding: 0px 15px;
   cursor: pointer;

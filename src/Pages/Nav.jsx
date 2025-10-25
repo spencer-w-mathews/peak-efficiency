@@ -6,7 +6,7 @@ import $ from 'jquery'
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faHome, faObjectGroup } from '@fortawesome/free-regular-svg-icons'
-import { faHeartCircleCheck, faMugHot, faScaleBalanced } from '@fortawesome/free-solid-svg-icons'
+import { faChartLine, faHeartCircleCheck, faMugHot, faScaleBalanced, faServer } from '@fortawesome/free-solid-svg-icons'
 
 function Nav() {
   const [navOpen, setNavOpen] = useState(false)
@@ -84,6 +84,28 @@ function Nav() {
                           <FontAwesomeIcon icon={faObjectGroup} color='#234261' size='sm' style={{marginTop: 'auto', marginBottom: 'auto'}}/>
                           <SubItem onClick={() => navigate('/products/command-board')}>Command Board</SubItem>
                         </Row>
+                        <Row>
+                          <FontAwesomeIcon 
+                            icon={faServer} 
+                            color='#234261' 
+                            size='sm' 
+                            style={{ marginTop: 'auto', marginBottom: 'auto' }} 
+                          />
+                          <SubItem onClick={() => navigate('/products/custom-gpt')}>
+                            Custom GPT Solutions
+                          </SubItem>
+                        </Row>
+                        <Row>
+                          <FontAwesomeIcon 
+                            icon={faChartLine} 
+                            color="#234261" 
+                            size="sm" 
+                            style={{ marginTop: 'auto', marginBottom: 'auto' }} 
+                          />
+                          <SubItem onClick={() => navigate('/products/strategic-intelligence')}>
+                            Strategic Intelligence
+                          </SubItem>
+                        </Row>
                       </SubMenu>
                     )}
                     {/* PRODUCTS + SUBMENU */}
@@ -141,6 +163,28 @@ function Nav() {
                   <Row>
                     <FontAwesomeIcon icon={faObjectGroup} color='#234261' size='sm' style={{marginTop: 'auto', marginBottom: 'auto'}}/>
                     <SubItem onClick={() => navigate('/products/command-board')}>Command Board</SubItem>
+                  </Row>
+                  <Row>
+                    <FontAwesomeIcon 
+                      icon={faServer} 
+                      color='#234261' 
+                      size='sm' 
+                      style={{ marginTop: 'auto', marginBottom: 'auto' }} 
+                    />
+                    <SubItem onClick={() => navigate('/products/custom-gpt')}>
+                      Custom GPT Solutions
+                    </SubItem>
+                  </Row>
+                  <Row>
+                    <FontAwesomeIcon 
+                      icon={faChartLine} 
+                      color="#234261" 
+                      size="sm" 
+                      style={{ marginTop: 'auto', marginBottom: 'auto' }} 
+                    />
+                    <SubItem onClick={() => navigate('/products/strategic-intelligence')}>
+                      Strategic Intelligence
+                    </SubItem>
                   </Row>
               </SubMenuDesktop>
             )}
