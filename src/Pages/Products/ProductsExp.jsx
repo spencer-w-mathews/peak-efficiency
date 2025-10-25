@@ -247,7 +247,7 @@ const Image = styled.img`
 `;
 
 const Header = styled.h1`
-  color: #234261;
+  color: ${({ theme }) => theme.colors.primary};
   font-size: 50px;
   padding: 0px 100px;
   margin-top: -40px;
@@ -271,7 +271,7 @@ const HeaderSubText = styled.p`
 `;
 
 const PricingHeader = styled.h1`
-  color: #234261;
+  color: ${({ theme }) => theme.colors.primary};
   font-size: 30px;
   padding: 0px 100px;
   margin-top: -40px;

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { useTheme } from 'styled-components';
 import './Products.css';
 import FlexContainer from '../Components/FlexContainer';
 import services from '../images/services.webp';
@@ -10,6 +10,7 @@ function Services() {
   const recipient = 'chris@peakefficiency.ai';
   const subject = 'Peak Efficiency Consult Call';
   const body = 'Hello, I would like to schedule a consult call.';
+  const theme = useTheme()
 
   const handleEmailClick = () => {
     const mailtoLink = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
@@ -27,7 +28,7 @@ function Services() {
           <ClearCont>
             <FontAwesomeIcon
               icon={faCircleCheck}
-              color="#2E734C"
+              color={theme.colors.secondary}
               size="lg"
               style={{ marginTop: '5px', marginRight: 10 }}
             />
@@ -42,7 +43,7 @@ function Services() {
           <ClearCont>
             <FontAwesomeIcon
               icon={faCircleCheck}
-              color="#2E734C"
+              color={theme.colors.secondary}
               size="lg"
               style={{ marginTop: '5px', marginRight: 10 }}
             />
@@ -57,7 +58,7 @@ function Services() {
           <ClearCont>
             <FontAwesomeIcon
               icon={faCircleCheck}
-              color="#2E734C"
+              color={theme.colors.secondary}
               size="lg"
               style={{ marginTop: '5px', marginRight: 10 }}
             />
@@ -84,7 +85,7 @@ function Services() {
 export default Services;
 
 const ServicesCont = styled.section`
-  background-color: #ffffff;
+  background-color: ${({ theme }) => theme.colors.white};
   height: fit-content;
   display: flex;
   flex-direction: column;
@@ -96,7 +97,7 @@ const ServicesCont = styled.section`
 `;
 
 const Header = styled.h1`
-  color: #234261;
+  color: ${({ theme }) => theme.colors.primary};
   font-size: 50px;
   padding: 0px 10px;
   @media (max-width: 768px) {
@@ -108,7 +109,7 @@ const Header = styled.h1`
   }
 `;
 const HeaderSubText = styled.p`
-  color: #3f566cff;
+  color: ${({ theme }) => theme.colors.mutedText};
   font-size: 24px;
   padding: 0px 170px 20px;
   margin-top: -30px;
@@ -132,13 +133,13 @@ const ServicesColumn = styled.div`
 `;
 
 const ServicesTitle = styled.div`
-  color: #234261;
+  color: ${({ theme }) => theme.colors.primary};
   font-size: 24px;
   font-weight: 500;
 `;
 
 const ServicesText = styled.div`
-  color: #3f566cff;
+  color: ${({ theme }) => theme.colors.mutedText};
   margin-top: 10px;
   margin-bottom: 20px;
 `;

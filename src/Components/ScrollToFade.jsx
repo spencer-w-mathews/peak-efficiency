@@ -1,31 +1,28 @@
-// ScrollToFade.js
 import React, { useState, useEffect, useRef } from 'react';
-import './ScrollToFade.css'; // Make sure to import the corresponding CSS
+import './ScrollToFade.css';
 
 const ScrollToFade = ({ children }) => {
   const [isVisible, setIsVisible] = useState(false);
   const fadeRef = useRef(null);
 
   useEffect(() => {
-    // Create an intersection observer to observe when the element comes into view
+    const node = fadeRef.current; // ✅ capture the current value
+    if (!node) return;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsVisible(true); // Trigger the fade-in effect
-          observer.unobserve(fadeRef.current); // Stop observing once it's visible
+          setIsVisible(true);
+          observer.unobserve(node); // use the captured node
         }
       },
-      { threshold: 0.3 } // Trigger when 50% of the element is visible
+      { threshold: 0.3 }
     );
 
-    if (fadeRef.current) {
-      observer.observe(fadeRef.current);
-    }
+    observer.observe(node);
 
     return () => {
-      if (fadeRef.current) {
-        observer.unobserve(fadeRef.current); // Clean up the observer on component unmount
-      }
+      observer.unobserve(node); // ✅ cleanup using the same node reference
     };
   }, []);
 

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { useTheme } from 'styled-components';
 import logo from '../images/logo.webp';
 import './Nav.css';
 import { useEffect, useState } from 'react';
@@ -20,6 +20,7 @@ function Nav() {
   const [showProductsMenu, setShowProductsMenu] = useState(false);
   const [showWWSMenu, setShowWWSMenu] = useState(false);
   const navigate = useNavigate();
+  const theme = useTheme();
 
   const onNavClick = () => {
     setNavOpen(!navOpen);
@@ -79,7 +80,7 @@ function Nav() {
             <div
               style={{
                 display: 'flex',
-                backgroundColor: '#fff',
+                backgroundColor: theme.colors.white,
                 width: '99.1vw',
                 justifyContent: 'right',
                 flexDirection: 'column',
@@ -94,7 +95,7 @@ function Nav() {
                   <Row>
                     <FontAwesomeIcon
                       icon={faEnvelope}
-                      color="#234261"
+                      color={theme.colors.primary}
                       size="sm"
                       style={{ marginTop: 'auto', marginBottom: 'auto' }}
                     />
@@ -105,7 +106,7 @@ function Nav() {
                   <Row>
                     <FontAwesomeIcon
                       icon={faMugHot}
-                      color="#234261"
+                      color={theme.colors.primary}
                       size="sm"
                       style={{ marginTop: 'auto', marginBottom: 'auto' }}
                     />
@@ -116,7 +117,7 @@ function Nav() {
                   <Row>
                     <FontAwesomeIcon
                       icon={faObjectGroup}
-                      color="#234261"
+                      color={theme.colors.primary}
                       size="sm"
                       style={{ marginTop: 'auto', marginBottom: 'auto' }}
                     />
@@ -127,7 +128,7 @@ function Nav() {
                   <Row>
                     <FontAwesomeIcon
                       icon={faServer}
-                      color="#234261"
+                      color={theme.colors.primary}
                       size="sm"
                       style={{ marginTop: 'auto', marginBottom: 'auto' }}
                     />
@@ -138,7 +139,7 @@ function Nav() {
                   <Row>
                     <FontAwesomeIcon
                       icon={faChartLine}
-                      color="#234261"
+                      color={theme.colors.primary}
                       size="sm"
                       style={{ marginTop: 'auto', marginBottom: 'auto' }}
                     />
@@ -155,7 +156,7 @@ function Nav() {
                   <Row>
                     <FontAwesomeIcon
                       icon={faScaleBalanced}
-                      color="#234261"
+                      color={theme.colors.primary}
                       size="sm"
                       style={{ marginTop: 'auto', marginBottom: 'auto' }}
                     />
@@ -164,7 +165,7 @@ function Nav() {
                   <Row>
                     <FontAwesomeIcon
                       icon={faHeartCircleCheck}
-                      color="#234261"
+                      color={theme.colors.primary}
                       size="sm"
                       style={{ marginTop: 'auto', marginBottom: 'auto' }}
                     />
@@ -175,7 +176,7 @@ function Nav() {
                   <Row>
                     <FontAwesomeIcon
                       icon={faHome}
-                      color="#234261"
+                      color={theme.colors.primary}
                       size="sm"
                       style={{ marginTop: 'auto', marginBottom: 'auto' }}
                     />
@@ -212,7 +213,7 @@ function Nav() {
               <Row>
                 <FontAwesomeIcon
                   icon={faEnvelope}
-                  color="#234261"
+                  color={theme.colors.primary}
                   size="sm"
                   style={{ marginTop: 'auto', marginBottom: 'auto' }}
                 />
@@ -223,7 +224,7 @@ function Nav() {
               <Row>
                 <FontAwesomeIcon
                   icon={faMugHot}
-                  color="#234261"
+                  color={theme.colors.primary}
                   size="sm"
                   style={{ marginTop: 'auto', marginBottom: 'auto' }}
                 />
@@ -232,7 +233,7 @@ function Nav() {
               <Row>
                 <FontAwesomeIcon
                   icon={faObjectGroup}
-                  color="#234261"
+                  color={theme.colors.primary}
                   size="sm"
                   style={{ marginTop: 'auto', marginBottom: 'auto' }}
                 />
@@ -241,7 +242,7 @@ function Nav() {
               <Row>
                 <FontAwesomeIcon
                   icon={faServer}
-                  color="#234261"
+                  color={theme.colors.primary}
                   size="sm"
                   style={{ marginTop: 'auto', marginBottom: 'auto' }}
                 />
@@ -252,7 +253,7 @@ function Nav() {
               <Row>
                 <FontAwesomeIcon
                   icon={faChartLine}
-                  color="#234261"
+                  color={theme.colors.primary}
                   size="sm"
                   style={{ marginTop: 'auto', marginBottom: 'auto' }}
                 />
@@ -271,7 +272,7 @@ function Nav() {
               <Row>
                 <FontAwesomeIcon
                   icon={faScaleBalanced}
-                  color="#234261"
+                  color={theme.colors.primary}
                   size="sm"
                   style={{ marginTop: 'auto', marginBottom: 'auto' }}
                 />
@@ -280,7 +281,7 @@ function Nav() {
               <Row>
                 <FontAwesomeIcon
                   icon={faHeartCircleCheck}
-                  color="#234261"
+                  color={theme.colors.primary}
                   size="sm"
                   style={{ marginTop: 'auto', marginBottom: 'auto' }}
                 />
@@ -289,7 +290,7 @@ function Nav() {
               <Row>
                 <FontAwesomeIcon
                   icon={faHome}
-                  color="#234261"
+                  color={theme.colors.primary}
                   size="sm"
                   style={{ marginTop: 'auto', marginBottom: 'auto' }}
                 />
@@ -312,13 +313,13 @@ function Nav() {
 export default Nav;
 
 const NavBar = styled.div`
-  background-color: #ffffff;
+  background-color: ${({ theme }) => theme.colors.white};
   position: fixed;
   height: 80px;
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #ffffff; /* Or your desired background color */
+  background-color: ${({ theme }) => theme.colors.white}; /* Or your desired background color */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow */
   z-index: 1999;
   display: flex;
@@ -341,7 +342,7 @@ const NavButtonCont = styled.div`
 `;
 
 const NavText = styled.div`
-  color: #234261;
+  color: ${({ theme }) => theme.colors.primary};
   font-weight: 500;
   margin-top: auto;
   width: fit-content;
@@ -363,7 +364,7 @@ const NavBarMobile = styled.header`
   left: 0;
   width: 100%;
   height: 80px; /* actual height */
-  background-color: #fff;
+  background-color: ${({ theme }) => theme.colors.white};
   display: flex;
   align-items: center;
   z-index: 9999; /* stays above other elements */
@@ -374,7 +375,7 @@ const Container = styled.div`
   position: absolute;
   top: 80px;
   z-index: 5;
-  background-color: #fff;
+  background-color: ${({ theme }) => theme.colors.white};
   width: 40vw;
   height: fit-content;
   padding-bottom: 25px;
@@ -410,7 +411,7 @@ const SubMenuDesktop = styled.div`
 `;
 
 const SubItem = styled.div`
-  color: #234261;
+  color: ${({ theme }) => theme.colors.primary};
   padding: 8px 12px;
   border-radius: 6px;
   cursor: pointer;

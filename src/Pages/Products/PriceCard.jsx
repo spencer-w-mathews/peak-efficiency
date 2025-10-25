@@ -53,7 +53,7 @@ const PriceCont = styled.div`
   text-align: left;
   overflow-x: hidden;
   border: 1px solid #cbc8c8ff;
-  background-color: #fcfbfbff;
+  background-color: ${({ theme }) => theme.colors.white};
   border-radius: 20px;
   margin: 20px;
   padding: 15px;
@@ -61,9 +61,9 @@ const PriceCont = styled.div`
 `;
 
 const MP = styled.div`
-  background-color: #234261;
+  background-color: ${({ theme }) => theme.colors.primary};
   text-align: center;
-  color: #fff;
+  color: ${({ theme }) => theme.colors.white};
   margin: 0px auto -20px auto;
   width: 240px;
   border-radius: 8px 8px 0px 0px;
@@ -81,7 +81,7 @@ const Header = styled.p`
   font-weight: 600;
   font-size: 24px;
   line-height: 1;
-  color: #234261;
+  color: ${({ theme }) => theme.colors.primary};
 `;
 const Description = styled.p`
   font-size: 14px;
@@ -120,8 +120,8 @@ const Included = styled.p`
 `;
 
 const Button = styled.button`
-  background-color: #234261;
-  color: #ffffff;
+  background-color: ${({ theme }) => theme.colors.primary};
+  color: ${({ theme }) => theme.colors.white};
   font-weight: 500;
   width: 90%;
   height: 40px;

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { useTheme } from 'styled-components';
 import logo from '../images/logo.webp';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
@@ -16,6 +16,7 @@ function Footer() {
   const navigate = useNavigate();
   const [showProductsMenu, setShowProductsMenu] = useState(false);
   const [showWWSMenu, setShowWWSMenu] = useState(false);
+  const theme = useTheme()
 
   useEffect(() => {
     setShowProductsMenu(false);
@@ -56,7 +57,7 @@ function Footer() {
               <Row>
                 <FontAwesomeIcon
                   icon={faEnvelope}
-                  color="#234261"
+                  color={theme.colors.primary}
                   size="sm"
                   style={{ marginTop: 'auto', marginBottom: 'auto' }}
                 />
@@ -67,7 +68,7 @@ function Footer() {
               <Row>
                 <FontAwesomeIcon
                   icon={faMugHot}
-                  color="#234261"
+                  color={theme.colors.primary}
                   size="sm"
                   style={{ marginTop: 'auto', marginBottom: 'auto' }}
                 />
@@ -76,7 +77,7 @@ function Footer() {
               <Row>
                 <FontAwesomeIcon
                   icon={faObjectGroup}
-                  color="#234261"
+                  color={theme.colors.primary}
                   size="sm"
                   style={{ marginTop: 'auto', marginBottom: 'auto' }}
                 />
@@ -85,7 +86,7 @@ function Footer() {
               <Row>
                 <FontAwesomeIcon
                   icon={faServer}
-                  color="#234261"
+                  color={theme.colors.primary}
                   size="sm"
                   style={{ marginTop: 'auto', marginBottom: 'auto' }}
                 />
@@ -96,7 +97,7 @@ function Footer() {
               <Row>
                 <FontAwesomeIcon
                   icon={faChartLine}
-                  color="#234261"
+                  color={theme.colors.primary}
                   size="sm"
                   style={{ marginTop: 'auto', marginBottom: 'auto' }}
                 />
@@ -114,7 +115,7 @@ function Footer() {
               <Row>
                 <FontAwesomeIcon
                   icon={faScaleBalanced}
-                  color="#234261"
+                  color={theme.colors.primary}
                   size="sm"
                   style={{ marginTop: 'auto', marginBottom: 'auto' }}
                 />
@@ -123,7 +124,7 @@ function Footer() {
               <Row>
                 <FontAwesomeIcon
                   icon={faHeartCircleCheck}
-                  color="#234261"
+                  color={theme.colors.primary}
                   size="sm"
                   style={{ marginTop: 'auto', marginBottom: 'auto' }}
                 />
@@ -132,7 +133,7 @@ function Footer() {
               <Row>
                 <FontAwesomeIcon
                   icon={faHome}
-                  color="#234261"
+                  color={theme.colors.primary}
                   size="sm"
                   style={{ marginTop: 'auto', marginBottom: 'auto' }}
                 />
@@ -159,7 +160,7 @@ function Footer() {
 export default Footer;
 
 const FooterSection = styled.section`
-  background-color: #234261;
+  background-color: ${({ theme }) => theme.colors.primary};
   height: fit-content;
   margin-top: -20px;
   padding-bottom: 40px;
@@ -169,7 +170,7 @@ const Row = styled.div`
 `;
 
 const HeaderSubText = styled.p`
-  color: #ffffff;
+  color: ${({ theme }) => theme.colors.white};
   font-size: 24px;
   padding: 0px 170px 20px;
   @media (max-width: 768px) {
@@ -190,7 +191,7 @@ const NavButtonCont = styled.div`
 `;
 
 const NavText = styled.div`
-  color: #ffffff;
+  color: ${({ theme }) => theme.colors.white};
   font-weight: 500;
   margin-top: auto;
   margin-bottom: auto;
@@ -202,7 +203,7 @@ const NavText = styled.div`
   }
 `;
 const EandWText = styled.div`
-  color: #ffffff;
+  color: ${({ theme }) => theme.colors.white};
   font-weight: 500;
   margin-top: auto;
   cursor: pointer;
@@ -219,7 +220,7 @@ const Line = styled.div`
 `;
 
 const Cright = styled.div`
-  color: #ffffff;
+  color: ${({ theme }) => theme.colors.white};
   font-weight: 500;
   margin-top: auto;
   margin-bottom: 0px;
@@ -253,7 +254,7 @@ const SubMenuDesktop = styled.div`
 `;
 
 const SubItem = styled.div`
-  color: #234261;
+  color: ${({ theme }) => theme.colors.primary};
   padding: 8px 12px;
   border-radius: 6px;
   cursor: pointer;

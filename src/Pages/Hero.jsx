@@ -45,7 +45,7 @@ const HeroSection = styled.section`
 `;
 
 const Header = styled.h1`
-  color: #ffffff;
+  color: ${({ theme }) => theme.colors.white};
   font-size: 70px;
   font-weight: 600;
   padding: 0px 100px 0px;

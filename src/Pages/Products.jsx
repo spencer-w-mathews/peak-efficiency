@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { useTheme } from 'styled-components';
 import './Products.css';
 import ScrollToFade from '../Components/ScrollToFade';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -8,6 +8,8 @@ import { useNavigate } from 'react-router-dom';
 
 function Products() {
   const navigate = useNavigate();
+  const theme = useTheme();
+  
   return (
     <section className="services">
       <Header>Simplify how you work. Amplify what matters.</Header>
@@ -25,7 +27,7 @@ function Products() {
             <IconContainer>
               <FontAwesomeIcon
                 icon={faEnvelope}
-                color="#2E734C"
+                color={theme.colors.secondary}
                 size="2x"
                 style={{ marginTop: '18px' }}
               />
@@ -47,7 +49,7 @@ function Products() {
             <IconContainer>
               <FontAwesomeIcon
                 icon={faMugHot}
-                color="#2E734C"
+                color={theme.colors.secondary}
                 size="2x"
                 style={{ marginTop: '18px' }}
               />
@@ -69,7 +71,7 @@ function Products() {
             <IconContainer>
               <FontAwesomeIcon
                 icon={faObjectGroup}
-                color="#2E734C"
+                color={theme.colors.secondary}
                 size="2x"
                 style={{ marginTop: '18px' }}
               />
@@ -89,7 +91,7 @@ function Products() {
 export default Products;
 
 const Header = styled.p`
-  color: #234261;
+  color: ${({ theme }) => theme.colors.primary};
   font-size: 50px;
   padding: 0px 100px;
   @media (max-width: 768px) {
@@ -101,7 +103,7 @@ const Header = styled.p`
   }
 `;
 const HeaderSubText = styled.p`
-  color: #3f566cff;
+  color: ${({ theme }) => theme.colors.mutedText};
   font-size: 24px;
   padding: 0px 170px 20px;
   @media (max-width: 768px) {

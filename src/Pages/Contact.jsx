@@ -130,7 +130,7 @@ const FormContainer = styled.div`
 `;
 
 const Title = styled.h2`
-  color: #234261;
+  color: ${({ theme }) => theme.colors.primary};
   font-size: 3.2rem;
   margin-bottom: 0.3rem;
   @media (max-width: 768px) {
@@ -139,7 +139,7 @@ const Title = styled.h2`
 `;
 
 const Subtitle = styled.p`
-  color: #a2a2a3ff;
+  color: ${({ theme }) => theme.colors.mutedText};
   font-size: 1.3rem;
   margin-bottom: 1.5rem;
   @media (max-width: 768px) {
@@ -156,7 +156,7 @@ const Form = styled.form`
 const Label = styled.label`
   text-align: left;
   font-size: 0.9rem;
-  color: #234261;
+  color: ${({ theme }) => theme.colors.primary};
 `;
 
 const Input = styled.input`
@@ -170,13 +170,13 @@ const Input = styled.input`
 
   &:focus {
     outline: none;
-    border-color: #2e734c;
+    border-color: ${({ theme }) => theme.colors.secondary};
     box-shadow: 0 0 0 3px rgba(46, 115, 76, 0.2);
   }
 `;
 
 const Button = styled.button`
-  background-color: #2e734c;
+  background-color: ${({ theme }) => theme.colors.secondary};
   width: 105%;
   color: #fff;
   border: none;
@@ -201,7 +201,7 @@ const ErrorMessage = styled.p`
 `;
 
 const SuccessMessage = styled.p`
-  color: #2e734c;
+  color: ${({ theme }) => theme.colors.secondary};
   font-size: 1rem;
   font-weight: 500;
 `;

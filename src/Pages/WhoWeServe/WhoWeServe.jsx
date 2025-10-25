@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { useTheme } from 'styled-components';
 import InfoCard from './Card';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -9,69 +9,69 @@ import {
 } from '@fortawesome/free-regular-svg-icons';
 import { faChartLine, faInfoCircle, faMugHot, faToolbox } from '@fortawesome/free-solid-svg-icons';
 
-const problems = [
-  {
-    icon: <FontAwesomeIcon icon={faEnvelope} color="#842729ff" />,
-    title: 'Overwhelmed Inbox',
-    description:
-      'Important messages get buried under noise, wasting time and causing missed opportunities.',
-  },
-  {
-    icon: <FontAwesomeIcon icon={faInfoCircle} color="#842729ff" />,
-    title: 'Information Overload',
-    description:
-      'You wake up to endless updates and articles, but no clear sense of what actually matters.',
-  },
-  {
-    icon: <FontAwesomeIcon icon={faToolbox} color="#842729ff" />,
-    title: 'Scattered Tools',
-    description:
-      'Tasks, emails, and notes are spread across platforms — nothing feels connected or in sync.',
-  },
-  {
-    icon: <FontAwesomeIcon icon={faChartLine} color="#842729ff" />,
-    title: 'Lost Priorities',
-    description: 'You spend more time figuring out what to do than actually doing it.',
-  },
-  {
-    icon: <FontAwesomeIcon icon={faClock} color="#842729ff" />,
-    title: 'Constant Context Switching',
-    description:
-      'Jumping between messages, meetings, and tasks breaks your focus and drains your energy.',
-  },
-  {
-    icon: <FontAwesomeIcon icon={faBellSlash} color="#842729ff" />,
-    title: 'Notification Fatigue',
-    description:
-      'Every app wants your attention — you’re pinged all day, but rarely about something that matters.',
-  },
-];
-
-const cards = [
-  {
-    icon: <FontAwesomeIcon icon={faEnvelope} color="#2e734c" />,
-    title: 'Email Filter & Sorter',
-    description:
-      'Removes noise, routes what matters, and drafts replies in your tone — your inbox finally works for you.',
-    route: '/products/email-filter-sorter',
-  },
-  {
-    icon: <FontAwesomeIcon icon={faMugHot} color="#2e734c" />,
-    title: 'Morning Brief',
-    description:
-      'Start each day with a clear snapshot of what matters most — key emails, meetings, and action items — all summarized by AI.',
-    route: '/products/morning-brief',
-  },
-  {
-    icon: <FontAwesomeIcon icon={faObjectGroup} color="#2e734c" />,
-    title: 'Command Board',
-    description:
-      'A secure central hub where you can see everything — communications, priorities, and progress — in one place.',
-    route: '/products/command-board',
-  },
-];
-
 function WhoWeServe({ Title }) {
+  const theme = useTheme();
+  const problems = [
+    {
+      icon: <FontAwesomeIcon icon={faEnvelope} color={theme.colors.bad} />,
+      title: 'Overwhelmed Inbox',
+      description:
+        'Important messages get buried under noise, wasting time and causing missed opportunities.',
+    },
+    {
+      icon: <FontAwesomeIcon icon={faInfoCircle} color={theme.colors.bad} />,
+      title: 'Information Overload',
+      description:
+        'You wake up to endless updates and articles, but no clear sense of what actually matters.',
+    },
+    {
+      icon: <FontAwesomeIcon icon={faToolbox} color={theme.colors.bad} />,
+      title: 'Scattered Tools',
+      description:
+        'Tasks, emails, and notes are spread across platforms — nothing feels connected or in sync.',
+    },
+    {
+      icon: <FontAwesomeIcon icon={faChartLine} color={theme.colors.bad} />,
+      title: 'Lost Priorities',
+      description: 'You spend more time figuring out what to do than actually doing it.',
+    },
+    {
+      icon: <FontAwesomeIcon icon={faClock} color={theme.colors.bad} />,
+      title: 'Constant Context Switching',
+      description:
+        'Jumping between messages, meetings, and tasks breaks your focus and drains your energy.',
+    },
+    {
+      icon: <FontAwesomeIcon icon={faBellSlash} color={theme.colors.bad} />,
+      title: 'Notification Fatigue',
+      description:
+        'Every app wants your attention — you’re pinged all day, but rarely about something that matters.',
+    },
+  ];
+
+  const cards = [
+    {
+      icon: <FontAwesomeIcon icon={faEnvelope} color={theme.colors.secondary} />,
+      title: 'Email Filter & Sorter',
+      description:
+        'Removes noise, routes what matters, and drafts replies in your tone — your inbox finally works for you.',
+      route: '/products/email-filter-sorter',
+    },
+    {
+      icon: <FontAwesomeIcon icon={faMugHot} color={theme.colors.secondary} />,
+      title: 'Morning Brief',
+      description:
+        'Start each day with a clear snapshot of what matters most — key emails, meetings, and action items — all summarized by AI.',
+      route: '/products/morning-brief',
+    },
+    {
+      icon: <FontAwesomeIcon icon={faObjectGroup} color={theme.colors.secondary} />,
+      title: 'Command Board',
+      description:
+        'A secure central hub where you can see everything — communications, priorities, and progress — in one place.',
+      route: '/products/command-board',
+    },
+  ];
   return (
     <WWSCont>
       <Header>The software environment for {Title} is broken</Header>
@@ -101,7 +101,7 @@ const WWSCont = styled.div`
 `;
 
 const Header = styled.h1`
-  color: #234261;
+  color: ${({ theme }) => theme.colors.primary};
   font-size: 50px;
   padding: 0px 100px;
   margin-top: -40px;
@@ -125,7 +125,7 @@ const Grid = styled.div`
 `;
 
 const PricingHeader = styled.h1`
-  color: #234261;
+  color: ${({ theme }) => theme.colors.primary};
   font-size: 30px;
   padding: 0px 100px;
   margin-top: 40px;

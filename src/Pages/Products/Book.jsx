@@ -147,7 +147,7 @@ const Header = styled.div`
   margin-bottom: 30px;
   h1 {
     font-size: 1.5rem;
-    color: #234261;
+    color: ${({ theme }) => theme.colors.primary};
   }
   p {
     font-size: 0.9rem;
@@ -180,7 +180,7 @@ const Meta = styled.div`
   background: #eef3f8;
   padding: 10px;
   border-radius: 8px;
-  color: #234261;
+  color: ${({ theme }) => theme.colors.primary};
   line-height: 1.4;
 `;
 
@@ -196,13 +196,13 @@ const SubmitBtn = styled.button`
   margin-top: 15px;
   padding: 12px;
   border: none;
-  background: #234261;
+  background: ${({ theme }) => theme.colors.primary};
   color: white;
   font-weight: bold;
   border-radius: 8px;
   cursor: pointer;
   &:hover {
-    background: #2e734c;
+    background: ${({ theme }) => theme.colors.secondary};
   }
 `;
 
@@ -215,7 +215,7 @@ const ConfirmationContainer = styled.div`
   padding: 50px;
   box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
   h1 {
-    color: #234261;
+    color: ${({ theme }) => theme.colors.primary};
     margin-bottom: 10px;
   }
   p {
@@ -228,12 +228,12 @@ const ConfirmationContainer = styled.div`
 const BackBtn = styled.button`
   margin-top: 20px;
   padding: 10px 18px;
-  background: #234261;
-  color: #fff;
+  background: ${({ theme }) => theme.colors.primary};
+  color: ${({ theme }) => theme.colors.white};
   border: none;
   border-radius: 8px;
   cursor: pointer;
   &:hover {
-    background: #2e734c;
+    background: ${({ theme }) => theme.colors.secondary};
   }
 `;

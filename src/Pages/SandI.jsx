@@ -55,7 +55,7 @@ export default function SecurityIntegrations() {
 
   return (
     <PageContainer>
-      <Image src={image} fetchPriority="high" />
+      <Image src={image}/>
       <Header>
         <Subtitle>
           At <strong>Peak Efficiency</strong>, your privacy, data, and systems are protected by
@@ -90,7 +90,7 @@ export default function SecurityIntegrations() {
 }
 
 const PageContainer = styled.div`
-  color: #234261;
+  color: ${({ theme }) => theme.colors.primary};
   min-height: 100vh;
   padding: 0rem 2rem 4rem;
   display: flex;
@@ -123,7 +123,7 @@ const Subtitle = styled.p`
 const SectionTitle = styled.h2`
   font-size: 1.75rem;
   font-weight: 600;
-  color: #234261;
+  color: ${({ theme }) => theme.colors.primary};
   margin-top: 0rem;
   margin-bottom: 2rem;
   text-align: center;
@@ -132,7 +132,7 @@ const SectionTitle = styled.h2`
 const SectionTitle1 = styled.h2`
   font-size: 1.75rem;
   font-weight: 600;
-  color: #234261;
+  color: ${({ theme }) => theme.colors.primary};
   margin-top: 2rem;
   margin-bottom: 2rem;
   text-align: center;
@@ -148,7 +148,7 @@ const CardGrid = styled.div`
 `;
 
 const Card = styled.div`
-  background-color: #fff;
+  background-color: ${({ theme }) => theme.colors.white};
   border-radius: 1rem;
   width: clamp(250px, 30%, 350px);
   padding: 1.75rem;
@@ -164,7 +164,7 @@ const Card = styled.div`
 
 const Icon = styled.div`
   font-size: 2rem;
-  color: #2e734c;
+  color: ${({ theme }) => theme.colors.secondary};
   margin-bottom: 1rem;
 `;
 
@@ -172,7 +172,7 @@ const CardTitle = styled.h3`
   font-size: 1.25rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
-  color: #234261;
+  color: ${({ theme }) => theme.colors.primary};
 `;
 
 const Description = styled.p`

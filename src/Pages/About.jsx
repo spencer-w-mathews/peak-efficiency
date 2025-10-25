@@ -1,6 +1,7 @@
-import styled from 'styled-components';
+import styled, { useTheme } from 'styled-components';
 
 function About() {
+  const theme = useTheme()
   return (
     <ServiceSection>
       <Header>About Peak Efficiency</Header>
@@ -22,7 +23,7 @@ function About() {
       </ParaSubText>
       <ParaTitle>Values</ParaTitle>
       <ParaSubText1>
-        We help leaders see <span style={{ color: '#2E734C', fontWeight: 800 }}>CLEAR</span> again
+        We help leaders see <span style={{ color: theme.colors.secondary, fontWeight: 800 }}>CLEAR</span> again
       </ParaSubText1>
       <div style={{ borderTop: '1px solid #5454543d' }}></div>
       <ClearCont>
@@ -95,7 +96,7 @@ const ServiceSection = styled.section`
 `;
 
 const Header = styled.h1`
-  color: #234261;
+  color: ${({ theme }) => theme.colors.primary};
   font-size: 50px;
   padding: 0px 100px;
   @media (max-width: 768px) {
@@ -103,7 +104,7 @@ const Header = styled.h1`
   }
 `;
 const HeaderSubText = styled.p`
-  color: #2e734c;
+  color: ${({ theme }) => theme.colors.secondary};
   font-size: 24px;
   font-weight: 700;
   margin-top: -30px;
@@ -113,7 +114,7 @@ const HeaderSubText = styled.p`
 `;
 
 const ParaTitle = styled.p`
-  color: #234261;
+  color: ${({ theme }) => theme.colors.primary};
   font-size: 24px;
   font-weight: 700;
   margin-top: 40px;
@@ -121,7 +122,7 @@ const ParaTitle = styled.p`
 `;
 
 const ParaSubText = styled.p`
-  color: #6d92b4;
+  color: ${({ theme }) => theme.colors.mutedText};
   font-size: 20px;
   font-weight: 300;
   padding: 10px 100px;
@@ -132,7 +133,7 @@ const ParaSubText = styled.p`
 `;
 
 const ParaSubText1 = styled.p`
-  color: #6d92b4;
+  color: ${({ theme }) => theme.colors.mutedText};
   font-size: 20px;
   font-weight: 300;
   padding: 10px 100px;
@@ -142,7 +143,7 @@ const ParaSubText1 = styled.p`
 `;
 
 const ClearTitle = styled.p`
-  color: #234261;
+  color: ${({ theme }) => theme.colors.primary};
   font-size: 22px;
   font-weight: 700;
   margin-bottom: -10px;
@@ -150,7 +151,7 @@ const ClearTitle = styled.p`
 `;
 
 const ClearText = styled.p`
-  color: #6d92b4;
+ color: ${({ theme }) => theme.colors.mutedText};
   font-size: 18px;
   font-weight: 300;
   padding: 0px 0px;
@@ -165,7 +166,7 @@ const LetterContainer = styled.div`
   border-radius: 50%;
   height: 45px;
   width: 45px;
-  color: #2e734c;
+  color: ${({ theme }) => theme.colors.secondary};
   font-size: 30px;
   margin-top: 27px;
   margin-right: 10px;
@@ -175,7 +176,7 @@ const LetterContainer = styled.div`
 
 const Letter = styled.p`
   margin-top: 5px;
-  color: #2e734c;
+  color: ${({ theme }) => theme.colors.secondary};
   font-weight: 600;
   font-size: 30px;
 `;

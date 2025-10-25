@@ -62,7 +62,7 @@ export default function Resources() {
 
   return (
     <PageContainer>
-      <Image src={image} fetchPriority="high" />
+      <Image src={image} />
       <Header>
         <Subtitle>
           Learn, explore, and get inspired. Dive into practical guides, insights, and real-world
@@ -110,8 +110,8 @@ export default function Resources() {
 }
 
 const PageContainer = styled.div`
-  background-color: #ffffff;
-  color: #234261;
+  background-color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.colors.primary};
   min-height: 100vh;
   padding: 0rem 2rem 4rem;
   display: flex;
@@ -144,7 +144,7 @@ const Subtitle = styled.p`
 const SectionTitle = styled.h2`
   font-size: 1.75rem;
   font-weight: 600;
-  color: #234261;
+  color: ${({ theme }) => theme.colors.primary};
   margin-top: 0.5rem;
   margin-bottom: 2rem;
   text-align: center;
@@ -153,7 +153,7 @@ const SectionTitle = styled.h2`
 const SectionTitle1 = styled.h2`
   font-size: 1.75rem;
   font-weight: 600;
-  color: #234261;
+  color: ${({ theme }) => theme.colors.primary};
   margin-top: 2rem;
   margin-bottom: 2rem;
   text-align: center;
@@ -189,7 +189,7 @@ const Card = styled.a`
 
 const Icon = styled.div`
   font-size: 2rem;
-  color: #2e734c;
+  color: ${({ theme }) => theme.colors.secondary};
   margin-bottom: 1rem;
 `;
 
@@ -197,18 +197,18 @@ const CardTitle = styled.h3`
   font-size: 1.25rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
-  color: #234261;
+  color: ${({ theme }) => theme.colors.primary};
 `;
 
 const Description = styled.p`
   font-size: 0.95rem;
-  color: #555;
+  color: ${({ theme }) => theme.colors.mutedText};
   line-height: 1.5;
   margin-bottom: 1rem;
 `;
 
 const LearnMore = styled.span`
   font-size: 0.9rem;
-  color: #2e734c;
+  color: ${({ theme }) => theme.colors.secondary};
   font-weight: 600;
 `;

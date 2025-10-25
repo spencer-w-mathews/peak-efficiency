@@ -43,7 +43,7 @@ const Title = styled.h3`
   font-size: 1.25rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
-  color: #234261;
+  color: ${({ theme }) => theme.colors.primary};
   margin-left: auto;
   margin-right: auto;
 `;

@@ -1,7 +1,6 @@
 import Hero from './Hero';
 import Products from './Products';
 import Services from './Services';
-import Contact from './Contact';
 
 //#2E734C --green
 //#234261 --blue lettering nav
@@ -20,9 +19,6 @@ function Home() {
       <div id="services">
         <Services />
       </div>
-      {/* <div id='contact'>
-        <Contact />
-      </div> */}
     </div>
   );
 }

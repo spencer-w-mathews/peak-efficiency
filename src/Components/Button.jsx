@@ -9,8 +9,8 @@ export default function Button({ accessibleName, handleButton, title }) {
 }
 
 const ButtonCont = styled.button`
-  background-color: #2e734c;
-  color: #ffffff;
+  background-color: ${({ theme }) => theme.colors.secondary};
+  color: ${({ theme }) => theme.colors.white};
   font-weight: 500;
   height: 40px;
   border: 0px;
