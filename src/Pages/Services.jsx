@@ -10,7 +10,7 @@ function Services() {
   const recipient = 'chris@peakefficiency.ai';
   const subject = 'Peak Efficiency Consult Call';
   const body = 'Hello, I would like to schedule a consult call.';
-  const theme = useTheme()
+  const theme = useTheme();
 
   const handleEmailClick = () => {
     const mailtoLink = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
@@ -152,8 +152,7 @@ const ServicesImg = styled.img`
   @media (max-width: 768px) {
     width: 90%;
     height: auto;
-    margin: auto;
-    margin-bottom: 30px;
+    margin: 20px auto 40px;
   }
 `;
 

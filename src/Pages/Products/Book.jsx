@@ -24,6 +24,7 @@ export default function BookForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    window.scrollTo(0, 0);
     // Here you'd normally send the data to your backend or Google Form endpoint
     console.log({ ...formData, tier, product });
     setSubmitted(true);
@@ -134,6 +135,7 @@ export default function BookForm() {
 /* ---------------- styled-components ---------------- */
 
 const FormContainer = styled.div`
+  overflow-x: hidden;
   max-width: 500px;
   margin: 60px auto;
   background: #f9fbfd;
@@ -169,6 +171,9 @@ const Input = styled.input`
 `;
 
 const Select = styled.select`
+  -webkit-appearance: none; /* ✅ Removes iOS default dropdown look */
+  -moz-appearance: none;
+  appearance: none;
   padding: 12px;
   border-radius: 8px;
   border: 1px solid #ccc;
