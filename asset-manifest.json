@@ -1,8 +1,9 @@
 {
   "files": {
-    "main.css": "/peak-efficiency/static/css/main.59c882a8.css",
-    "main.js": "/peak-efficiency/static/js/main.fad067fa.js",
+    "main.css": "/peak-efficiency/static/css/main.6755658e.css",
+    "main.js": "/peak-efficiency/static/js/main.07957a7d.js",
     "static/js/453.235ca634.chunk.js": "/peak-efficiency/static/js/453.235ca634.chunk.js",
+    "static/media/heroBG.png": "/peak-efficiency/static/media/heroBG.64d98bba1913736ab6ba.png",
     "static/media/resources.webp": "/peak-efficiency/static/media/resources.ab55808cde40224a041b.webp",
     "static/media/sAndI.webp": "/peak-efficiency/static/media/sAndI.4d237a6f98a40ee2da11.webp",
     "static/media/contact.webp": "/peak-efficiency/static/media/contact.3769e1bf0f7df64843f6.webp",
@@ -10,17 +11,16 @@
     "static/media/commandBoard_transparent.webp": "/peak-efficiency/static/media/commandBoard_transparent.6da1c0a0fb40c7503dbd.webp",
     "static/media/strategicIntel.webp": "/peak-efficiency/static/media/strategicIntel.0a2b11753ce9c32e4b2c.webp",
     "static/media/GPT_transparent.webp": "/peak-efficiency/static/media/GPT_transparent.3cba4dbcd5d7862343f8.webp",
-    "static/media/heroBackground.webp": "/peak-efficiency/static/media/heroBackground.725eed42a326312102a1.webp",
     "static/media/emailFilter_transparent.webp": "/peak-efficiency/static/media/emailFilter_transparent.73723e97bb06e243adb5.webp",
     "static/media/morningBrief_transparent.webp": "/peak-efficiency/static/media/morningBrief_transparent.f0d71b5959446211636f.webp",
     "static/media/logo.webp": "/peak-efficiency/static/media/logo.453bf1e9d634991bba04.webp",
     "index.html": "/peak-efficiency/index.html",
-    "main.59c882a8.css.map": "/peak-efficiency/static/css/main.59c882a8.css.map",
-    "main.fad067fa.js.map": "/peak-efficiency/static/js/main.fad067fa.js.map",
+    "main.6755658e.css.map": "/peak-efficiency/static/css/main.6755658e.css.map",
+    "main.07957a7d.js.map": "/peak-efficiency/static/js/main.07957a7d.js.map",
     "453.235ca634.chunk.js.map": "/peak-efficiency/static/js/453.235ca634.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.59c882a8.css",
-    "static/js/main.fad067fa.js"
+    "static/css/main.6755658e.css",
+    "static/js/main.07957a7d.js"
   ]
 }
