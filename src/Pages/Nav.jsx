@@ -8,8 +8,6 @@ import { useNavigate } from 'react-router-dom';
 function Nav() {
   const [navOpen, setNavOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 1200);
-  const [showProductsMenu, setShowProductsMenu] = useState(false);
-  const [showWWSMenu, setShowWWSMenu] = useState(false);
   const navigate = useNavigate();
   const theme = useTheme();
 
@@ -38,21 +36,10 @@ function Nav() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    setShowProductsMenu(false);
     setNavOpen(false);
     $('#overlay').hide();
     $('.lines-button').removeClass('close');
   }, [navigate]);
-
-  const toggleProductsMenu = () => {
-    setShowWWSMenu(false);
-    setShowProductsMenu((prev) => !prev);
-  };
-
-  const toggleWWSMenu = () => {
-    setShowProductsMenu(false);
-    setShowWWSMenu((prev) => !prev);
-  };
 
   return isMobile ? (
     <NavBarMobile>
@@ -80,10 +67,8 @@ function Nav() {
             >
               <NavText onClick={() => navigate('/')}>Home</NavText>
               <NavText onClick={() => navigate('/pricing')}>Pricing</NavText>
-              <NavText onClick={() => navigate('/security-and-integrations')}>Security</NavText>
-              <NavText onClick={() => navigate('/security-and-integrations')}>
-                AI Innovative Consulting
-              </NavText>
+              <NavText onClick={() => navigate('/security')}>Security</NavText>
+              <NavText onClick={() => navigate('/security')}>AI Innovative Consulting</NavText>
               <NavText onClick={() => navigate('/resources')}>Resources</NavText>
               <NavText onClick={() => navigate('/about')}>About</NavText>
               <NavText onClick={() => navigate('/contact')}>Contact</NavText>
@@ -101,10 +86,8 @@ function Nav() {
       <NavButtonCont>
         <NavText onClick={() => navigate('/')}>Home</NavText>
         <NavText onClick={() => navigate('/pricing')}>Pricing</NavText>
-        <NavText onClick={() => navigate('/security-and-integrations')}>Security</NavText>
-        <NavText onClick={() => navigate('/security-and-integrations')}>
-          AI Innovative Consulting
-        </NavText>
+        <NavText onClick={() => navigate('/security')}>Security</NavText>
+        <NavText onClick={() => navigate('/security')}>AI Innovative Consulting</NavText>
         <NavText onClick={() => navigate('/resources')}>Resources</NavText>
         <NavText onClick={() => navigate('/about')}>About</NavText>
         <NavText onClick={() => navigate('/contact')}>Contact</NavText>
@@ -129,10 +112,6 @@ const NavBar = styled.div`
   justify-content: center;
   align-items: center;
   z-index: 1999;
-`;
-
-const Row = styled.div`
-  display: flex;
 `;
 
 const LogoImg = styled.img`

@@ -6,9 +6,9 @@ export default function PageHero({ headline, subheadline, tagline, supporting, c
   return (
     <Hero>
       <Content>
-        <Image src={emailFilter} />
         <h1>{headline}</h1>
         {subheadline && <h3>{subheadline}</h3>}
+        <Image src={emailFilter} />
         {supporting && <p>{supporting}</p>}
         {/* {ctaText && (
           <Button to={to || '/get-hour-back'} accent>

@@ -75,8 +75,11 @@ const TableWrapper = styled.div`
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
   margin-top: 2rem;
-  border-radius: 10px;
+  border-radius: 0px;
   border: 1px solid ${(p) => p.theme.colors.gray};
+  @media (max-width: 768px) {
+    border-radius: 10px;
+  }
 `;
 
 const Table = styled.table`

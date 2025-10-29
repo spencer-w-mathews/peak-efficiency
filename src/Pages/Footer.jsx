@@ -1,37 +1,10 @@
-import styled, { useTheme } from 'styled-components';
+import styled from 'styled-components';
 import logo from '../images/logo.webp';
 import { useNavigate } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope, faHome, faObjectGroup } from '@fortawesome/free-regular-svg-icons';
-import {
-  faChartLine,
-  faHeartCircleCheck,
-  faMugHot,
-  faScaleBalanced,
-  faServer,
-} from '@fortawesome/free-solid-svg-icons';
 
 function Footer() {
   const navigate = useNavigate();
-  const [showProductsMenu, setShowProductsMenu] = useState(false);
-  const [showWWSMenu, setShowWWSMenu] = useState(false);
-  const theme = useTheme()
 
-  useEffect(() => {
-    setShowProductsMenu(false);
-    setShowWWSMenu(false);
-  }, [navigate]);
-
-  const toggleProductsMenu = () => {
-    setShowWWSMenu(false);
-    setShowProductsMenu((prev) => !prev);
-  };
-
-  const toggleWWSMenu = () => {
-    setShowProductsMenu(false);
-    setShowWWSMenu((prev) => !prev);
-  };
   return (
     <FooterSection>
       <img
@@ -50,101 +23,8 @@ function Footer() {
       </HeaderSubText>
       <NavButtonCont>
         <NavText onClick={() => navigate('/hero')}>Home</NavText>
-        <NavItem>
-          <NavText onClick={toggleProductsMenu}>Products ▾</NavText>
-          {showProductsMenu && (
-            <SubMenuDesktop>
-              <Row>
-                <FontAwesomeIcon
-                  icon={faEnvelope}
-                  color={theme.colors.primary}
-                  size="sm"
-                  style={{ marginTop: 'auto', marginBottom: 'auto' }}
-                />
-                <SubItem onClick={() => navigate('/products/email-filter-sorter')}>
-                  Email Filter & Sorter
-                </SubItem>
-              </Row>
-              <Row>
-                <FontAwesomeIcon
-                  icon={faMugHot}
-                  color={theme.colors.primary}
-                  size="sm"
-                  style={{ marginTop: 'auto', marginBottom: 'auto' }}
-                />
-                <SubItem onClick={() => navigate('/products/morning-brief')}>Morning Brief</SubItem>
-              </Row>
-              <Row>
-                <FontAwesomeIcon
-                  icon={faObjectGroup}
-                  color={theme.colors.primary}
-                  size="sm"
-                  style={{ marginTop: 'auto', marginBottom: 'auto' }}
-                />
-                <SubItem onClick={() => navigate('/products/command-board')}>Command Board</SubItem>
-              </Row>
-              <Row>
-                <FontAwesomeIcon
-                  icon={faServer}
-                  color={theme.colors.primary}
-                  size="sm"
-                  style={{ marginTop: 'auto', marginBottom: 'auto' }}
-                />
-                <SubItem onClick={() => navigate('/products/custom-gpt')}>
-                  Custom GPT Solutions
-                </SubItem>
-              </Row>
-              <Row>
-                <FontAwesomeIcon
-                  icon={faChartLine}
-                  color={theme.colors.primary}
-                  size="sm"
-                  style={{ marginTop: 'auto', marginBottom: 'auto' }}
-                />
-                <SubItem onClick={() => navigate('/products/strategic-intelligence')}>
-                  Strategic Intelligence
-                </SubItem>
-              </Row>
-            </SubMenuDesktop>
-          )}
-        </NavItem>
-        <NavItem>
-          <NavText onClick={toggleWWSMenu}>Who We Serve ▾</NavText>
-          {showWWSMenu && (
-            <SubMenuDesktop>
-              <Row>
-                <FontAwesomeIcon
-                  icon={faScaleBalanced}
-                  color={theme.colors.primary}
-                  size="sm"
-                  style={{ marginTop: 'auto', marginBottom: 'auto' }}
-                />
-                <SubItem onClick={() => navigate('/Who-We-Serve/lawyers')}>Lawyers</SubItem>
-              </Row>
-              <Row>
-                <FontAwesomeIcon
-                  icon={faHeartCircleCheck}
-                  color={theme.colors.primary}
-                  size="sm"
-                  style={{ marginTop: 'auto', marginBottom: 'auto' }}
-                />
-                <SubItem onClick={() => navigate('/Who-We-Serve/health-care')}>Health Care</SubItem>
-              </Row>
-              <Row>
-                <FontAwesomeIcon
-                  icon={faHome}
-                  color={theme.colors.primary}
-                  size="sm"
-                  style={{ marginTop: 'auto', marginBottom: 'auto' }}
-                />
-                <SubItem onClick={() => navigate('/Who-We-Serve/real-estate')}>Real Estate</SubItem>
-              </Row>
-            </SubMenuDesktop>
-          )}
-        </NavItem>
-        <NavText onClick={() => navigate('/security-and-integrations')}>
-          Security & Integrations
-        </NavText>
+        <NavText onClick={() => navigate('/pricing')}>Pricing</NavText>
+        <NavText onClick={() => navigate('/security')}>Security</NavText>
         <NavText onClick={() => navigate('/resources')}>Resources</NavText>
         <NavText onClick={() => navigate('/about')}>About</NavText>
         <NavText onClick={() => navigate('/contact')}>Contact</NavText>
@@ -164,9 +44,6 @@ const FooterSection = styled.section`
   height: fit-content;
   margin-top: -20px;
   padding-bottom: 40px;
-`;
-const Row = styled.div`
-  display: flex;
 `;
 
 const HeaderSubText = styled.p`
@@ -227,39 +104,5 @@ const Cright = styled.div`
   cursor: pointer;
   @media (max-width: 768px) {
     font-size: 16px;
-  }
-`;
-
-const NavItem = styled.div`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
-const SubMenuDesktop = styled.div`
-  position: absolute;
-  top: 50%;
-  left: 100%;
-  transform: translateX(-50%);
-  background: white;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-  border-radius: 8px;
-  padding: 10px;
-  min-width: 220px;
-  z-index: 1000;
-  @media (max-width: 768px) {
-    left: 50%;
-  }
-`;
-
-const SubItem = styled.div`
-  color: ${({ theme }) => theme.colors.primary};
-  padding: 8px 12px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 15px;
-  &:hover {
-    background-color: #f2f2f2;
   }
 `;
