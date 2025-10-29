@@ -18,6 +18,7 @@ import GPT from './images/GPT_transparent.webp';
 import BookForm from './Pages/Products/Book';
 import { ThemeProvider } from 'styled-components';
 import { theme } from './theme';
+import Pricing from './Pages/Pricing/Pricing';
 
 //#2E734C --green
 //#234261 --blue lettering nav
@@ -35,7 +36,8 @@ function App() {
           <Route path="/services" element={<Services />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
-          <Route
+          <Route path="/pricing" element={<Pricing />} />
+          {/* <Route
             path="/products/email-filter-sorter"
             element={
               <ProductsExp
@@ -94,7 +96,7 @@ function App() {
                 image={strategicIntel}
               />
             }
-          />
+          /> */}
           <Route path="/book" element={<BookForm />} />
           <Route
             path="/Who-We-Serve/lawyers"

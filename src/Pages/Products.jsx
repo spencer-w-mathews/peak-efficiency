@@ -3,13 +3,13 @@ import './Products.css';
 import ScrollToFade from '../Components/ScrollToFade';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faObjectGroup } from '@fortawesome/free-regular-svg-icons';
-import { faMugHot } from '@fortawesome/free-solid-svg-icons';
+import { faChartLine, faMugHot, faServer } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
 
 function Products() {
   const navigate = useNavigate();
   const theme = useTheme();
-  
+
   return (
     <section className="services">
       <Header>Simplify how you work. Amplify what matters.</Header>
@@ -80,6 +80,50 @@ function Products() {
             <p>
               A secure central hub where you can see everything — communications, priorities, and
               progress — in one place.
+            </p>
+          </ScrollToFade>
+        </div>
+        {/* Device Management */}
+        <div
+          className="service-card-home"
+          style={{ cursor: 'pointer' }}
+          onClick={() => navigate('/products/custom-gpt')}
+        >
+          <ScrollToFade>
+            <IconContainer>
+              <FontAwesomeIcon
+                icon={faServer}
+                color={theme.colors.secondary}
+                size="2x"
+                style={{ marginTop: '18px' }}
+              />
+            </IconContainer>
+            <h3>Custom GPT Solutions</h3>
+            <p>
+              Fully customized GPTs built for individuals, teams, and enterprises — tailored to your
+              goals, workflows, and communication style.
+            </p>
+          </ScrollToFade>
+        </div>
+        {/* Device Management */}
+        <div
+          className="service-card-home"
+          style={{ cursor: 'pointer' }}
+          onClick={() => navigate('/products/strategic-intelligence')}
+        >
+          <ScrollToFade>
+            <IconContainer>
+              <FontAwesomeIcon
+                icon={faChartLine}
+                color={theme.colors.secondary}
+                size="2x"
+                style={{ marginTop: '18px' }}
+              />
+            </IconContainer>
+            <h3>Strategic Intelligence</h3>
+            <p>
+              AI-powered strategy, backed by real data — built to help leaders decide faster and
+              scale smarter.
             </p>
           </ScrollToFade>
         </div>

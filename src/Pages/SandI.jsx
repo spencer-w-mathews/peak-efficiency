@@ -55,7 +55,7 @@ export default function SecurityIntegrations() {
 
   return (
     <PageContainer>
-      <Image src={image}/>
+      <Image src={image} />
       <Header>
         <Subtitle>
           At <strong>Peak Efficiency</strong>, your privacy, data, and systems are protected by
@@ -92,7 +92,7 @@ export default function SecurityIntegrations() {
 const PageContainer = styled.div`
   color: ${({ theme }) => theme.colors.primary};
   min-height: 100vh;
-  padding: 0rem 2rem 4rem;
+  padding: 80px 2rem 4rem;
   display: flex;
   flex-direction: column;
   align-items: center;

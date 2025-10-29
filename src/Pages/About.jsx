@@ -1,7 +1,7 @@
 import styled, { useTheme } from 'styled-components';
 
 function About() {
-  const theme = useTheme()
+  const theme = useTheme();
   return (
     <ServiceSection>
       <Header>About Peak Efficiency</Header>
@@ -23,7 +23,8 @@ function About() {
       </ParaSubText>
       <ParaTitle>Values</ParaTitle>
       <ParaSubText1>
-        We help leaders see <span style={{ color: theme.colors.secondary, fontWeight: 800 }}>CLEAR</span> again
+        We help leaders see{' '}
+        <span style={{ color: theme.colors.secondary, fontWeight: 800 }}>CLEAR</span> again
       </ParaSubText1>
       <div style={{ borderTop: '1px solid #5454543d' }}></div>
       <ClearCont>
@@ -89,9 +90,9 @@ export default About;
 
 const ServiceSection = styled.section`
   background-color: #fff;
-  padding: 10px 90px;
+  padding: 90px 90px 10px;
   @media (max-width: 768px) {
-    padding: 10px 25px;
+    padding: 90px 25px 10px;
   }
 `;
 
@@ -151,7 +152,7 @@ const ClearTitle = styled.p`
 `;
 
 const ClearText = styled.p`
- color: ${({ theme }) => theme.colors.mutedText};
+  color: ${({ theme }) => theme.colors.mutedText};
   font-size: 18px;
   font-weight: 300;
   padding: 0px 0px;

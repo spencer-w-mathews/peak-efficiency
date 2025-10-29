@@ -101,6 +101,7 @@ const Container = styled.div`
   display: flex;
   height: fit-content;
   padding-bottom: 30px;
+  padding-top: 80px;
   @media (max-width: 768px) {
     flex-direction: column;
   }

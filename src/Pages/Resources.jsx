@@ -113,7 +113,7 @@ const PageContainer = styled.div`
   background-color: ${({ theme }) => theme.colors.white};
   color: ${({ theme }) => theme.colors.primary};
   min-height: 100vh;
-  padding: 0rem 2rem 4rem;
+  padding: 80px 2rem 4rem;
   display: flex;
   flex-direction: column;
   align-items: center;

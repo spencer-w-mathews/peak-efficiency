@@ -13,9 +13,9 @@ function Home() {
       <div id="hero">
         <Hero />
       </div>
-      <div id="products">
+      {/* <div id="products">
         <Products />
-      </div>
+      </div> */}
       <div id="services">
         <Services />
       </div>

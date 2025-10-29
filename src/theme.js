@@ -9,16 +9,21 @@ export const theme = {
     white: '#FFFFFF',
     highlight: '#EEF3F8',
     bad: '#842729ff',
+    deepBlue: '#234261',
+    lightBlue: '#6D92B4',
+    gold: '#CBAE67',
+    gray: '#F4F5F6',
+    slate: '#E6E8EB',
   },
   fonts: {
     main: "'Inter', sans-serif",
+    heading: "'Poppins', sans-serif",
   },
   shadows: {
-    soft: '0 2px 15px rgba(0,0,0,0.05)',
+    soft: '0 8px 20px rgba(0,0,0,0.05)',
   },
   radii: {
-    small: '6px',
-    medium: '10px',
-    large: '16px',
+    card: '16px',
+    button: '32px',
   },
 };
