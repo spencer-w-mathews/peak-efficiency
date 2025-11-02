@@ -56,8 +56,11 @@ export default function PricingCards() {
   const navigate = useNavigate();
 
   const handleSelect = (tierName) => {
-    // Example product context (could come from props or global state)
-    navigate('/book', { state: { tier: tierName } });
+    if (tierName === 'Executive') {
+      navigate('/book', { state: { tier: tierName } });
+    } else {
+      window.open('https://app.peakefficiency.ai', '_blank');
+    }
   };
   return (
     <Wrap>
