@@ -19,7 +19,7 @@ function Footer() {
         }}
       />
       <HeaderSubText>
-        Peak Efficiency - Helping leaders lead again through clarity, focus, and automation.
+        Peak Efficiency - Helping professionals lead again through clarity, focus, and automation.
       </HeaderSubText>
       <NavButtonCont>
         <NavText onClick={() => navigate('/hero')}>Home</NavText>

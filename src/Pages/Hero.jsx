@@ -50,7 +50,7 @@ function Hero() {
             <HeroContent>
               <Header>Work smarter. Reclaim your time.</Header>
               <HeaderSubText>
-                Peak Efficiency helps leaders cut through digital chaos — giving back clarity,
+                Peak Efficiency helps professionals cut through digital chaos — giving back clarity,
                 focus, and control so every day starts with purpose, not distraction.
               </HeaderSubText>
               <Button

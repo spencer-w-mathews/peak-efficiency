@@ -5,25 +5,25 @@ function About() {
   return (
     <ServiceSection>
       <Header>About Peak Efficiency</Header>
-      <HeaderSubText>We help leaders lead again.</HeaderSubText>
+      <HeaderSubText>For professionals who value precision, not chaos</HeaderSubText>
       <ParaTitle>Mission Statement</ParaTitle>
       <ParaSubText>
-        We're on a mission to help leaders lead again. Peak Efficiency cuts through the digital
-        chaos of too many tools and too little time — giving back clarity, focus, and control so
-        every day starts with purpose, not distraction. We exist to help leaders reclaim their time,
-        simplify how they work, and unlock growth by delivering exactly what they truly need:
-        efficiency.
+        We're on a mission to help professionals focus again. Peak Efficiency cuts through the
+        digital chaos of too many tools and too little time — giving back clarity, focus, and
+        control so every day starts with purpose, not distraction. We exist to help professionals
+        reclaim their time, simplify how they work, and unlock growth by delivering exactly what
+        they truly need: efficiency.
       </ParaSubText>
       <ParaTitle>Vision Statement</ParaTitle>
       <ParaSubText>
-        Our vision is to give every leader back the freedom to lead, create, and grow — without
-        being buried in tools, emails, and busywork. We're building a world where simplicity powers
-        productivity, and technology quietly works in the background so people can focus on what
-        truly matters.
+        Our vision is to give every professional back the freedom to focus, create, and grow —
+        without being buried in tools, emails, and busywork. We're building a world where simplicity
+        powers productivity, and technology quietly works in the background so people can focus on
+        what truly matters.
       </ParaSubText>
       <ParaTitle>Values</ParaTitle>
       <ParaSubText1>
-        We help leaders see{' '}
+        We help professionals see{' '}
         <span style={{ color: theme.colors.secondary, fontWeight: 800 }}>CLEAR</span> again
       </ParaSubText1>
       <div style={{ borderTop: '1px solid #5454543d' }}></div>
@@ -73,14 +73,19 @@ function About() {
         </div>
       </ClearCont>
       <ParaTitle>What Makes Us Different</ParaTitle>
+      <ParaSubText>We don't build tools — we build clarity.</ParaSubText>
       <ParaSubText>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer odio urna, imperdiet eu
-        ultricies a, finibus id urna. Cras ex lacus, molestie in finibus luctus, ornare nec neque.
-        Proin egestas metus justo, eu imperdiet urna luctus ac. Donec vitae quam non purus blandit
-        ultrices. Sed lacinia mollis lectus. Fusce rhoncus orci quis nunc sodales, et viverra dolor
-        varius. Quisque maximus pellentesque neque, nec rhoncus massa elementum bibendum. Donec in
-        eros sed velit pretium vestibulum in nec quam. Vestibulum in dui maximus, sodales eros sed,
-        molestie dolor. Duis pulvinar fringilla vulputate. Nulla facilisi.
+        Peak Efficiency learns your workflow, your tone, and your priorities. There's no learning
+        curve for you — it learns your style. Every product we design is buit to simplify your day,
+        not complicate it.
+      </ParaSubText>
+      <ParaSubText>
+        Our AI doesn't just automate tasks — it restores focus. Our system doesn't replace
+        professionals — it empowers them.
+      </ParaSubText>
+      <ParaSubText>
+        And our promise is simple: technology that fades into the background so you can focus on
+        what matters most.
       </ParaSubText>
     </ServiceSection>
   );

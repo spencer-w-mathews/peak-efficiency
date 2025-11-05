@@ -33,7 +33,7 @@ const plans = [
       'Custom tone profiles per department',
       'Team-wide priority tagging',
     ],
-    cta: 'Get Started for Free',
+    cta: 'Sign Me Up',
     highlight: true,
   },
   {
@@ -59,7 +59,7 @@ export default function PricingCards() {
     if (tierName === 'Executive') {
       navigate('/book', { state: { tier: tierName } });
     } else {
-      window.open('https://app.peakefficiency.ai', '_blank');
+      window.open(`https://app.peakefficiency.ai?tier=${tierName.toLowerCase()}`, '_blank');
     }
   };
   return (

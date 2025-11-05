@@ -20,7 +20,7 @@ function Services() {
     <ServicesCont>
       <Header>Beyond tools. Real transformation.</Header>
       <HeaderSubText>
-        Our consulting and automation services help leaders and teams adopt AI efficiently and
+        Our consulting and automation services help professionals and teams adopt AI efficiently and
         sustainably.
       </HeaderSubText>
       <FlexContainer>
