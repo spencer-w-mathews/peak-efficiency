@@ -12,6 +12,7 @@ import BookForm from './Pages/Products/Book';
 import { ThemeProvider } from 'styled-components';
 import { theme } from './theme';
 import Pricing from './Pages/Pricing/Pricing';
+import ContentEditor from './Pages/ContentEditor';
 
 //#2E734C --green
 //#234261 --blue lettering nav
@@ -33,6 +34,7 @@ function App() {
           <Route path="/book" element={<BookForm />} />
           <Route path="/security" element={<SecurityIntegrations />} />
           <Route path="/resources" element={<Resources />} />
+          <Route path="/content-editor" element={<ContentEditor />} />
           <Route path="*" element={<Home />} />
         </Routes>
 

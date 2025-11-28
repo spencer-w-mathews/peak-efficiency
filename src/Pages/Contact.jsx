@@ -2,8 +2,11 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import contact from '../images/contact.webp';
+import { useContent } from '../content/ContentContext';
 
 export default function Contact() {
+  const { content } = useContent();
+  const { contact: contactContent } = content;
   // 🧠 Replace these 3 lines with your real values:
   const formAction =
     'https://docs.google.com/forms/d/e/1FAIpQLSer88WImyOJw8rcgJfVjGSIRVum-RMDIfFjqGdpER0GoP3qZg/formResponse';
@@ -20,14 +23,14 @@ export default function Contact() {
     setError('');
 
     if (!name.trim() || !email.trim()) {
-      setError('Please fill in both fields.');
+      setError(contactContent.errors.missingFields);
       return;
     }
 
     // simple email validation
     const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if (!emailPattern.test(email)) {
-      setError('Please enter a valid email address.');
+      setError(contactContent.errors.invalidEmail);
       return;
     }
 
@@ -46,20 +49,18 @@ export default function Contact() {
         setEmail('');
       })
       .catch(() => {
-        setError('Something went wrong. Try again later.');
+        setError(contactContent.errors.submission);
       });
   };
 
   return (
     <Container>
       <FormContainer>
-        <Title>Get Your Time Back.</Title>
-        <Subtitle>
-          Join the Peak Efficiency list for updates, insights, and early access to new features.
-        </Subtitle>
+        <Title>{contactContent.title}</Title>
+        <Subtitle>{contactContent.subtitle}</Subtitle>
 
         {submitted ? (
-          <SuccessMessage>🎉 Thanks for joining! Check your inbox soon.</SuccessMessage>
+          <SuccessMessage>{contactContent.successMessage}</SuccessMessage>
         ) : (
           <Form onSubmit={handleSubmit}>
             <Label>
@@ -68,7 +69,7 @@ export default function Contact() {
                 type="text"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                placeholder="Your name"
+                placeholder={contactContent.placeholders.name}
                 required
               />
             </Label>
@@ -79,14 +80,14 @@ export default function Contact() {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="you@example.com"
+                placeholder={contactContent.placeholders.email}
                 required
               />
             </Label>
 
             {error && <ErrorMessage>{error}</ErrorMessage>}
 
-            <Button type="submit">Join Waitlist</Button>
+            <Button type="submit">{contactContent.buttonLabel}</Button>
           </Form>
         )}
       </FormContainer>

@@ -9,77 +9,48 @@ import {
   faCloud,
 } from '@fortawesome/free-solid-svg-icons';
 import image from '../images/sAndI.webp';
+import { useContent } from '../content/ContentContext';
 
 export default function SecurityIntegrations() {
-  const securityFeatures = [
-    {
-      icon: <FontAwesomeIcon icon={faShieldAlt} />,
-      title: 'Enterprise-Grade Encryption',
-      description:
-        'All data in Peak Efficiency is encrypted in transit and at rest using AES-256 and TLS 1.3 standards.',
-    },
-    {
-      icon: <FontAwesomeIcon icon={faLock} />,
-      title: 'Zero-Trust Framework',
-      description:
-        'We authenticate every user and device, ensuring only verified connections are granted access.',
-    },
-    {
-      icon: <FontAwesomeIcon icon={faUserCheck} />,
-      title: 'Role-Based Access',
-      description:
-        'Fine-grained permissions let you control who can view, edit, and manage critical information.',
-    },
-    {
-      icon: <FontAwesomeIcon icon={faKey} />,
-      title: 'Multi-Factor Authentication',
-      description:
-        'Protect accounts with MFA and SSO integrations, including Google Workspace and Microsoft 365.',
-    },
-  ];
+  const { content } = useContent();
+  const securityContent = content.security;
 
-  const integrations = [
-    {
-      icon: <FontAwesomeIcon icon={faPlug} />,
-      title: 'Seamless Integrations',
-      description:
-        'Connect with the tools you already use — Gmail, Slack, Asana, Notion, and more — without friction.',
-    },
-    {
-      icon: <FontAwesomeIcon icon={faCloud} />,
-      title: 'API & Webhooks',
-      description:
-        'Our open API and webhook support let your team automate workflows and build custom extensions.',
-    },
-  ];
+  const iconMap = {
+    shield: faShieldAlt,
+    lock: faLock,
+    'user-check': faUserCheck,
+    key: faKey,
+    plug: faPlug,
+    cloud: faCloud,
+  };
 
   return (
     <PageContainer>
       <Image src={image} />
       <Header>
-        <Subtitle>
-          At <strong>Peak Efficiency</strong>, your privacy, data, and systems are protected by
-          design. Every feature we build is backed by enterprise-grade security and seamless
-          integrations that fit your workflow.
-        </Subtitle>
+        <Subtitle>{securityContent.subtitle}</Subtitle>
       </Header>
 
-      <SectionTitle>Security You Can Trust</SectionTitle>
+      <SectionTitle>{securityContent.securityTitle}</SectionTitle>
       <CardGrid>
-        {securityFeatures.map((item, i) => (
-          <Card key={i}>
-            <Icon>{item.icon}</Icon>
+        {securityContent.securityFeatures.map((item, i) => (
+          <Card key={item.title + i}>
+            <Icon>
+              <FontAwesomeIcon icon={iconMap[item.icon] || faShieldAlt} />
+            </Icon>
             <CardTitle>{item.title}</CardTitle>
             <Description>{item.description}</Description>
           </Card>
         ))}
       </CardGrid>
 
-      <SectionTitle1>Powerful Integrations</SectionTitle1>
+      <SectionTitle1>{securityContent.integrationTitle}</SectionTitle1>
       <CardGrid>
-        {integrations.map((item, i) => (
-          <Card key={i}>
-            <Icon>{item.icon}</Icon>
+        {securityContent.integrations.map((item, i) => (
+          <Card key={item.title + i}>
+            <Icon>
+              <FontAwesomeIcon icon={iconMap[item.icon] || faPlug} />
+            </Icon>
             <CardTitle>{item.title}</CardTitle>
             <Description>{item.description}</Description>
           </Card>

@@ -5,11 +5,12 @@ import services from '../images/services.webp';
 import { faCircleCheck } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Button from '../Components/Button';
+import { useContent } from '../content/ContentContext';
 
 function Services() {
-  const recipient = 'chris@peakefficiency.ai';
-  const subject = 'Peak Efficiency Consult Call';
-  const body = 'Hello, I would like to schedule a consult call.';
+  const { content } = useContent();
+  const { services: servicesContent } = content;
+  const { recipient, subject, body } = servicesContent.email;
   const theme = useTheme();
 
   const handleEmailClick = () => {
@@ -18,62 +19,28 @@ function Services() {
   };
   return (
     <ServicesCont>
-      <Header>Beyond tools. Real transformation.</Header>
-      <HeaderSubText>
-        Our consulting and automation services help professionals and teams adopt AI efficiently and
-        sustainably.
-      </HeaderSubText>
+      <Header>{servicesContent.heading}</Header>
+      <HeaderSubText>{servicesContent.subheading}</HeaderSubText>
       <FlexContainer>
         <ServicesColumn>
-          <ClearCont>
-            <FontAwesomeIcon
-              icon={faCircleCheck}
-              color={theme.colors.secondary}
-              size="lg"
-              style={{ marginTop: '5px', marginRight: 10 }}
-            />
-            <div>
-              <ServicesTitle>Workflow Automation Consulting</ServicesTitle>
-              <ServicesText>
-                We build personalized automations using n8n, Microsoft 365, and OpenAI — saving
-                hours every week by connecting your tools and streamlining your work.
-              </ServicesText>
-            </div>
-          </ClearCont>
-          <ClearCont>
-            <FontAwesomeIcon
-              icon={faCircleCheck}
-              color={theme.colors.secondary}
-              size="lg"
-              style={{ marginTop: '5px', marginRight: 10 }}
-            />
-            <div>
-              <ServicesTitle>AI Integration Coaching</ServicesTitle>
-              <ServicesText>
-                Strategy sessions designed to help leaders harness AI effectively, simplify
-                processes, and make smarter decisions.
-              </ServicesText>
-            </div>
-          </ClearCont>
-          <ClearCont>
-            <FontAwesomeIcon
-              icon={faCircleCheck}
-              color={theme.colors.secondary}
-              size="lg"
-              style={{ marginTop: '5px', marginRight: 10 }}
-            />
-            <div>
-              <ServicesTitle>White-Glove Setup</ServicesTitle>
-              <ServicesText>
-                We analyze your emails and workflows to configure your tools for maximum efficiency
-                — tailored to how you actually work.
-              </ServicesText>
-            </div>
-          </ClearCont>
+          {servicesContent.items.map((item) => (
+            <ClearCont key={item.title}>
+              <FontAwesomeIcon
+                icon={faCircleCheck}
+                color={theme.colors.secondary}
+                size="lg"
+                style={{ marginTop: '5px', marginRight: 10 }}
+              />
+              <div>
+                <ServicesTitle>{item.title}</ServicesTitle>
+                <ServicesText>{item.description}</ServicesText>
+              </div>
+            </ClearCont>
+          ))}
           <Button
             handleButton={handleEmailClick}
             accessibleName={'Open email to book consulting call with Peak Efficiency'}
-            title={'Book a Consulting Call'}
+            title={servicesContent.ctaLabel}
           />
         </ServicesColumn>
         <ServicesImg src={services} alt="logo" />

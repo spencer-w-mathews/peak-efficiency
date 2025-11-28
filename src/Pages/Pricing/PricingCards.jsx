@@ -4,55 +4,7 @@ import { faCircleCheck } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useNavigate } from 'react-router-dom';
 
-const plans = [
-  {
-    title: 'Basic',
-    oldPrice: '$30.00',
-    newPrice: '$15.00',
-    note: 'First 3 months free',
-    description: 'Your AI teammate for everyday clarity.',
-    includes: [
-      'Keeps 1 inbox and calendar organized',
-      'Sorts and labels every email',
-      'Drafts replies in your tone',
-      'Weekly report card showing hours regained',
-      "Daily 'Deleted Summary' of filtered noise",
-    ],
-    cta: 'Sign Me Up',
-  },
-  {
-    title: 'Business',
-    oldPrice: '$50.00',
-    newPrice: '$30.00',
-    note: 'First month free for up to 5 users',
-    description: 'Your AI teammate for scalable clarity.',
-    includes: [
-      'Everything in Basic, plus:',
-      'Connects multiple inboxes and shared calendars',
-      'Morning Brief: personalized daily summary',
-      'Custom tone profiles per department',
-      'Team-wide priority tagging',
-    ],
-    cta: 'Sign Me Up',
-    highlight: true,
-  },
-  {
-    title: 'Executive',
-    price: 'Custom — Let’s Talk',
-    note: 'Includes a free consultation with our AI Innovation Team',
-    description: 'Our white-glove concierge plan for total clarity.',
-    includes: [
-      'Everything in Business, plus:',
-      'Dedicated AI Innovation Team consultation',
-      'Morning Brief Pro executive summaries',
-      'CRM & workflow integrations',
-      'Priority support & optimization sessions',
-    ],
-    cta: 'Book Your Free Consultation',
-  },
-];
-
-export default function PricingCards() {
+export default function PricingCards({ plans }) {
   const navigate = useNavigate();
 
   const handleSelect = (tierName) => {
@@ -70,16 +22,18 @@ export default function PricingCards() {
           <PriceCont>
             <Header>{p.title}</Header>
             <Description>{p.description}</Description>
-            <BillingCont>
-              <Row>
-                <OldPrice>{p.oldPrice}</OldPrice>
-                <Price>{p.newPrice}</Price>
-              </Row>
-              {p.oldPrice && <BillingText>/user /month</BillingText>}
-              <Price>{p.price}</Price>
-              {/* <BillingText>{billingText}</BillingText> */}
-              {/* {trial && <Trial>{trial}</Trial>} */}
-            </BillingCont>
+            {(p.oldPrice || p.newPrice || p.price) && (
+              <BillingCont>
+                {(p.oldPrice || p.newPrice) && (
+                  <Row>
+                    {p.oldPrice && <OldPrice>{p.oldPrice}</OldPrice>}
+                    {p.newPrice && <Price>{p.newPrice}</Price>}
+                  </Row>
+                )}
+                {p.oldPrice && <BillingText>/user /month</BillingText>}
+                {p.price && <Price>{p.price}</Price>}
+              </BillingCont>
+            )}
 
             {p.includes &&
               p.includes.map((included, i) => (

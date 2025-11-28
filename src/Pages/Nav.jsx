@@ -4,12 +4,15 @@ import './Nav.css';
 import { useEffect, useState } from 'react';
 import $ from 'jquery';
 import { useNavigate } from 'react-router-dom';
+import { useContent } from '../content/ContentContext';
 
 function Nav() {
   const [navOpen, setNavOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 1200);
   const navigate = useNavigate();
   const theme = useTheme();
+  const { content } = useContent();
+  const { navigation } = content;
 
   const onNavClick = () => {
     setNavOpen(!navOpen);
@@ -65,13 +68,11 @@ function Nav() {
                 textAlign: 'center',
               }}
             >
-              <NavText onClick={() => navigate('/')}>Home</NavText>
-              <NavText onClick={() => navigate('/pricing')}>Pricing</NavText>
-              <NavText onClick={() => navigate('/security')}>Security</NavText>
-              <NavText onClick={() => navigate('/security')}>AI Innovative Consulting</NavText>
-              <NavText onClick={() => navigate('/resources')}>Resources</NavText>
-              <NavText onClick={() => navigate('/about')}>About</NavText>
-              <NavText onClick={() => navigate('/contact')}>Contact</NavText>
+              {navigation.links.map((link) => (
+                <NavText key={link.path} onClick={() => navigate(link.path)}>
+                  {link.label}
+                </NavText>
+              ))}
               {/* <NavButton onClick={handleEmailClick}>Book a Consulting Call</NavButton> */}
             </div>
           </Column>
@@ -84,13 +85,11 @@ function Nav() {
     <NavBar>
       <LogoImg onClick={() => navigate('/')} src={logo} alt="logo" />
       <NavButtonCont>
-        <NavText onClick={() => navigate('/')}>Home</NavText>
-        <NavText onClick={() => navigate('/pricing')}>Pricing</NavText>
-        <NavText onClick={() => navigate('/security')}>Security</NavText>
-        <NavText onClick={() => navigate('/security')}>AI Innovative Consulting</NavText>
-        <NavText onClick={() => navigate('/resources')}>Resources</NavText>
-        <NavText onClick={() => navigate('/about')}>About</NavText>
-        <NavText onClick={() => navigate('/contact')}>Contact</NavText>
+        {navigation.links.map((link) => (
+          <NavText key={link.path} onClick={() => navigate(link.path)}>
+            {link.label}
+          </NavText>
+        ))}
       </NavButtonCont>
     </NavBar>
   );
