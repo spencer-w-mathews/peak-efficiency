@@ -2,28 +2,13 @@ import styled from 'styled-components';
 import FadeIn from '../../Components/FadeIn';
 import { motion } from 'framer-motion';
 
-const features = [
-  ['Connected inboxes', '1 inbox', 'Multiple inboxes', 'Multiple inboxes + command dashboard'],
-  ['Keeps inboxes organized', '✓', '✓', '✓'],
-  ['Sorts and labels every email', '✓', '✓', '✓'],
-  ['Drafts replies in your tone', '✓', '✓', '✓'],
-  ['Weekly report card', '✓', '✓', '✓'],
-  ['Security & data residency options', '✓', '✓', '✓'],
-  ['Personalized onboarding', '–', '✓', '✓'],
-  ['Morning Brief', '–', '✓', '✓'],
-  ['Shared team dashboards', '–', '✓', '✓'],
-  ['Custom tone profiles', '–', '✓', '✓'],
-  ['AI-generated team briefs', '–', '✓', '✓'],
-  ['Dedicated AI Innovation Team consultation', '–', '–', '✓'],
-  ['Custom workflow integrations', '–', '–', '✓'],
-  ['Priority support & optimization', '–', '–', '✓'],
-];
+export default function FeatureComparison({ content }) {
+  const { heading, columns, rows } = content;
 
-export default function FeatureComparison() {
   return (
     <FadeIn y={40}>
       <Wrap>
-        <h2>Compare Plans</h2>
+        <h2>{heading}</h2>
 
         <motion.div
           initial={{ opacity: 0 }}
@@ -35,19 +20,18 @@ export default function FeatureComparison() {
             <Table>
               <thead>
                 <tr>
-                  <th>Feature</th>
-                  <th>Basic</th>
-                  <th>Business</th>
-                  <th>Executive</th>
+                  {columns.map((column) => (
+                    <th key={column}>{column}</th>
+                  ))}
                 </tr>
               </thead>
               <tbody>
-                {features.map(([name, basic, business, exec], i) => (
-                  <tr key={i}>
-                    <td>{name}</td>
-                    <td>{basic}</td>
-                    <td>{business}</td>
-                    <td>{exec}</td>
+                {rows.map((row, i) => (
+                  <tr key={row.feature + i}>
+                    <td>{row.feature}</td>
+                    {row.values.map((value, idx) => (
+                      <td key={`${row.feature}-${idx}`}>{value}</td>
+                    ))}
                   </tr>
                 ))}
               </tbody>

@@ -9,6 +9,13 @@ const buildInitialState = (content) => ({
   heroCtaLabel: content.hero.ctaLabel,
   servicesHeading: content.services.heading,
   servicesSubheading: content.services.subheading,
+  pricingHeroHeading: content.pricing.hero.headline,
+  pricingHeroSubheading: content.pricing.hero.subheadline,
+  integrationHeading: content.pricing.integrationBanner.heading,
+  integrationSubtext: content.pricing.integrationBanner.subtext,
+  securitySubtitle: content.security.subtitle,
+  securityTitle: content.security.securityTitle,
+  securityIntegrationTitle: content.security.integrationTitle,
   contactTitle: content.contact.title,
   contactSubtitle: content.contact.subtitle,
   contactButtonLabel: content.contact.buttonLabel,
@@ -22,11 +29,19 @@ const ContentEditor = () => {
   const { content, updateContent, resetContent } = useContent();
   const [formState, setFormState] = useState(() => buildInitialState(content));
   const [servicesItems, setServicesItems] = useState(content.services.items);
+  const [pricingPlans, setPricingPlans] = useState(content.pricing.plans);
+  const [featureComparison, setFeatureComparison] = useState(content.pricing.featureComparison);
+  const [securityFeatures, setSecurityFeatures] = useState(content.security.securityFeatures);
+  const [securityIntegrations, setSecurityIntegrations] = useState(content.security.integrations);
   const [navLinks, setNavLinks] = useState(content.navigation.links);
 
   useEffect(() => {
     setFormState(buildInitialState(content));
     setServicesItems(content.services.items);
+    setPricingPlans(content.pricing.plans);
+    setFeatureComparison(content.pricing.featureComparison);
+    setSecurityFeatures(content.security.securityFeatures);
+    setSecurityIntegrations(content.security.integrations);
     setNavLinks(content.navigation.links);
   }, [content]);
 
@@ -44,6 +59,25 @@ const ContentEditor = () => {
         subheading: formState.servicesSubheading,
         items: servicesItems,
       },
+      pricing: {
+        hero: {
+          headline: formState.pricingHeroHeading,
+          subheadline: formState.pricingHeroSubheading,
+        },
+        integrationBanner: {
+          heading: formState.integrationHeading,
+          subtext: formState.integrationSubtext,
+        },
+        plans: pricingPlans,
+        featureComparison,
+      },
+      security: {
+        subtitle: formState.securitySubtitle,
+        securityTitle: formState.securityTitle,
+        securityFeatures,
+        integrationTitle: formState.securityIntegrationTitle,
+        integrations: securityIntegrations,
+      },
       contact: {
         title: formState.contactTitle,
         subtitle: formState.contactSubtitle,
@@ -56,7 +90,7 @@ const ContentEditor = () => {
         copyright: formState.footerCopyright,
       },
     }),
-    [formState, navLinks, servicesItems]
+    [featureComparison, formState, navLinks, pricingPlans, securityFeatures, securityIntegrations, servicesItems]
   );
 
   const handleInputChange = (field) => (event) => {
@@ -72,6 +106,52 @@ const ContentEditor = () => {
 
   const handleNavChange = (index, field, value) => {
     setNavLinks((links) => links.map((link, idx) => (idx === index ? { ...link, [field]: value } : link)));
+  };
+
+  const handlePlanChange = (index, field, value) => {
+    setPricingPlans((plans) => plans.map((plan, idx) => (idx === index ? { ...plan, [field]: value } : plan)));
+  };
+
+  const handlePlanIncludesChange = (index, value) => {
+    setPricingPlans((plans) =>
+      plans.map((plan, idx) => (idx === index ? { ...plan, includes: value.split('\n').filter(Boolean) } : plan))
+    );
+  };
+
+  const handleFeatureComparisonChange = (field, value) => {
+    setFeatureComparison((prev) => ({ ...prev, [field]: value }));
+  };
+
+  const handleComparisonColumnChange = (index, value) => {
+    setFeatureComparison((prev) => ({
+      ...prev,
+      columns: prev.columns.map((col, idx) => (idx === index ? value : col)),
+    }));
+  };
+
+  const handleComparisonRowChange = (index, key, value) => {
+    setFeatureComparison((prev) => ({
+      ...prev,
+      rows: prev.rows.map((row, idx) => {
+        if (idx !== index) return row;
+        if (key === 'values') {
+          return { ...row, values: value.split('\n').filter(Boolean) };
+        }
+        return { ...row, [key]: value };
+      }),
+    }));
+  };
+
+  const handleSecurityFeatureChange = (index, field, value) => {
+    setSecurityFeatures((items) =>
+      items.map((item, idx) => (idx === index ? { ...item, [field]: value } : item))
+    );
+  };
+
+  const handleSecurityIntegrationChange = (index, field, value) => {
+    setSecurityIntegrations((items) =>
+      items.map((item, idx) => (idx === index ? { ...item, [field]: value } : item))
+    );
   };
 
   const handleSave = (event) => {
@@ -147,6 +227,178 @@ const ContentEditor = () => {
                 <Textarea
                   value={item.description}
                   onChange={(e) => handleServiceChange(index, 'description', e.target.value)}
+                  rows={3}
+                />
+              </Card>
+            ))}
+          </Grid>
+        </Section>
+
+        <Section>
+          <SectionTitle>Pricing Hero & Integrations</SectionTitle>
+          <Label>Headline</Label>
+          <Input value={formState.pricingHeroHeading} onChange={handleInputChange('pricingHeroHeading')} />
+
+          <Label>Subheadline</Label>
+          <Textarea
+            value={formState.pricingHeroSubheading}
+            onChange={handleInputChange('pricingHeroSubheading')}
+            rows={3}
+          />
+
+          <Label>Integration heading</Label>
+          <Input value={formState.integrationHeading} onChange={handleInputChange('integrationHeading')} />
+
+          <Label>Integration subtext</Label>
+          <Textarea value={formState.integrationSubtext} onChange={handleInputChange('integrationSubtext')} rows={2} />
+        </Section>
+
+        <Section>
+          <SectionTitle>Pricing Plans</SectionTitle>
+          <Grid>
+            {pricingPlans.map((plan, index) => (
+              <Card key={`${plan.title}-${index}`}>
+                <Label>Plan title</Label>
+                <Input value={plan.title} onChange={(e) => handlePlanChange(index, 'title', e.target.value)} />
+
+                <Label>Old price</Label>
+                <Input value={plan.oldPrice || ''} onChange={(e) => handlePlanChange(index, 'oldPrice', e.target.value)} />
+
+                <Label>New price</Label>
+                <Input value={plan.newPrice || ''} onChange={(e) => handlePlanChange(index, 'newPrice', e.target.value)} />
+
+                <Label>Custom price text</Label>
+                <Input value={plan.price || ''} onChange={(e) => handlePlanChange(index, 'price', e.target.value)} />
+
+                <Label>Note</Label>
+                <Input value={plan.note || ''} onChange={(e) => handlePlanChange(index, 'note', e.target.value)} />
+
+                <Label>Description</Label>
+                <Textarea
+                  value={plan.description}
+                  onChange={(e) => handlePlanChange(index, 'description', e.target.value)}
+                  rows={3}
+                />
+
+                <Label>Includes (one per line)</Label>
+                <Textarea
+                  value={plan.includes.join('\n')}
+                  onChange={(e) => handlePlanIncludesChange(index, e.target.value)}
+                  rows={4}
+                />
+
+                <Label>CTA label</Label>
+                <Input value={plan.cta} onChange={(e) => handlePlanChange(index, 'cta', e.target.value)} />
+
+                <Label>Highlight plan?</Label>
+                <input
+                  type="checkbox"
+                  checked={Boolean(plan.highlight)}
+                  onChange={(e) => handlePlanChange(index, 'highlight', e.target.checked)}
+                />
+              </Card>
+            ))}
+          </Grid>
+        </Section>
+
+        <Section>
+          <SectionTitle>Feature Comparison</SectionTitle>
+          <Label>Table heading</Label>
+          <Input
+            value={featureComparison.heading}
+            onChange={(e) => handleFeatureComparisonChange('heading', e.target.value)}
+          />
+
+          <Label>Column labels</Label>
+          <Grid>
+            {featureComparison.columns.map((column, index) => (
+              <Card key={`${column}-${index}`}>
+                <Label>Column {index + 1}</Label>
+                <Input value={column} onChange={(e) => handleComparisonColumnChange(index, e.target.value)} />
+              </Card>
+            ))}
+          </Grid>
+
+          <Label>Rows</Label>
+          <Grid>
+            {featureComparison.rows.map((row, index) => (
+              <Card key={`${row.feature}-${index}`}>
+                <Label>Feature</Label>
+                <Input
+                  value={row.feature}
+                  onChange={(e) => handleComparisonRowChange(index, 'feature', e.target.value)}
+                />
+                <Label>Values (one per line, matches columns)</Label>
+                <Textarea
+                  value={row.values.join('\n')}
+                  onChange={(e) => handleComparisonRowChange(index, 'values', e.target.value)}
+                  rows={3}
+                />
+              </Card>
+            ))}
+          </Grid>
+        </Section>
+
+        <Section>
+          <SectionTitle>Security & Integrations</SectionTitle>
+          <Label>Security subtitle</Label>
+          <Textarea
+            value={formState.securitySubtitle}
+            onChange={handleInputChange('securitySubtitle')}
+            rows={2}
+          />
+
+          <Label>Security title</Label>
+          <Input value={formState.securityTitle} onChange={handleInputChange('securityTitle')} />
+
+          <Label>Security features</Label>
+          <Grid>
+            {securityFeatures.map((item, index) => (
+              <Card key={`${item.title}-${index}`}>
+                <Label>Icon key (shield, lock, user-check, key)</Label>
+                <Input
+                  value={item.icon}
+                  onChange={(e) => handleSecurityFeatureChange(index, 'icon', e.target.value)}
+                />
+                <Label>Title</Label>
+                <Input
+                  value={item.title}
+                  onChange={(e) => handleSecurityFeatureChange(index, 'title', e.target.value)}
+                />
+                <Label>Description</Label>
+                <Textarea
+                  value={item.description}
+                  onChange={(e) => handleSecurityFeatureChange(index, 'description', e.target.value)}
+                  rows={3}
+                />
+              </Card>
+            ))}
+          </Grid>
+
+          <Label>Integration title</Label>
+          <Input
+            value={formState.securityIntegrationTitle}
+            onChange={handleInputChange('securityIntegrationTitle')}
+          />
+
+          <Label>Integrations</Label>
+          <Grid>
+            {securityIntegrations.map((item, index) => (
+              <Card key={`${item.title}-${index}`}>
+                <Label>Icon key (plug, cloud)</Label>
+                <Input
+                  value={item.icon}
+                  onChange={(e) => handleSecurityIntegrationChange(index, 'icon', e.target.value)}
+                />
+                <Label>Title</Label>
+                <Input
+                  value={item.title}
+                  onChange={(e) => handleSecurityIntegrationChange(index, 'title', e.target.value)}
+                />
+                <Label>Description</Label>
+                <Textarea
+                  value={item.description}
+                  onChange={(e) => handleSecurityIntegrationChange(index, 'description', e.target.value)}
                   rows={3}
                 />
               </Card>

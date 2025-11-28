@@ -2,17 +2,21 @@ import PageHero from '../../Components/PageHero';
 import PricingCards from './PricingCards';
 import FeatureComparison from './FeatureComparison';
 import IntegrationBanner from './IntegrationBanner';
+import { useContent } from '../../content/ContentContext';
 
 export default function Pricing() {
+  const { content } = useContent();
+  const pricingContent = content.pricing;
+
   return (
     <>
       <PageHero
-        headline="Your Inbox, Upgraded."
-        subheadline="An AI teammate that learns your rhythm, anticipates priorities, and clears the clutter before you even open your inbox."
+        headline={pricingContent.hero.headline}
+        subheadline={pricingContent.hero.subheadline}
       />
-      <IntegrationBanner />
-      <PricingCards />
-      <FeatureComparison />
+      <IntegrationBanner content={pricingContent.integrationBanner} />
+      <PricingCards plans={pricingContent.plans} />
+      <FeatureComparison content={pricingContent.featureComparison} />
     </>
   );
 }

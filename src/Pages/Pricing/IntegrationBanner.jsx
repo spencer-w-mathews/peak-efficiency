@@ -2,22 +2,20 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import FadeIn from '../../Components/FadeIn';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGoogle, faMicrosoft, faSlack, faNotion } from '@fortawesome/free-brands-svg-icons';
+import { faGoogle, faMicrosoft } from '@fortawesome/free-brands-svg-icons';
 
-export default function IntegrationBanner() {
+export default function IntegrationBanner({ content }) {
   return (
     <FadeIn y={30}>
       <Banner>
-        <h3>Seamless integration with Gmail and Outlook.</h3>
+        <h3>{content.heading}</h3>
 
         <Logos>
           <Icon icon={faGoogle} title="Gmail" />
           <Icon icon={faMicrosoft} title="Outlook" />
         </Logos>
 
-        <Subtext>
-          Built to work where you work — connecting effortlessly to your daily communication stack.
-        </Subtext>
+        <Subtext>{content.subtext}</Subtext>
       </Banner>
     </FadeIn>
   );
