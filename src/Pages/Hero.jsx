@@ -3,11 +3,12 @@ import heroImage from '../images/heroBG.png';
 import Button from '../Components/Button';
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useContent } from '../content/ContentContext';
 
 function Hero() {
-  const recipient = 'chris@peakefficiency.ai';
-  const subject = 'Peak Efficiency Consult Call';
-  const body = 'Hello, I would like to schedule a consult call.';
+  const { content } = useContent();
+  const { hero } = content;
+  const { recipient, subject, body } = hero.email;
 
   const handleEmailClick = () => {
     const mailtoLink = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
@@ -48,15 +49,12 @@ function Hero() {
             transition={{ duration: 2.8, ease: 'easeOut' }}
           >
             <HeroContent>
-              <Header>Work smarter. Reclaim your time.</Header>
-              <HeaderSubText>
-                Peak Efficiency helps professionals cut through digital chaos — giving back clarity,
-                focus, and control so every day starts with purpose, not distraction.
-              </HeaderSubText>
+              <Header>{hero.heading}</Header>
+              <HeaderSubText>{hero.subheading}</HeaderSubText>
               <Button
                 handleButton={handleEmailClick}
                 accessibleName="Open email to book consulting call with Peak Efficiency"
-                title="Book a Consulting Call"
+                title={hero.ctaLabel}
               />
             </HeroContent>
           </HeroContentWrapper>
@@ -75,7 +73,7 @@ function Hero() {
                 exit={{ opacity: 0 }}
                 transition={{ duration: 1 }}
               >
-                Email and notification fatigue fogging up your days.
+                {hero.introLines[0]}
               </motion.h2>
             ) : (
               <motion.h2
@@ -85,7 +83,7 @@ function Hero() {
                 exit={{ opacity: 0 }}
                 transition={{ duration: 1.2 }}
               >
-                Let Peak Efficiency clear your inbox.
+                {hero.introLines[1]}
               </motion.h2>
             )}
           </IntroTextContainer>

@@ -4,13 +4,16 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { HashRouter } from 'react-router-dom';
+import { ContentProvider } from './content/ContentContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <HashRouter>
-      <App />
-    </HashRouter>
+    <ContentProvider>
+      <HashRouter>
+        <App />
+      </HashRouter>
+    </ContentProvider>
   </React.StrictMode>
 );
 

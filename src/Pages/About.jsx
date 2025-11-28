@@ -1,92 +1,41 @@
 import styled, { useTheme } from 'styled-components';
+import { useContent } from '../content/ContentContext';
 
 function About() {
   const theme = useTheme();
+  const { content } = useContent();
+  const { about } = content;
   return (
     <ServiceSection>
-      <Header>About Peak Efficiency</Header>
-      <HeaderSubText>For professionals who value precision, not chaos</HeaderSubText>
-      <ParaTitle>Mission Statement</ParaTitle>
-      <ParaSubText>
-        We're on a mission to help professionals focus again. Peak Efficiency cuts through the
-        digital chaos of too many tools and too little time — giving back clarity, focus, and
-        control so every day starts with purpose, not distraction. We exist to help professionals
-        reclaim their time, simplify how they work, and unlock growth by delivering exactly what
-        they truly need: efficiency.
-      </ParaSubText>
-      <ParaTitle>Vision Statement</ParaTitle>
-      <ParaSubText>
-        Our vision is to give every professional back the freedom to focus, create, and grow —
-        without being buried in tools, emails, and busywork. We're building a world where simplicity
-        powers productivity, and technology quietly works in the background so people can focus on
-        what truly matters.
-      </ParaSubText>
-      <ParaTitle>Values</ParaTitle>
+      <Header>{about.heading}</Header>
+      <HeaderSubText>{about.subheading}</HeaderSubText>
+      <ParaTitle>{about.missionTitle}</ParaTitle>
+      <ParaSubText>{about.mission}</ParaSubText>
+      <ParaTitle>{about.visionTitle}</ParaTitle>
+      <ParaSubText>{about.vision}</ParaSubText>
+      <ParaTitle>{about.valuesTitle}</ParaTitle>
       <ParaSubText1>
-        We help professionals see{' '}
-        <span style={{ color: theme.colors.secondary, fontWeight: 800 }}>CLEAR</span> again
+        {about.clarityLine.split('CLEAR')[0]}
+        <span style={{ color: theme.colors.secondary, fontWeight: 800 }}>CLEAR</span>
+        {about.clarityLine.split('CLEAR')[1]}
       </ParaSubText1>
       <div style={{ borderTop: '1px solid #5454543d' }}></div>
-      <ClearCont>
-        <LetterContainer>
-          <Letter>C</Letter>
-        </LetterContainer>
-        <div>
-          <ClearTitle>Clarity</ClearTitle>
-          <ClearText>Lead with simplicity and transparency.</ClearText>
-        </div>
-      </ClearCont>
-      <ClearCont>
-        <LetterContainer>
-          <Letter>L</Letter>
-        </LetterContainer>
-        <div>
-          <ClearTitle>Leadership</ClearTitle>
-          <ClearText>Empower others to do their best work.</ClearText>
-        </div>
-      </ClearCont>
-      <ClearCont>
-        <LetterContainer>
-          <Letter>E</Letter>
-        </LetterContainer>
-        <div>
-          <ClearTitle>Efficiency</ClearTitle>
-          <ClearText>Work smarter, not harder.</ClearText>
-        </div>
-      </ClearCont>
-      <ClearCont>
-        <LetterContainer>
-          <Letter>A</Letter>
-        </LetterContainer>
-        <div>
-          <ClearTitle>Accountability</ClearTitle>
-          <ClearText>Take ownership for results and relationships.</ClearText>
-        </div>
-      </ClearCont>
-      <ClearCont>
-        <LetterContainer>
-          <Letter>R</Letter>
-        </LetterContainer>
-        <div>
-          <ClearTitle>Reliability</ClearTitle>
-          <ClearText>Build secure, dependable systems people can trust.</ClearText>
-        </div>
-      </ClearCont>
-      <ParaTitle>What Makes Us Different</ParaTitle>
-      <ParaSubText>We don't build tools — we build clarity.</ParaSubText>
-      <ParaSubText>
-        Peak Efficiency learns your workflow, your tone, and your priorities. There's no learning
-        curve for you — it learns your style. Every product we design is buit to simplify your day,
-        not complicate it.
-      </ParaSubText>
-      <ParaSubText>
-        Our AI doesn't just automate tasks — it restores focus. Our system doesn't replace
-        professionals — it empowers them.
-      </ParaSubText>
-      <ParaSubText>
-        And our promise is simple: technology that fades into the background so you can focus on
-        what matters most.
-      </ParaSubText>
+      {about.values.map((value) => (
+        <ClearCont key={value.key}>
+          <LetterContainer>
+            <Letter>{value.key}</Letter>
+          </LetterContainer>
+          <div>
+            <ClearTitle>{value.title}</ClearTitle>
+            <ClearText>{value.description}</ClearText>
+          </div>
+        </ClearCont>
+      ))}
+      <ParaTitle>{about.differenceTitle}</ParaTitle>
+      <ParaSubText>{about.differenceSubheading}</ParaSubText>
+      {about.differenceParagraphs.map((paragraph, index) => (
+        <ParaSubText key={index}>{paragraph}</ParaSubText>
+      ))}
     </ServiceSection>
   );
 }

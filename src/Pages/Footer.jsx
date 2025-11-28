@@ -1,9 +1,12 @@
 import styled from 'styled-components';
 import logo from '../images/logo.webp';
 import { useNavigate } from 'react-router-dom';
+import { useContent } from '../content/ContentContext';
 
 function Footer() {
   const navigate = useNavigate();
+  const { content } = useContent();
+  const { footer, navigation } = content;
 
   return (
     <FooterSection>
@@ -18,21 +21,19 @@ function Footer() {
           boxShadow: '0px 0px 30px 15px rgba(0, 0, 0, 0.2)',
         }}
       />
-      <HeaderSubText>
-        Peak Efficiency - Helping professionals lead again through clarity, focus, and automation.
-      </HeaderSubText>
+      <HeaderSubText>{footer.description}</HeaderSubText>
       <NavButtonCont>
-        <NavText onClick={() => navigate('/hero')}>Home</NavText>
-        <NavText onClick={() => navigate('/pricing')}>Pricing</NavText>
-        <NavText onClick={() => navigate('/security')}>Security</NavText>
-        <NavText onClick={() => navigate('/resources')}>Resources</NavText>
-        <NavText onClick={() => navigate('/about')}>About</NavText>
-        <NavText onClick={() => navigate('/contact')}>Contact</NavText>
+        {navigation.links.map((link) => (
+          <NavText key={link.path} onClick={() => navigate(link.path)}>
+            {link.label}
+          </NavText>
+        ))}
+        <AdminLink onClick={() => navigate('/content-editor')}>Edit site content</AdminLink>
       </NavButtonCont>
-      <EandWText>Email: chris@peakefficiency.ai</EandWText>
-      <EandWText>Website: www.peakefficiency.ai</EandWText>
+      <EandWText>Email: {footer.email}</EandWText>
+      <EandWText>Website: {footer.website}</EandWText>
       <Line></Line>
-      <Cright>2025 Peak Efficiency | All Rights Reserved</Cright>
+      <Cright>{footer.copyright}</Cright>
     </FooterSection>
   );
 }
@@ -76,6 +77,27 @@ const NavText = styled.div`
   margin-bottom: 30px;
   @media (max-width: 768px) {
     font-size: 16px;
+    margin-top: -10px;
+  }
+`;
+
+const AdminLink = styled.button`
+  background: transparent;
+  border: none;
+  color: ${({ theme }) => theme.colors.white};
+  opacity: 0.8;
+  font-weight: 500;
+  margin-top: auto;
+  margin-bottom: 30px;
+  cursor: pointer;
+  text-decoration: underline;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  @media (max-width: 768px) {
+    text-align: left;
     margin-top: -10px;
   }
 `;
