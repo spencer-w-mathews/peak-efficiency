@@ -80,7 +80,7 @@ function WhoWeServe({ Title }) {
           <InfoCard key={i} {...card} />
         ))}
       </Grid>
-      <PricingHeader>The Peak Efficiency Solution:</PricingHeader>
+      <PricingHeader>The BlueBird AGI Solution:</PricingHeader>
       <Grid>
         {cards.map((card, i) => (
           <InfoCard key={i} {...card} />

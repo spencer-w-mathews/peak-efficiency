@@ -13,7 +13,7 @@ export default function Resources() {
   const guides = [
     {
       icon: <FontAwesomeIcon icon={faBookOpen} />,
-      title: 'Getting Started with Peak Efficiency',
+      title: 'Getting Started with BlueBird AGI',
       description:
         'A step-by-step guide to setting up your workspace and automating daily workflows.',
       link: '#',
@@ -36,7 +36,7 @@ export default function Resources() {
     },
     {
       icon: <FontAwesomeIcon icon={faVideo} />,
-      title: 'Inside Peak Efficiency',
+      title: 'Inside BlueBird AGI',
       description:
         'A behind-the-scenes look at how we build reliable AI for high-performance teams.',
       link: '#',
@@ -48,7 +48,7 @@ export default function Resources() {
       icon: <FontAwesomeIcon icon={faLink} />,
       title: 'Case Study: Atlas Group',
       description:
-        'Discover how a remote marketing team reduced email time by 70% using Peak Efficiency.',
+        'Discover how a remote marketing team reduced email time by 70% using BlueBird AGI.',
       link: '#',
     },
     {
@@ -66,7 +66,7 @@ export default function Resources() {
       <Header>
         <Subtitle>
           Learn, explore, and get inspired. Dive into practical guides, insights, and real-world
-          examples to help your team reach <strong>Peak Efficiency</strong>.
+          examples to help your team reach <strong>BlueBird AGI</strong>.
         </Subtitle>
       </Header>
 

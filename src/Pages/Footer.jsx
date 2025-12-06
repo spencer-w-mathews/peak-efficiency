@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import logo from '../images/logo.webp';
+import logo from '../images/logo.png';
 import { useNavigate } from 'react-router-dom';
 import { useContent } from '../content/ContentContext';
 
@@ -19,6 +19,8 @@ function Footer() {
           marginTop: 25,
           borderRadius: 5,
           boxShadow: '0px 0px 30px 15px rgba(0, 0, 0, 0.2)',
+          backgroundColor: '#fff',
+          padding: 5,
         }}
       />
       <HeaderSubText>{footer.description}</HeaderSubText>

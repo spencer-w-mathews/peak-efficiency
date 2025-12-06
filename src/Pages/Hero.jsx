@@ -53,7 +53,7 @@ function Hero() {
               <HeaderSubText>{hero.subheading}</HeaderSubText>
               <Button
                 handleButton={handleEmailClick}
-                accessibleName="Open email to book consulting call with Peak Efficiency"
+                accessibleName="Open email to book consulting call with BlueBird AGI"
                 title={hero.ctaLabel}
               />
             </HeroContent>

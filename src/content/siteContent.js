@@ -11,29 +11,31 @@ export const siteContent = {
     ],
   },
   footer: {
-    description: 'Peak Efficiency - Helping professionals lead again through clarity, focus, and automation.',
+    description:
+      'BlueBird AGI - Helping professionals lead again through clarity, focus, and automation.',
     email: 'chris@peakefficiency.ai',
     website: 'www.peakefficiency.ai',
-    copyright: '2025 Peak Efficiency | All Rights Reserved',
+    copyright: '2025 BlueBird AGI | All Rights Reserved',
   },
   hero: {
     introLines: [
       'Email and notification fatigue fogging up your days.',
-      'Let Peak Efficiency clear your inbox.',
+      'Let BlueBird AGI clear your inbox.',
     ],
     heading: 'Work smarter. Reclaim your time.',
     subheading:
-      'Peak Efficiency helps professionals cut through digital chaos — giving back clarity, focus, and control so every day starts with purpose, not distraction.',
+      'BlueBird AGI helps professionals cut through digital chaos — giving back clarity, focus, and control so every day starts with purpose, not distraction.',
     ctaLabel: 'Book a Consulting Call',
     email: {
       recipient: 'chris@peakefficiency.ai',
-      subject: 'Peak Efficiency Consult Call',
+      subject: 'BlueBird AGI Consult Call',
       body: 'Hello, I would like to schedule a consult call.',
     },
   },
   services: {
     heading: 'Beyond tools. Real transformation.',
-    subheading: 'Our consulting and automation services help professionals and teams adopt AI efficiently and sustainably.',
+    subheading:
+      'Our consulting and automation services help professionals and teams adopt AI efficiently and sustainably.',
     ctaLabel: 'Book a Consulting Call',
     items: [
       {
@@ -54,16 +56,16 @@ export const siteContent = {
     ],
     email: {
       recipient: 'chris@peakefficiency.ai',
-      subject: 'Peak Efficiency Consult Call',
+      subject: 'BlueBird AGI Consult Call',
       body: 'Hello, I would like to schedule a consult call.',
     },
   },
   about: {
-    heading: 'About Peak Efficiency',
+    heading: 'About BlueBird AGI',
     subheading: 'For professionals who value precision, not chaos',
     missionTitle: 'Mission Statement',
     mission:
-      "We're on a mission to help professionals focus again. Peak Efficiency cuts through the digital chaos of too many tools and too little time — giving back clarity, focus, and control so every day starts with purpose, not distraction. We exist to help professionals reclaim their time, simplify how they work, and unlock growth by delivering exactly what they truly need: efficiency.",
+      "We're on a mission to help professionals focus again. BlueBird AGI cuts through the digital chaos of too many tools and too little time — giving back clarity, focus, and control so every day starts with purpose, not distraction. We exist to help professionals reclaim their time, simplify how they work, and unlock growth by delivering exactly what they truly need: efficiency.",
     visionTitle: 'Vision Statement',
     vision:
       "Our vision is to give every professional back the freedom to focus, create, and grow — without being buried in tools, emails, and busywork. We're building a world where simplicity powers productivity, and technology quietly works in the background so people can focus on what truly matters.",
@@ -72,14 +74,22 @@ export const siteContent = {
       { key: 'C', title: 'Clarity', description: 'Lead with simplicity and transparency.' },
       { key: 'L', title: 'Leadership', description: 'Empower others to do their best work.' },
       { key: 'E', title: 'Efficiency', description: 'Work smarter, not harder.' },
-      { key: 'A', title: 'Accountability', description: 'Take ownership for results and relationships.' },
-      { key: 'R', title: 'Reliability', description: 'Build secure, dependable systems people can trust.' },
+      {
+        key: 'A',
+        title: 'Accountability',
+        description: 'Take ownership for results and relationships.',
+      },
+      {
+        key: 'R',
+        title: 'Reliability',
+        description: 'Build secure, dependable systems people can trust.',
+      },
     ],
     clarityLine: 'We help professionals see CLEAR again',
     differenceTitle: 'What Makes Us Different',
     differenceSubheading: "We don't build tools — we build clarity.",
     differenceParagraphs: [
-      "Peak Efficiency learns your workflow, your tone, and your priorities. There's no learning curve for you — it learns your style. Every product we design is buit to simplify your day, not complicate it.",
+      "BlueBird AGI learns your workflow, your tone, and your priorities. There's no learning curve for you — it learns your style. Every product we design is buit to simplify your day, not complicate it.",
       "Our AI doesn't just automate tasks — it restores focus. Our system doesn't replace professionals — it empowers them.",
       'And our promise is simple: technology that fades into the background so you can focus on what matters most.',
     ],
@@ -92,7 +102,8 @@ export const siteContent = {
     },
     integrationBanner: {
       heading: 'Seamless integration with Gmail and Outlook.',
-      subtext: 'Built to work where you work — connecting effortlessly to your daily communication stack.',
+      subtext:
+        'Built to work where you work — connecting effortlessly to your daily communication stack.',
     },
     plans: [
       {
@@ -167,28 +178,32 @@ export const siteContent = {
   },
   security: {
     subtitle:
-      'At Peak Efficiency, your privacy, data, and systems are protected by design. Every feature we build is backed by enterprise-grade security and seamless integrations that fit your workflow.',
+      'At BlueBird AGI, your privacy, data, and systems are protected by design. Every feature we build is backed by enterprise-grade security and seamless integrations that fit your workflow.',
     securityTitle: 'Security You Can Trust',
     securityFeatures: [
       {
         icon: 'shield',
         title: 'Enterprise-Grade Encryption',
-        description: 'All data in Peak Efficiency is encrypted in transit and at rest using AES-256 and TLS 1.3 standards.',
+        description:
+          'All data in BlueBird AGI is encrypted in transit and at rest using AES-256 and TLS 1.3 standards.',
       },
       {
         icon: 'lock',
         title: 'Zero-Trust Framework',
-        description: 'We authenticate every user and device, ensuring only verified connections are granted access.',
+        description:
+          'We authenticate every user and device, ensuring only verified connections are granted access.',
       },
       {
         icon: 'user-check',
         title: 'Role-Based Access',
-        description: 'Fine-grained permissions let you control who can view, edit, and manage critical information.',
+        description:
+          'Fine-grained permissions let you control who can view, edit, and manage critical information.',
       },
       {
         icon: 'key',
         title: 'Multi-Factor Authentication',
-        description: 'Protect accounts with MFA and SSO integrations, including Google Workspace and Microsoft 365.',
+        description:
+          'Protect accounts with MFA and SSO integrations, including Google Workspace and Microsoft 365.',
       },
     ],
     integrationTitle: 'Powerful Integrations',
@@ -202,13 +217,14 @@ export const siteContent = {
       {
         icon: 'cloud',
         title: 'API & Webhooks',
-        description: 'Our open API and webhook support let your team automate workflows and build custom extensions.',
+        description:
+          'Our open API and webhook support let your team automate workflows and build custom extensions.',
       },
     ],
   },
   contact: {
     title: 'Get Your Time Back.',
-    subtitle: 'Join the Peak Efficiency list for updates, insights, and early access to new features.',
+    subtitle: 'Join the BlueBird AGI list for updates, insights, and early access to new features.',
     successMessage: '🎉 Thanks for joining! Check your inbox soon.',
     buttonLabel: 'Join Waitlist',
     placeholders: {

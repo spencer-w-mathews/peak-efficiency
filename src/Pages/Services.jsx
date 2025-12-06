@@ -39,7 +39,7 @@ function Services() {
           ))}
           <Button
             handleButton={handleEmailClick}
-            accessibleName={'Open email to book consulting call with Peak Efficiency'}
+            accessibleName={'Open email to book consulting call with BlueBird AGI'}
             title={servicesContent.ctaLabel}
           />
         </ServicesColumn>
