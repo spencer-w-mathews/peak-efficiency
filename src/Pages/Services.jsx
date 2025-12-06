@@ -8,7 +8,7 @@ import Button from '../Components/Button';
 
 function Services() {
   const recipient = 'chris@peakefficiency.ai';
-  const subject = 'Peak Efficiency Consult Call';
+  const subject = 'Bluebird AGI Consult Call';
   const body = 'Hello, I would like to schedule a consult call.';
   const theme = useTheme();
 
@@ -72,7 +72,7 @@ function Services() {
           </ClearCont>
           <Button
             handleButton={handleEmailClick}
-            accessibleName={'Open email to book consulting call with Peak Efficiency'}
+            accessibleName={'Open email to book consulting call with Bluebird AGI'}
             title={'Book a Consulting Call'}
           />
         </ServicesColumn>

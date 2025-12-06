@@ -1,5 +1,5 @@
 import styled, { useTheme } from 'styled-components';
-import logo from '../images/logo.webp';
+import logo from '../images/logo.png';
 import './Nav.css';
 import { useEffect, useState } from 'react';
 import $ from 'jquery';
@@ -115,7 +115,7 @@ const NavBar = styled.div`
 `;
 
 const LogoImg = styled.img`
-  height: 70px;
+  height: 50px;
   margin: auto auto auto 20px;
   cursor: pointer;
 `;

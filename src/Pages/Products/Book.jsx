@@ -38,7 +38,7 @@ export default function BookForm() {
           We’ve received your inquiry about <strong>{product}</strong> —{' '}
           {tier ? <strong>{tier}</strong> : 'a selected tier'} plan.
         </p>
-        <p>A Peak Efficiency team member will reach out to you shortly with more details.</p>
+        <p>A Bluebird AGI team member will reach out to you shortly with more details.</p>
         <BackBtn onClick={() => window.history.back()}>← Back to site</BackBtn>
       </ConfirmationContainer>
     );
@@ -47,7 +47,7 @@ export default function BookForm() {
   return (
     <FormContainer>
       <Header>
-        <h1>Speak to a Peak Efficiency Expert</h1>
+        <h1>Speak to a Bluebird AGI Expert</h1>
         <p>
           Get in touch for discovery calls, onboarding guidance, and tailored strategic insights.
         </p>

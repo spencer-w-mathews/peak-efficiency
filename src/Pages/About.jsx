@@ -4,15 +4,15 @@ function About() {
   const theme = useTheme();
   return (
     <ServiceSection>
-      <Header>About Peak Efficiency</Header>
+      <Header>About Bluebird AGI</Header>
       <HeaderSubText>For professionals who value precision, not chaos</HeaderSubText>
       <ParaTitle>Mission Statement</ParaTitle>
       <ParaSubText>
-        We're on a mission to help professionals focus again. Peak Efficiency cuts through the
-        digital chaos of too many tools and too little time — giving back clarity, focus, and
-        control so every day starts with purpose, not distraction. We exist to help professionals
-        reclaim their time, simplify how they work, and unlock growth by delivering exactly what
-        they truly need: efficiency.
+        We're on a mission to help professionals focus again. Bluebird AGI cuts through the digital
+        chaos of too many tools and too little time — giving back clarity, focus, and control so
+        every day starts with purpose, not distraction. We exist to help professionals reclaim their
+        time, simplify how they work, and unlock growth by delivering exactly what they truly need:
+        efficiency.
       </ParaSubText>
       <ParaTitle>Vision Statement</ParaTitle>
       <ParaSubText>
@@ -75,9 +75,9 @@ function About() {
       <ParaTitle>What Makes Us Different</ParaTitle>
       <ParaSubText>We don't build tools — we build clarity.</ParaSubText>
       <ParaSubText>
-        Peak Efficiency learns your workflow, your tone, and your priorities. There's no learning
-        curve for you — it learns your style. Every product we design is buit to simplify your day,
-        not complicate it.
+        Bluebird AGI learns your workflow, your tone, and your priorities. There's no learning curve
+        for you — it learns your style. Every product we design is buit to simplify your day, not
+        complicate it.
       </ParaSubText>
       <ParaSubText>
         Our AI doesn't just automate tasks — it restores focus. Our system doesn't replace

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import logo from '../images/logo.webp';
+import logo from '../images/logo.png';
 import { useNavigate } from 'react-router-dom';
 
 function Footer() {
@@ -19,7 +19,7 @@ function Footer() {
         }}
       />
       <HeaderSubText>
-        Peak Efficiency - Helping professionals lead again through clarity, focus, and automation.
+        Bluebird AGI - Helping professionals lead again through clarity, focus, and automation.
       </HeaderSubText>
       <NavButtonCont>
         <NavText onClick={() => navigate('/hero')}>Home</NavText>
@@ -32,7 +32,7 @@ function Footer() {
       <EandWText>Email: chris@peakefficiency.ai</EandWText>
       <EandWText>Website: www.peakefficiency.ai</EandWText>
       <Line></Line>
-      <Cright>2025 Peak Efficiency | All Rights Reserved</Cright>
+      <Cright>2025 Bluebird AGI | All Rights Reserved</Cright>
     </FooterSection>
   );
 }

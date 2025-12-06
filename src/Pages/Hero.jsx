@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 function Hero() {
   const recipient = 'chris@peakefficiency.ai';
-  const subject = 'Peak Efficiency Consult Call';
+  const subject = 'Bluebird AGI Consult Call';
   const body = 'Hello, I would like to schedule a consult call.';
 
   const handleEmailClick = () => {
@@ -50,12 +50,12 @@ function Hero() {
             <HeroContent>
               <Header>Work smarter. Reclaim your time.</Header>
               <HeaderSubText>
-                Peak Efficiency helps professionals cut through digital chaos — giving back clarity,
+                Bluebird AGI helps professionals cut through digital chaos — giving back clarity,
                 focus, and control so every day starts with purpose, not distraction.
               </HeaderSubText>
               <Button
                 handleButton={handleEmailClick}
-                accessibleName="Open email to book consulting call with Peak Efficiency"
+                accessibleName="Open email to book consulting call with Bluebird AGI"
                 title="Book a Consulting Call"
               />
             </HeroContent>
@@ -85,7 +85,7 @@ function Hero() {
                 exit={{ opacity: 0 }}
                 transition={{ duration: 1.2 }}
               >
-                Let Peak Efficiency clear your inbox.
+                Let Bluebird AGI clear your inbox.
               </motion.h2>
             )}
           </IntroTextContainer>

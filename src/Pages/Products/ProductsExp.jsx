@@ -139,7 +139,7 @@ const CustomGPTPriceCards = [
       'Full workshop to map strategy, workflows, and integrations',
       'GPT hosted securely with SOC2-level compliance',
       'Integrations with Microsoft 365, Google Workspace, CRMs, or internal APIs',
-      'Dedicated Peak Efficiency specialist for ongoing maintenance',
+      'Dedicated Bluebird AGI specialist for ongoing maintenance',
     ],
     buttonText: "Let's Talk",
   },

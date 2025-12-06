@@ -55,7 +55,7 @@ export default function Contact() {
       <FormContainer>
         <Title>Get Your Time Back.</Title>
         <Subtitle>
-          Join the Peak Efficiency list for updates, insights, and early access to new features.
+          Join the Bluebird AGI list for updates, insights, and early access to new features.
         </Subtitle>
 
         {submitted ? (

@@ -16,7 +16,7 @@ export default function SecurityIntegrations() {
       icon: <FontAwesomeIcon icon={faShieldAlt} />,
       title: 'Enterprise-Grade Encryption',
       description:
-        'All data in Peak Efficiency is encrypted in transit and at rest using AES-256 and TLS 1.3 standards.',
+        'All data in Bluebird AGI is encrypted in transit and at rest using AES-256 and TLS 1.3 standards.',
     },
     {
       icon: <FontAwesomeIcon icon={faLock} />,
@@ -58,9 +58,9 @@ export default function SecurityIntegrations() {
       <Image src={image} />
       <Header>
         <Subtitle>
-          At <strong>Peak Efficiency</strong>, your privacy, data, and systems are protected by
-          design. Every feature we build is backed by enterprise-grade security and seamless
-          integrations that fit your workflow.
+          At <strong>Bluebird AGI</strong>, your privacy, data, and systems are protected by design.
+          Every feature we build is backed by enterprise-grade security and seamless integrations
+          that fit your workflow.
         </Subtitle>
       </Header>
 
