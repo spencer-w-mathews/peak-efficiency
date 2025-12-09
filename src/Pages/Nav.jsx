@@ -85,13 +85,13 @@ function Nav() {
     <NavBar>
       <NavContent>
         <BrandArea>
-          <LogoImg onClick={() => navigate('/')} src={logo} alt="logo" />
+          <LogoImg onClick={() => navigate('/')} src={logo} alt="Blubird AGI logo" />
           <BrandMeta>
-            <Tagline>Peak Efficiency</Tagline>
+            <Tagline>Blubird AGI</Tagline>
             <SubText>Operational intelligence for modern teams</SubText>
           </BrandMeta>
         </BrandArea>
-        <NavActions>
+        <NavLinks>
           <NavLink active={location.pathname === '/'} onClick={() => navigate('/')}>Home</NavLink>
           <NavLink active={location.pathname === '/pricing'} onClick={() => navigate('/pricing')}>
             Pricing
@@ -111,8 +111,10 @@ function Nav() {
           <NavLink active={location.pathname === '/contact'} onClick={() => navigate('/contact')}>
             Contact
           </NavLink>
+        </NavLinks>
+        <RightActions>
           <CtaButton onClick={() => navigate('/book')}>Book a call</CtaButton>
-        </NavActions>
+        </RightActions>
       </NavContent>
     </NavBar>
   );
@@ -133,27 +135,28 @@ const NavBar = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 12px 0;
+  padding: 14px 0;
 `;
 
 const NavContent = styled.div`
-  width: min(1200px, 94vw);
+  width: min(1300px, 96vw);
+  padding: 0 16px;
   display: grid;
   align-items: center;
-  grid-template-columns: auto 1fr;
-  column-gap: 28px;
+  grid-template-columns: auto 1fr auto;
+  column-gap: 32px;
 `;
 
 const BrandArea = styled.div`
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 16px;
 `;
 
 const BrandMeta = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 4px;
 `;
 
 const Tagline = styled.span`
@@ -178,29 +181,35 @@ const LogoImg = styled.img`
   }
 `;
 
-const NavActions = styled.nav`
-  display: grid;
-  grid-template-columns: repeat(7, auto) 1fr;
+const NavLinks = styled.nav`
+  display: flex;
   align-items: center;
-  gap: 12px;
-  justify-content: end;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+`;
+
+const RightActions = styled.div`
+  display: flex;
+  justify-content: flex-end;
 `;
 
 const NavLink = styled.div`
   position: relative;
   color: ${({ theme }) => theme.colors.primary};
   font-weight: ${({ active }) => (active ? 700 : 500)};
-  padding: 10px 12px;
+  padding: 12px 14px;
   cursor: pointer;
-  border-radius: 12px;
+  border-radius: 14px;
   transition: color 160ms ease, background 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+  white-space: nowrap;
 
   &::after {
     content: '';
     position: absolute;
-    left: 12px;
-    right: 12px;
-    bottom: 8px;
+    left: 14px;
+    right: 14px;
+    bottom: 7px;
     height: 2px;
     background: ${({ theme }) => theme.colors.secondary};
     transform: scaleX(${({ active }) => (active ? 1 : 0)});
