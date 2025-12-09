@@ -15,6 +15,8 @@ function Footer() {
           marginLeft: 10,
           marginTop: 25,
           borderRadius: 5,
+          background: '#fff',
+          padding: 10,
           boxShadow: '0px 0px 30px 15px rgba(0, 0, 0, 0.2)',
         }}
       />

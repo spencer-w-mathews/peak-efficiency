@@ -27,7 +27,6 @@ function Hero() {
           transition={{ duration: 0.8, ease: 'easeOut' }}
         >
           <BrandBadge>
-            <Logo src={logo} alt="Bluebird AGI logo" />
             <BadgeText>
               <BadgeLabel>Bluebird AGI</BadgeLabel>
               <BadgeSub>Clarity-first AI workflow hub</BadgeSub>
@@ -118,11 +117,12 @@ const HeroSection = styled.section`
   position: relative;
   min-height: 95vh;
   overflow: hidden;
-  background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 35%),
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 35%),
     radial-gradient(circle at 80% 0%, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0) 30%),
     linear-gradient(140deg, #0f2238 0%, #0b3558 50%, #0f1c2e 100%);
   color: ${({ theme }) => theme.colors.white};
-  padding: 140px 8% 100px;
+  padding: 100px 8% 100px;
   display: flex;
   align-items: center;
 
@@ -278,7 +278,9 @@ const SecondaryCTA = styled.a`
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  transition: color 0.2s ease, transform 0.2s ease;
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
 
   &::after {
     content: '→';
@@ -353,7 +355,12 @@ const Value = styled.span`
 
 const Divider = styled.div`
   height: 1px;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.14) 40%, rgba(255, 255, 255, 0) 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.14) 40%,
+    rgba(255, 255, 255, 0) 100%
+  );
   margin: 4px 0 2px;
 `;
 
