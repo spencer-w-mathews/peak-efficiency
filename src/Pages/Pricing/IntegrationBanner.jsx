@@ -8,6 +8,7 @@ export default function IntegrationBanner() {
   return (
     <FadeIn y={30}>
       <Banner>
+        <Badge>Integrations</Badge>
         <h3>Seamless integration with Gmail and Outlook.</h3>
 
         <Logos>
@@ -27,8 +28,28 @@ export default function IntegrationBanner() {
 
 const Banner = styled.section`
   text-align: center;
-  padding: 0rem 2rem 4rem;
+  padding: 2rem;
+  margin: 0 auto 1rem;
   color: ${(p) => p.theme.colors.deepBlue};
+  background: linear-gradient(140deg, rgba(35, 66, 97, 0.04), rgba(109, 146, 180, 0.12));
+  border: 1px solid rgba(35, 66, 97, 0.14);
+  border-radius: 18px;
+  max-width: 960px;
+  box-shadow: 0 16px 40px rgba(15, 39, 68, 0.12);
+`;
+
+const Badge = styled.span`
+  display: inline-block;
+  margin-bottom: 0.65rem;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: ${(p) => p.theme.colors.primary};
+  background: white;
+  border: 1px solid rgba(35, 66, 97, 0.12);
 `;
 
 const Logos = styled.div`

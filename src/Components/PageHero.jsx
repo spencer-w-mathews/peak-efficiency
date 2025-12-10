@@ -21,10 +21,20 @@ export default function PageHero({ headline, subheadline, tagline, supporting, c
 }
 
 const Hero = styled.section`
-  background: linear-gradient(145deg, #f8fafc, #ffffff);
+  position: relative;
+  background: linear-gradient(120deg, #0f2744 0%, #123154 30%, #183c66 60%, #f8fafc 100%);
   text-align: center;
   padding: 6rem 2rem 2rem;
   color: ${(p) => p.theme.colors.deepBlue};
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.16), transparent 40%),
+      radial-gradient(circle at 80% 0%, rgba(255, 255, 255, 0.12), transparent 35%);
+    pointer-events: none;
+  }
 `;
 
 const Content = styled.div`
@@ -33,6 +43,17 @@ const Content = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  color: white;
+
+  h1 {
+    line-height: 1.1;
+  }
+
+  h3 {
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.88);
+    line-height: 1.4;
+  }
 `;
 
 const Image = styled.img`

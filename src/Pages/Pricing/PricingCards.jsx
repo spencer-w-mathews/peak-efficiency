@@ -64,190 +64,278 @@ export default function PricingCards() {
   };
   return (
     <Wrap>
-      {plans.map((p, i) => (
-        <div style={{ overflowY: 'hidden' }} key={i}>
-          {p.highlight && <MP>Most Popular</MP>}
-          <PriceCont>
-            <Header>{p.title}</Header>
-            <Description>{p.description}</Description>
-            <BillingCont>
-              <Row>
-                <OldPrice>{p.oldPrice}</OldPrice>
-                <Price>{p.newPrice}</Price>
-              </Row>
-              {p.oldPrice && <BillingText>/user /month</BillingText>}
-              <Price>{p.price}</Price>
-              {/* <BillingText>{billingText}</BillingText> */}
-              {/* {trial && <Trial>{trial}</Trial>} */}
-            </BillingCont>
+      <Orb aria-hidden />
+      <Inner>
+        <Intro>
+          <Kicker>Bluebird AGI pricing</Kicker>
+          <h2>Choose the cockpit that fits your flight plan</h2>
+          <p>
+            Sleek, human-centered plans that keep your inboxes lifted. Every plan includes the same calm, crisp Bluebird
+            AGI experience with smarter automation and less clutter.
+          </p>
+        </Intro>
 
-            {p.includes &&
-              p.includes.map((included, i) => (
-                <Row key={i}>
-                  <FontAwesomeIcon
-                    icon={faCircleCheck}
-                    color="#cbc8c8ff"
-                    size="sm"
-                    style={{ marginTop: 'auto', marginRight: 10, marginBottom: 'auto' }}
-                  />
-                  <Included>{included}</Included>
+        <Grid>
+          {plans.map((p, i) => (
+            <Card key={i} highlight={p.highlight}>
+              {p.highlight && <Badge>Most popular</Badge>}
+
+              <TopRow>
+                <Header>{p.title}</Header>
+                {p.note && <Note>{p.note}</Note>}
+              </TopRow>
+
+              <Description>{p.description}</Description>
+
+              <BillingCont>
+                <Row>
+                  {p.oldPrice && <OldPrice>{p.oldPrice}</OldPrice>}
+                  {p.newPrice && <Price>${p.newPrice.replace(/[^\d.]/g, '')}</Price>}
+                  {p.price && <Price>{p.price}</Price>}
                 </Row>
-              ))}
-            {p.cta && <Button onClick={() => handleSelect(p.title)}>{p.cta}</Button>}
-          </PriceCont>
-        </div>
-      ))}
+                {(p.oldPrice || p.newPrice) && <BillingText>/user /month</BillingText>}
+              </BillingCont>
+
+              <Divider />
+
+              {p.includes && (
+                <List>
+                  {p.includes.map((included, idx) => (
+                    <ListItem key={idx}>
+                      <Check icon={faCircleCheck} />
+                      <Included>{included}</Included>
+                    </ListItem>
+                  ))}
+                </List>
+              )}
+
+              {p.cta && (
+                <Button highlight={p.highlight} onClick={() => handleSelect(p.title)}>
+                  {p.cta}
+                </Button>
+              )}
+            </Card>
+          ))}
+        </Grid>
+      </Inner>
     </Wrap>
   );
 }
 
 const Wrap = styled.section`
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 2rem;
-  background: ${(p) => p.theme.colors.white};
-  overflow-x: hidden;
+  position: relative;
+  padding: 4rem 1rem 5rem;
+  overflow: hidden;
+  background: radial-gradient(circle at 20% 20%, rgba(109, 146, 180, 0.18), transparent 25%),
+    radial-gradient(circle at 80% 0%, rgba(35, 66, 97, 0.16), transparent 30%),
+    linear-gradient(135deg, #f6f9ff 0%, #eef5ff 35%, #f9fbff 100%);
+`;
+
+const Orb = styled.div`
+  position: absolute;
+  inset: -120px auto auto 55%;
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(109, 146, 180, 0.3) 0%, rgba(35, 66, 97, 0) 65%);
+  filter: blur(14px);
+  z-index: 0;
+`;
+
+const Inner = styled.div`
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  z-index: 1;
+`;
+
+const Intro = styled.div`
+  max-width: 750px;
+  margin: 0 auto 2.5rem auto;
+  text-align: center;
+  color: ${({ theme }) => theme.colors.deepBlue};
+
+  h2 {
+    font-size: clamp(1.9rem, 3vw, 2.4rem);
+    margin: 0.35rem 0 0.5rem;
+    letter-spacing: -0.01em;
+  }
+
+  p {
+    color: ${({ theme }) => theme.colors.mutedText};
+    margin: 0;
+    line-height: 1.6;
+    font-size: 1rem;
+  }
+`;
+
+const Kicker = styled.span`
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  background: rgba(35, 66, 97, 0.08);
+  color: ${({ theme }) => theme.colors.primary};
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.8rem;
+`;
+
+const Grid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
 `;
 
 const Card = styled.div`
-  flex: 1;
-  min-width: 280px;
-  max-width: 360px;
-  background: ${(p) => (p.highlight ? p.theme.colors.gray : 'white')};
-  border-radius: ${(p) => p.theme.radii.card};
-  box-shadow: ${(p) => p.theme.shadows.soft};
-  padding: 2.5rem;
-  text-align: center;
-  border: ${(p) => (p.highlight ? `2px solid ${p.theme.colors.gold}` : 'none')};
+  position: relative;
+  background: ${(p) => (p.highlight ? 'linear-gradient(145deg, #0f2744, #193b5f)' : 'rgba(255,255,255,0.9)')};
+  color: ${(p) => (p.highlight ? p.theme.colors.white : p.theme.colors.deepBlue)};
+  border-radius: 20px;
+  padding: 1.75rem;
+  border: 1px solid ${(p) => (p.highlight ? 'rgba(255,255,255,0.12)' : 'rgba(35,66,97,0.12)')};
+  box-shadow: 0 20px 50px rgba(15, 39, 68, 0.12);
+  backdrop-filter: blur(6px);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 
-  h3 {
-    margin-bottom: 0.5rem;
-    color: ${(p) => p.theme.colors.deepBlue};
-  }
-
-  ul {
-    text-align: left;
-    margin: 1rem 0 2rem;
-    list-style: none;
-  }
-
-  li::before {
-    content: '✓';
-    color: ${(p) => p.theme.colors.lightBlue};
-    margin-right: 0.5rem;
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 28px 60px rgba(15, 39, 68, 0.18);
+    border-color: ${(p) => (p.highlight ? 'rgba(255,255,255,0.2)' : 'rgba(35, 66, 97, 0.25)')};
   }
 `;
 
-const OldPrice = styled.div`
-  text-decoration: line-through;
-  font-size: 14px;
-  color: #999;
-  margin: 0px 5px 20px 0px;
-  line-height: 0.5;
+const Badge = styled.span`
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  background: linear-gradient(120deg, #5ea7ff, #6d92b4);
+  color: white;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-weight: 700;
 `;
 
-// const Price = styled.div`
-//   font-size: 1.8rem;
-//   font-weight: 700;
-//   margin: 0.25rem 0;
-//   color: ${(p) => p.theme.colors.primary};
-// `;
+const TopRow = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+`;
+
+const Header = styled.p`
+  margin: 0;
+  font-weight: 700;
+  font-size: 1.4rem;
+  letter-spacing: -0.01em;
+`;
 
 const Note = styled.div`
-  color: #666;
-  font-size: 0.9rem;
-  margin-bottom: 1rem;
+  color: ${({ theme }) => theme.colors.lightBlue};
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: right;
 `;
 
-const PriceCont = styled.div`
-  width: 280px;
-  min-height: 490px;
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  overflow-x: hidden;
-  border: 1px solid #cbc8c8ff;
-  background-color: ${({ theme }) => theme.colors.white};
-  border-radius: 20px;
-  margin: 20px;
-  padding: 15px;
-  overflow-y: hidden;
+const Description = styled.p`
+  font-size: 0.98rem;
+  margin: 0.75rem 0 1.25rem;
+  line-height: 1.6;
+  color: inherit;
+  opacity: 0.9;
 `;
 
-const MP = styled.div`
-  background-color: ${({ theme }) => theme.colors.primary};
-  text-align: center;
-  color: ${({ theme }) => theme.colors.white};
-  margin: 0px auto -20px auto;
-  width: 240px;
-  border-radius: 8px 8px 0px 0px;
-  font-weight: 400;
-  font-size: 18px;
+const BillingCont = styled.div`
+  margin-bottom: 1.25rem;
 `;
 
 const Row = styled.div`
   display: flex;
-  margin-top: -10px;
+  align-items: baseline;
+  gap: 0.65rem;
 `;
 
-const Header = styled.p`
-  margin-right: auto;
-  font-weight: 600;
-  font-size: 24px;
-  line-height: 1;
-  color: ${({ theme }) => theme.colors.primary};
-`;
-const Description = styled.p`
-  font-size: 14px;
-  margin: -5px 0px 20px 0px;
-  line-height: 1;
-  text-align: left;
-  height: 50px;
-`;
-
-const BillingCont = styled.div`
-  max-height: 80px;
-  min-height: 80px;
+const OldPrice = styled.div`
+  text-decoration: line-through;
+  font-size: 0.95rem;
+  color: inherit;
+  opacity: 0.6;
 `;
 
 const Price = styled.p`
-  font-size: 14px;
-  margin: 0px 0px 20px 0px;
-  line-height: 0.5;
+  margin: 0;
+  font-size: 2.4rem;
+  font-weight: 800;
+  line-height: 1.1;
 `;
 
 const BillingText = styled.p`
-  font-size: 10px;
-  margin: -10px 0px 20px 0px;
-  line-height: 0.5;
+  font-size: 0.9rem;
+  margin: 0.2rem 0 0;
+  color: inherit;
+  opacity: 0.8;
 `;
 
-const Trial = styled.p`
-  font-size: 10px;
-  margin: -10px 0px 20px 0px;
-  line-height: 0.5;
+const Divider = styled.div`
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(90deg, transparent, rgba(35, 66, 97, 0.2), transparent);
+  margin: 1.25rem 0 0.75rem;
+`;
+
+const List = styled.div`
+  display: grid;
+  gap: 0.55rem;
+  margin-bottom: 1.5rem;
+`;
+
+const ListItem = styled.div`
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+`;
+
+const Check = styled(FontAwesomeIcon)`
+  color: #6ed5b3;
+  background: rgba(110, 213, 179, 0.14);
+  border-radius: 50%;
+  padding: 4px;
+  font-size: 0.85rem;
 `;
 
 const Included = styled.p`
-  font-size: 14px;
-  line-height: 1;
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: inherit;
+  opacity: 0.9;
 `;
 
 const Button = styled.button`
-  background-color: ${({ theme }) => theme.colors.primary};
-  color: ${({ theme }) => theme.colors.white};
-  font-weight: 500;
-  width: 90%;
-  height: 40px;
-  border: 0px;
-  margin: auto auto 0px;
-  border-radius: 10px;
-  padding: 0px 15px;
+  width: 100%;
+  border: none;
+  border-radius: 12px;
+  padding: 0.85rem 1rem;
+  font-weight: 700;
+  font-size: 1rem;
   cursor: pointer;
-  @media (max-width: 768px) {
-    font-size: 18px;
-    height: fit-content;
-    padding: 15px 15px;
+  color: ${({ theme, highlight }) => (highlight ? theme.colors.primary : theme.colors.white)};
+  background: ${({ highlight }) =>
+    highlight ? 'linear-gradient(120deg, #e0f3ff, #a8d6ff)' : 'linear-gradient(120deg, #1c4b7b, #2f6aa3)'};
+  box-shadow: 0 10px 30px rgba(28, 75, 123, 0.18);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 34px rgba(28, 75, 123, 0.22);
+    filter: brightness(1.03);
+  }
+
+  &:active {
+    transform: translateY(0px);
   }
 `;
