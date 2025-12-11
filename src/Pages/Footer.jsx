@@ -15,7 +15,7 @@ function Footer() {
           marginLeft: 10,
           marginTop: 25,
           borderRadius: 5,
-          background: '#fff',
+          backgroundColor: 'rgba(255, 255, 255, 0.76)',
           padding: 10,
           boxShadow: '0px 0px 30px 15px rgba(0, 0, 0, 0.2)',
         }}
@@ -42,7 +42,10 @@ function Footer() {
 export default Footer;
 
 const FooterSection = styled.section`
-  background-color: ${({ theme }) => theme.colors.primary};
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 35%),
+    radial-gradient(circle at 80% 0%, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0) 30%),
+    linear-gradient(140deg, #0f2238 0%, #0b3558 50%, #0f1c2e 100%);
   height: fit-content;
   margin-top: -20px;
   padding-bottom: 40px;

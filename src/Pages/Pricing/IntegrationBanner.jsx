@@ -31,7 +31,7 @@ const Banner = styled.section`
   padding: 2rem;
   margin: 0 auto 1rem;
   color: ${(p) => p.theme.colors.deepBlue};
-  background: linear-gradient(140deg, rgba(35, 66, 97, 0.04), rgba(109, 146, 180, 0.12));
+  background: linear-gradient(180deg, #f7faff 0%, #ffffff 90%);
   border: 1px solid rgba(35, 66, 97, 0.14);
   border-radius: 18px;
   max-width: 960px;

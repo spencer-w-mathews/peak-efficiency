@@ -64,7 +64,6 @@ export default function FeatureComparison() {
 
 const Wrap = styled.section`
   padding: 3rem 1rem 4rem;
-  background: linear-gradient(180deg, #f7faff 0%, #ffffff 90%);
   color: ${(p) => p.theme.colors.deepBlue};
   text-align: center;
   overflow: hidden;

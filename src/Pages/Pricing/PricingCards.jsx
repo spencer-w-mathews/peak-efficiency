@@ -9,7 +9,6 @@ const plans = [
     title: 'Basic',
     oldPrice: '$30.00',
     newPrice: '$15.00',
-    note: 'First 3 months free',
     description: 'Your AI teammate for everyday clarity.',
     includes: [
       'Keeps 1 inbox and calendar organized',
@@ -24,7 +23,6 @@ const plans = [
     title: 'Business',
     oldPrice: '$50.00',
     newPrice: '$30.00',
-    note: 'First month free for up to 5 users',
     description: 'Your AI teammate for scalable clarity.',
     includes: [
       'Everything in Basic, plus:',
@@ -64,14 +62,13 @@ export default function PricingCards() {
   };
   return (
     <Wrap>
-      <Orb aria-hidden />
       <Inner>
         <Intro>
           <Kicker>Bluebird AGI pricing</Kicker>
           <h2>Choose the cockpit that fits your flight plan</h2>
           <p>
-            Sleek, human-centered plans that keep your inboxes lifted. Every plan includes the same calm, crisp Bluebird
-            AGI experience with smarter automation and less clutter.
+            Sleek, human-centered plans that keep your inboxes lifted. Every plan includes the same
+            calm, crisp Bluebird AGI experience with smarter automation and less clutter.
           </p>
         </Intro>
 
@@ -126,19 +123,6 @@ const Wrap = styled.section`
   position: relative;
   padding: 4rem 1rem 5rem;
   overflow: hidden;
-  background: radial-gradient(circle at 20% 20%, rgba(109, 146, 180, 0.18), transparent 25%),
-    radial-gradient(circle at 80% 0%, rgba(35, 66, 97, 0.16), transparent 30%),
-    linear-gradient(135deg, #f6f9ff 0%, #eef5ff 35%, #f9fbff 100%);
-`;
-
-const Orb = styled.div`
-  position: absolute;
-  inset: -120px auto auto 55%;
-  width: 320px;
-  height: 320px;
-  background: radial-gradient(circle, rgba(109, 146, 180, 0.3) 0%, rgba(35, 66, 97, 0) 65%);
-  filter: blur(14px);
-  z-index: 0;
 `;
 
 const Inner = styled.div`
@@ -190,14 +174,18 @@ const Grid = styled.div`
 
 const Card = styled.div`
   position: relative;
-  background: ${(p) => (p.highlight ? 'linear-gradient(145deg, #0f2744, #193b5f)' : 'rgba(255,255,255,0.9)')};
+  background: ${(p) =>
+    p.highlight ? 'linear-gradient(145deg, #0f2744, #193b5f)' : 'rgba(255,255,255,0.9)'};
   color: ${(p) => (p.highlight ? p.theme.colors.white : p.theme.colors.deepBlue)};
   border-radius: 20px;
   padding: 1.75rem;
   border: 1px solid ${(p) => (p.highlight ? 'rgba(255,255,255,0.12)' : 'rgba(35,66,97,0.12)')};
   box-shadow: 0 20px 50px rgba(15, 39, 68, 0.12);
   backdrop-filter: blur(6px);
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
 
   &:hover {
     transform: translateY(-6px);
@@ -268,7 +256,7 @@ const OldPrice = styled.div`
 
 const Price = styled.p`
   margin: 0;
-  font-size: 2.4rem;
+  font-size: 1.4rem;
   font-weight: 800;
   line-height: 1.1;
 `;
@@ -309,6 +297,7 @@ const Check = styled(FontAwesomeIcon)`
 
 const Included = styled.p`
   margin: 0;
+  text-align: left;
   font-size: 0.95rem;
   line-height: 1.5;
   color: inherit;
@@ -325,9 +314,14 @@ const Button = styled.button`
   cursor: pointer;
   color: ${({ theme, highlight }) => (highlight ? theme.colors.primary : theme.colors.white)};
   background: ${({ highlight }) =>
-    highlight ? 'linear-gradient(120deg, #e0f3ff, #a8d6ff)' : 'linear-gradient(120deg, #1c4b7b, #2f6aa3)'};
+    highlight
+      ? 'linear-gradient(120deg, #e0f3ff, #a8d6ff)'
+      : 'linear-gradient(120deg, #1c4b7b, #2f6aa3)'};
   box-shadow: 0 10px 30px rgba(28, 75, 123, 0.18);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    filter 0.2s ease;
 
   &:hover {
     transform: translateY(-2px);
