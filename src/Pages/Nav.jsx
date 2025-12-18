@@ -105,7 +105,9 @@ const NavBar = styled.div`
   transform: translateX(-50%);
   width: 100%;
   height: 80px;
-  background-color: ${({ theme }) => theme.colors.white};
+  background-color: rgba(255, 255, 255, 0.76);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(6px);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   border-radius: 0px 0px 10px 10px;
   display: flex;

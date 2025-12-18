@@ -23,7 +23,8 @@ export default function FeatureComparison() {
   return (
     <FadeIn y={40}>
       <Wrap>
-        <h2>Compare Plans</h2>
+        <h2>Compare plans at a glance</h2>
+        <p className="lede">What every team gets from Bluebird AGI — and where the upgrades elevate your focus.</p>
 
         <motion.div
           initial={{ opacity: 0 }}
@@ -62,24 +63,33 @@ export default function FeatureComparison() {
 /* =================== STYLES =================== */
 
 const Wrap = styled.section`
-  padding: 4rem 1rem;
-  background: ${(p) => p.theme.colors.white};
+  padding: 3rem 1rem 4rem;
   color: ${(p) => p.theme.colors.deepBlue};
   text-align: center;
   overflow: hidden;
+
+  h2 {
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+  }
+
+  .lede {
+    margin: 0 auto 1.5rem;
+    max-width: 720px;
+    color: ${(p) => p.theme.colors.mutedText};
+    line-height: 1.6;
+  }
 `;
 
 const TableWrapper = styled.div`
-  max-height: 400px; /* ✅ vertical scroll only */
+  max-height: 420px; /* ✅ vertical scroll only */
   overflow-y: auto;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
-  margin-top: 2rem;
-  border-radius: 0px;
-  border: 1px solid ${(p) => p.theme.colors.gray};
-  @media (max-width: 768px) {
-    border-radius: 10px;
-  }
+  margin-top: 1.25rem;
+  border-radius: 16px;
+  border: 1px solid rgba(35, 66, 97, 0.12);
+  box-shadow: 0 12px 30px rgba(15, 39, 68, 0.1);
 `;
 
 const Table = styled.table`
@@ -87,7 +97,7 @@ const Table = styled.table`
   border-spacing: 0;
   border-collapse: collapse;
   font-size: 0.95rem;
-  background: white;
+  background: rgba(255, 255, 255, 0.9);
   table-layout: auto; /* ✅ allows text wrapping */
   word-wrap: break-word;
 
@@ -102,24 +112,24 @@ const Table = styled.table`
     position: sticky;
     top: 0;
     z-index: 5;
-    background: ${(p) => p.theme.colors.slate};
+    background: linear-gradient(120deg, #f3f7fb, #e9f2ff);
     color: ${(p) => p.theme.colors.deepBlue};
     font-weight: 600;
-    border-bottom: 1px solid ${(p) => p.theme.colors.gray};
+    border-bottom: 1px solid rgba(35, 66, 97, 0.15);
   }
 
   td {
-    border-bottom: 1px solid ${(p) => p.theme.colors.gray};
+    border-bottom: 1px solid rgba(35, 66, 97, 0.1);
     color: ${(p) => p.theme.colors.deepBlue};
     vertical-align: top;
   }
 
   tr:nth-child(even) td {
-    background: #fafbfc;
+    background: #f8fbff;
   }
 
   tr:hover td {
-    background: #f1f4f8;
+    background: #edf4ff;
   }
 
   th:first-child,
